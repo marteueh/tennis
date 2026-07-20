@@ -1,12 +1,13 @@
 import Link from 'next/link'
+import { Logo } from './Logo'
 
 export function Footer() {
   return (
     <footer
       style={{
-        borderTop: '2px solid #1A1A1A',
+        borderTop: '2px solid #1C1A17',
         marginTop: 80,
-        background: '#FAFAF8',
+        background: '#EFE9DB',
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -14,26 +15,16 @@ export function Footer() {
 
           {/* Testata + tagline */}
           <div className="md:col-span-2">
-            <Link href="/" style={{ textDecoration: 'none', display: 'inline-block', marginBottom: 16 }}>
-              <span
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  fontSize: 24,
-                  fontWeight: 700,
-                  letterSpacing: '0.03em',
-                  color: '#1A1A1A',
-                }}
-              >
-                Ace Chronicle
-              </span>
-            </Link>
+            <div style={{ marginBottom: 18 }}>
+              <Logo variant="paper" />
+            </div>
             <p
               style={{
-                fontFamily: "'DM Serif Display', serif",
+                fontFamily: "'Source Serif 4', serif",
                 fontStyle: 'italic',
                 fontSize: 14,
                 lineHeight: 1.75,
-                color: '#7A7870',
+                color: '#7C7568',
                 maxWidth: 380,
               }}
             >
@@ -46,12 +37,12 @@ export function Footer() {
           <div>
             <p
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 9,
                 fontWeight: 500,
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: '#7A7870',
+                color: '#7C7568',
                 marginBottom: 16,
               }}
             >
@@ -69,9 +60,9 @@ export function Footer() {
                   key={href}
                   href={href}
                   style={{
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: 13,
-                    color: '#7A7870',
+                    color: '#7C7568',
                     textDecoration: 'none',
                   }}
                 >
@@ -85,12 +76,12 @@ export function Footer() {
           <div>
             <p
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 9,
                 fontWeight: 500,
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: '#7A7870',
+                color: '#7C7568',
                 marginBottom: 16,
               }}
             >
@@ -107,9 +98,9 @@ export function Footer() {
                   key={href}
                   href={href}
                   style={{
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: 13,
-                    color: '#7A7870',
+                    color: '#7C7568',
                     textDecoration: 'none',
                   }}
                 >
@@ -125,27 +116,27 @@ export function Footer() {
           style={{
             marginTop: 48,
             paddingTop: 24,
-            borderTop: '1px solid rgba(26,26,26,0.08)',
+            borderTop: '1px solid rgba(28,26,23,0.08)',
           }}
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               <>Dati statistici: Jeff Sackmann / Tennis Abstract (CC-BY-NC-SA 4.0) —{' '}
-                <a href="https://github.com/JeffSackmann/tennis_atp" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(26,26,26,0.45)' }}>
+                <a href="https://github.com/JeffSackmann/tennis_atp" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(28,26,23,0.45)' }}>
                   github.com/JeffSackmann/tennis_atp
                 </a></>,
               <>Testi: © La Repubblica / GEDI — citazioni per fini culturali ex art. 70 L. 633/1941 ·{' '}
-                <a href="https://ricerca.repubblica.it" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(26,26,26,0.45)' }}>
+                <a href="https://ricerca.repubblica.it" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(28,26,23,0.45)' }}>
                   ricerca.repubblica.it
                 </a></>,
               <>Video: canali YouTube ufficiali US Open (USTA), Australian Open, Roland Garros</>,
             ].map((content, i) => (
-              <p key={i} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, lineHeight: 1.7, color: 'rgba(26,26,26,0.35)' }}>
+              <p key={i} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, lineHeight: 1.7, color: 'rgba(28,26,23,0.35)' }}>
                 {content}
               </p>
             ))}
           </div>
-          <p style={{ marginTop: 16, fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: 'rgba(26,26,26,0.25)' }}>
+          <p style={{ marginTop: 16, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: 'rgba(28,26,23,0.25)' }}>
             © {new Date().getFullYear()} Ace Chronicle · Progetto culturale non-commerciale
           </p>
         </div>

@@ -67,9 +67,9 @@ export function HeroDuoCarousel() {
       {/* Etichetta epoca */}
       <p
         style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 10, fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase',
-          color: 'rgba(200,168,92,0.7)',
+          color: 'rgba(156,124,62,0.7)',
           opacity, transition: `opacity ${FADE_DURATION}ms ease`,
           minHeight: 14,
         }}
@@ -101,7 +101,7 @@ export function HeroDuoCarousel() {
               width: i === index ? 18 : 5,
               height: 5,
               borderRadius: 2,
-              background: i === index ? '#C8A85C' : 'rgba(255,255,255,0.25)',
+              background: i === index ? '#9C7C3E' : 'rgba(255,255,255,0.25)',
               border: 'none',
               padding: 0,
               cursor: 'pointer',
@@ -130,7 +130,7 @@ function DuelPortrait({ player, offset }: { player: PlayerRef; offset?: boolean 
           width: '100%',
           aspectRatio: '3/4',
           overflow: 'hidden',
-          borderBottom: '3px solid #C8A85C',
+          borderBottom: '3px solid #9C7C3E',
           background: 'rgba(255,255,255,0.04)',
         }}
       >
@@ -160,7 +160,7 @@ function DuelPortrait({ player, offset }: { player: PlayerRef; offset?: boolean 
           }}
         >
           <p style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
+            fontFamily: "'Source Serif 4', Georgia, serif",
             fontSize: 18, fontWeight: 700,
             color: '#FFFFFF', lineHeight: 1, letterSpacing: '0.02em',
           }}>
@@ -168,7 +168,7 @@ function DuelPortrait({ player, offset }: { player: PlayerRef; offset?: boolean 
           </p>
           <p style={{
             marginTop: 4,
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 9, fontWeight: 500,
             letterSpacing: '0.12em', textTransform: 'uppercase',
             color: 'rgba(255,255,255,0.7)',

@@ -30,7 +30,7 @@ export default function NewsletterPage() {
       <section
         className="hero-loc-texture"
         style={{
-          background: '#1A1A1A',
+          background: '#1C1A17',
           padding: '72px 0 64px',
           position: 'relative',
           overflow: 'hidden',
@@ -41,24 +41,24 @@ export default function NewsletterPage() {
         <div className="max-w-7xl mx-auto px-6" style={{ maxWidth: 640, position: 'relative', zIndex: 1 }}>
           <p
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 10,
               fontWeight: 500,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: '#C8A85C',
+              color: '#9C7C3E',
               marginBottom: 16,
               display: 'flex',
               alignItems: 'center',
               gap: 10,
             }}
           >
-            <span style={{ display: 'inline-block', width: 24, height: 1, background: '#C8A85C' }} />
+            <span style={{ display: 'inline-block', width: 24, height: 1, background: '#9C7C3E' }} />
             Newsletter settimanale
           </p>
           <h1
             style={{
-              fontFamily: "'DM Serif Display', serif",
+              fontFamily: "'Source Serif 4', serif",
               fontSize: 'clamp(32px, 5vw, 48px)',
               lineHeight: 1.1,
               color: '#FFFFFF',
@@ -69,7 +69,7 @@ export default function NewsletterPage() {
           </h1>
           <p
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 15,
               lineHeight: 1.7,
               color: 'rgba(255,255,255,0.5)',
@@ -83,7 +83,7 @@ export default function NewsletterPage() {
           <p
             style={{
               marginTop: 12,
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 11,
               color: 'rgba(255,255,255,0.2)',
               letterSpacing: '0.04em',
@@ -99,7 +99,7 @@ export default function NewsletterPage() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(220px, 100%), 1fr))',
             gap: 16,
             marginBottom: 56,
           }}
@@ -130,7 +130,7 @@ export default function NewsletterPage() {
               key={title}
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(26,26,26,0.08)',
+                border: '1px solid rgba(28,26,23,0.08)',
                 borderRadius: 2,
                 padding: '20px',
               }}
@@ -144,10 +144,10 @@ export default function NewsletterPage() {
               >
                 {icon}
               </p>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, fontWeight: 600, color: '#1A1A1A', marginBottom: 6 }}>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, fontWeight: 600, color: '#1C1A17', marginBottom: 6 }}>
                 {title}
               </p>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, lineHeight: 1.65, color: '#7A7870' }}>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, lineHeight: 1.65, color: '#7C7568' }}>
                 {body}
               </p>
             </div>
@@ -160,22 +160,22 @@ export default function NewsletterPage() {
         <div>
           <p
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 10,
               fontWeight: 500,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: '#7A7870',
+              color: '#7C7568',
               marginBottom: 16,
               display: 'flex',
               alignItems: 'center',
               gap: 8,
             }}
           >
-            <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+            <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
             Edizioni passate
           </p>
-          <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 26, color: '#1A1A1A', marginBottom: 24 }}>
+          <h2 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 26, color: '#1C1A17', marginBottom: 24 }}>
             Archivio newsletter
           </h2>
 
@@ -188,28 +188,28 @@ export default function NewsletterPage() {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   padding: '16px 0',
-                  borderBottom: '1px solid rgba(26,26,26,0.06)',
+                  borderBottom: '1px solid rgba(28,26,23,0.06)',
                   gap: 16,
                 }}
               >
                 <div>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: '#7A7870', marginBottom: 4 }}>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: '#7C7568', marginBottom: 4 }}>
                     {ed.week}
                   </p>
-                  <p style={{ fontFamily: "'DM Serif Display', serif", fontSize: 16, color: '#1A1A1A', marginBottom: 2 }}>
+                  <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: 16, color: '#1C1A17', marginBottom: 2 }}>
                     {ed.title}
                   </p>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: '#7A7870', fontStyle: 'italic' }}>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, color: '#7C7568', fontStyle: 'italic' }}>
                     {ed.subtitle}
                   </p>
                 </div>
                 <a
                   href={`/partite/${ed.slug}`}
                   style={{
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: 11,
                     fontWeight: 500,
-                    color: '#534AB7',
+                    color: '#B54A2C',
                     textDecoration: 'none',
                     whiteSpace: 'nowrap',
                     letterSpacing: '0.04em',

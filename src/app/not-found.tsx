@@ -15,10 +15,10 @@ export default function NotFound() {
     >
       <p
         style={{
-          fontFamily: "'Playfair Display', sans-serif",
+          fontFamily: "'Source Serif 4', serif",
           fontSize: 'clamp(80px, 20vw, 160px)',
           lineHeight: 1,
-          color: 'rgba(26,26,26,0.06)',
+          color: 'rgba(28,26,23,0.06)',
           letterSpacing: '0.04em',
           marginBottom: 0,
           userSelect: 'none',
@@ -28,9 +28,9 @@ export default function NotFound() {
       </p>
       <h1
         style={{
-          fontFamily: "'DM Serif Display', serif",
+          fontFamily: "'Source Serif 4', serif",
           fontSize: 28,
-          color: '#1A1A1A',
+          color: '#1C1A17',
           lineHeight: 1.2,
           marginTop: -16,
           marginBottom: 12,
@@ -40,9 +40,9 @@ export default function NotFound() {
       </h1>
       <p
         style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 14,
-          color: '#7A7870',
+          color: '#7C7568',
           lineHeight: 1.7,
           maxWidth: 400,
           marginBottom: 32,
@@ -55,12 +55,12 @@ export default function NotFound() {
         <Link
           href="/partite"
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 12,
             fontWeight: 600,
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
-            background: '#534AB7',
+            background: '#B54A2C',
             color: '#ffffff',
             textDecoration: 'none',
             padding: '10px 20px',
@@ -72,16 +72,16 @@ export default function NotFound() {
         <Link
           href="/"
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 12,
             fontWeight: 600,
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             background: 'transparent',
-            color: '#7A7870',
+            color: '#7C7568',
             textDecoration: 'none',
             padding: '10px 20px',
-            border: '1px solid rgba(26,26,26,0.12)',
+            border: '1px solid rgba(28,26,23,0.12)',
             borderRadius: 2,
           }}
         >

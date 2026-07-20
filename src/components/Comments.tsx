@@ -49,7 +49,7 @@ export function Comments({ matchSlug, initialComments, hasPendingFromUser }: Pro
     <div>
       {/* Lista commenti approvati */}
       {comments.length === 0 ? (
-        <p style={{ fontSize: 13, color: 'rgba(26,26,26,0.4)', fontStyle: 'italic', marginBottom: 24 }}>
+        <p style={{ fontSize: 13, color: 'rgba(28,26,23,0.4)', fontStyle: 'italic', marginBottom: 24 }}>
           Nessun commento ancora. Sii il primo a commentare questa partita.
         </p>
       ) : (
@@ -60,24 +60,24 @@ export function Comments({ matchSlug, initialComments, hasPendingFromUser }: Pro
 
       {/* Form commento */}
       {session.status === 'loading' ? (
-        <div style={{ fontSize: 12, color: '#7A7870' }}>...</div>
+        <div style={{ fontSize: 12, color: '#7C7568' }}>...</div>
       ) : session.status !== 'authenticated' ? (
         <div style={{
           padding: '14px 18px',
-          background: 'rgba(83,74,183,0.04)',
-          border: '1px solid rgba(83,74,183,0.15)',
-          borderLeft: '3px solid #534AB7',
+          background: 'rgba(181,74,44,0.04)',
+          border: '1px solid rgba(181,74,44,0.15)',
+          borderLeft: '3px solid #B54A2C',
           borderRadius: '0 2px 2px 0',
         }}>
-          <p style={{ fontSize: 13, color: '#1A1A1A', marginBottom: 8 }}>
+          <p style={{ fontSize: 13, color: '#1C1A17', marginBottom: 8 }}>
             Vuoi commentare questa partita?
           </p>
           <Link
             href={`/auth/signin?callbackUrl=/partite/${matchSlug}`}
             style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 600,
+              fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, fontWeight: 600,
               letterSpacing: '0.08em', textTransform: 'uppercase',
-              color: '#534AB7', textDecoration: 'none',
+              color: '#B54A2C', textDecoration: 'none',
             }}
           >
             Accedi con un click →
@@ -94,24 +94,24 @@ export function Comments({ matchSlug, initialComments, hasPendingFromUser }: Pro
             disabled={isPending}
             style={{
               width: '100%', fontSize: 14, lineHeight: 1.6, padding: '10px 12px',
-              border: '1px solid rgba(26,26,26,0.15)', borderRadius: 2,
-              boxSizing: 'border-box', color: '#1A1A1A',
-              fontFamily: "'DM Sans', sans-serif",
+              border: '1px solid rgba(28,26,23,0.15)', borderRadius: 2,
+              boxSizing: 'border-box', color: '#1C1A17',
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               resize: 'vertical',
             }}
           />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 }}>
-            <span style={{ fontSize: 11, color: charsLeft < 100 ? '#C8A85C' : '#7A7870' }}>
+            <span style={{ fontSize: 11, color: charsLeft < 100 ? '#9C7C3E' : '#7C7568' }}>
               {charsLeft} caratteri
             </span>
             <button
               type="submit"
               disabled={isPending || body.trim().length < 3}
               style={{
-                fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 600,
+                fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, fontWeight: 600,
                 letterSpacing: '0.08em', textTransform: 'uppercase',
                 padding: '8px 18px',
-                background: isPending ? '#9CA3AF' : '#534AB7',
+                background: isPending ? '#9CA3AF' : '#B54A2C',
                 color: '#FFFFFF',
                 border: 'none', borderRadius: 2,
                 cursor: isPending || body.trim().length < 3 ? 'not-allowed' : 'pointer',
@@ -133,7 +133,7 @@ export function Comments({ matchSlug, initialComments, hasPendingFromUser }: Pro
             </p>
           )}
           {pending && !success && (
-            <p style={{ marginTop: 10, fontSize: 12, color: '#7A7870', fontStyle: 'italic' }}>
+            <p style={{ marginTop: 10, fontSize: 12, color: '#7C7568', fontStyle: 'italic' }}>
               Hai un commento in attesa di moderazione per questa partita.
             </p>
           )}
@@ -152,7 +152,7 @@ function CommentItem({ comment }: { comment: Comment }) {
     <article
       style={{
         background: '#FFFFFF',
-        border: '1px solid rgba(26,26,26,0.07)',
+        border: '1px solid rgba(28,26,23,0.07)',
         borderRadius: 2,
         padding: '14px 16px',
       }}
@@ -160,31 +160,31 @@ function CommentItem({ comment }: { comment: Comment }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
         <div style={{
           width: 28, height: 28,
-          background: 'rgba(83,74,183,0.08)',
-          color: '#534AB7',
+          background: 'rgba(181,74,44,0.08)',
+          color: '#B54A2C',
           borderRadius: 2,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: 11, fontWeight: 600, letterSpacing: '0.04em',
         }}>
           {initials || '?'}
         </div>
-        <span style={{ fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>
+        <span style={{ fontSize: 13, fontWeight: 500, color: '#1C1A17' }}>
           {comment.user_name ?? 'Utente'}
         </span>
         {comment.user_role === 'admin' && (
           <span style={{
             fontSize: 9, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase',
             padding: '1px 6px', borderRadius: 2,
-            background: 'rgba(200,168,92,0.15)', color: '#92400E',
+            background: 'rgba(156,124,62,0.15)', color: '#92400E',
           }}>
             Redazione
           </span>
         )}
-        <span style={{ fontSize: 11, color: '#7A7870', marginLeft: 'auto' }}>
+        <span style={{ fontSize: 11, color: '#7C7568', marginLeft: 'auto' }}>
           {dateLabel}
         </span>
       </div>
-      <p style={{ fontSize: 14, lineHeight: 1.7, color: '#1A1A1A', whiteSpace: 'pre-wrap' }}>
+      <p style={{ fontSize: 14, lineHeight: 1.7, color: '#1C1A17', whiteSpace: 'pre-wrap' }}>
         {comment.body}
       </p>
     </article>

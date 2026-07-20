@@ -133,26 +133,26 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <nav style={{ marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center' }}>
-        <Link href="/tornei" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#7A7870', textDecoration: 'none' }}>Tornei</Link>
-        <span style={{ color: 'rgba(26,26,26,0.2)', fontSize: 12 }}>›</span>
-        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#1A1A1A' }}>{name}</span>
+        <Link href="/tornei" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#7C7568', textDecoration: 'none' }}>Tornei</Link>
+        <span style={{ color: 'rgba(28,26,23,0.2)', fontSize: 12 }}>›</span>
+        <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#1C1A17' }}>{name}</span>
       </nav>
 
       {/* Hero torneo */}
       <div
         style={{
-          borderBottom: '2px solid #1A1A1A',
+          borderBottom: '2px solid #1C1A17',
           paddingBottom: 32,
           marginBottom: 48,
         }}
       >
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C8A85C', marginBottom: 10 }}>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#9C7C3E', marginBottom: 10 }}>
           {tournament.category} · {tournament.city} · {tournament.country_code}
         </p>
-        <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(36px, 5vw, 64px)', fontWeight: 700, letterSpacing: '-0.01em', color: '#1A1A1A', lineHeight: 1.05, marginBottom: 14 }}>
+        <h1 style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: 'clamp(36px, 5vw, 64px)', fontWeight: 700, letterSpacing: '-0.01em', color: '#1C1A17', lineHeight: 1.05, marginBottom: 14 }}>
           {name}
         </h1>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: '#7A7870' }}>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, color: '#7C7568' }}>
           {tournament.surface ? (SURFACE_LABELS[tournament.surface] ?? tournament.surface) : ''} · Storico 1980–2002 · {years.length} edizioni nell&#39;archivio
         </p>
       </div>
@@ -161,37 +161,32 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
       {TOURNAMENT_LORE[slug] && (
         <section style={{ marginBottom: 48 }}>
           <p style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 10, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: '#7A7870', marginBottom: 12,
+            color: '#7C7568', marginBottom: 12,
             display: 'flex', alignItems: 'center', gap: 8,
           }}>
-            <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+            <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
             Storia del torneo
           </p>
           <h2 style={{
-            fontFamily: "'DM Serif Display', serif",
-            fontSize: 24, color: '#1A1A1A', lineHeight: 1.3,
+            fontFamily: "'Source Serif 4', serif",
+            fontSize: 24, color: '#1C1A17', lineHeight: 1.3,
             marginBottom: 20, maxWidth: 720,
           }}>
             {TOURNAMENT_LORE[slug].subtitle}
           </h2>
 
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1fr) 260px',
-              gap: 36,
-              alignItems: 'start',
-            }}
-            className="grid-cols-1 md:grid-cols-[1fr_260px]"
+            style={{ gap: 36, alignItems: 'start' }}
+            className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_260px]"
           >
             {/* Paragrafi */}
             <div>
               {TOURNAMENT_LORE[slug].paragraphs.map((p, i) => (
                 <p key={i} style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: 14, lineHeight: 1.75, color: '#1A1A1A',
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontSize: 14, lineHeight: 1.75, color: '#1C1A17',
                   marginBottom: 14,
                 }}>
                   {p}
@@ -203,35 +198,35 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
             <aside
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(26,26,26,0.08)',
-                borderLeft: '3px solid #C8A85C',
+                border: '1px solid rgba(28,26,23,0.08)',
+                borderLeft: '3px solid #9C7C3E',
                 padding: '16px 18px',
                 borderRadius: '0 2px 2px 0',
               }}
             >
               <p style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 9, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: '#7A7870', marginBottom: 12,
+                color: '#7C7568', marginBottom: 12,
               }}>
                 Scheda tecnica
               </p>
               {TOURNAMENT_LORE[slug].facts.map((f, i) => (
                 <div key={i} style={{
                   paddingBottom: 10, marginBottom: 10,
-                  borderBottom: i < TOURNAMENT_LORE[slug].facts.length - 1 ? '1px solid rgba(26,26,26,0.06)' : 'none',
+                  borderBottom: i < TOURNAMENT_LORE[slug].facts.length - 1 ? '1px solid rgba(28,26,23,0.06)' : 'none',
                 }}>
                   <p style={{
-                    fontFamily: "'DM Sans', sans-serif",
-                    fontSize: 10, color: '#7A7870',
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontSize: 10, color: '#7C7568',
                     letterSpacing: '0.08em', textTransform: 'uppercase',
                     marginBottom: 2,
                   }}>
                     {f.label}
                   </p>
                   <p style={{
-                    fontFamily: "'DM Serif Display', serif",
-                    fontSize: 13, color: '#1A1A1A', lineHeight: 1.4,
+                    fontFamily: "'Source Serif 4', serif",
+                    fontSize: 13, color: '#1C1A17', lineHeight: 1.4,
                   }}>
                     {f.value}
                   </p>
@@ -247,7 +242,7 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
 
       {/* Selezione anno */}
       <div style={{ marginBottom: 40 }}>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#7A7870', marginBottom: 16 }}>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 16 }}>
           Edizioni disponibili
         </p>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
@@ -256,16 +251,16 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
               key={year}
               href={`/tornei/${slug}/${year}`}
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Source Serif 4', Georgia, serif",
                 fontSize: 18,
                 fontWeight: 600,
                 letterSpacing: '0.02em',
-                color: '#534AB7',
+                color: '#B54A2C',
                 textDecoration: 'none',
                 padding: '8px 16px',
-                border: '1px solid rgba(83,74,183,0.2)',
+                border: '1px solid rgba(181,74,44,0.2)',
                 borderRadius: 2,
-                background: 'rgba(83,74,183,0.04)',
+                background: 'rgba(181,74,44,0.04)',
                 transition: 'background 0.15s',
                 fontVariantNumeric: 'tabular-nums',
               }}

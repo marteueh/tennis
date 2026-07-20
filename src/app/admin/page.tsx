@@ -46,12 +46,12 @@ export default async function AdminDashboard() {
   ]
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '40px 24px', fontFamily: "'DM Sans', sans-serif" }}>
+    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '40px 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <div style={{ marginBottom: 36 }}>
-        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7A7870', marginBottom: 6 }}>
+        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 6 }}>
           Pannello redazionale
         </p>
-        <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 36, color: '#1A1A1A', lineHeight: 1.1 }}>
+        <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 36, color: '#1C1A17', lineHeight: 1.1 }}>
           Dashboard
         </h1>
       </div>
@@ -63,32 +63,32 @@ export default async function AdminDashboard() {
       )}
 
       {counts && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12, marginBottom: 36 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(180px, 100%), 1fr))', gap: 12, marginBottom: 36 }}>
           {[
-            { label: 'Giocatori',         value: counts.players,           color: '#1A1A1A' },
-            { label: 'Partite',           value: counts.matches,           color: '#1A1A1A' },
-            { label: 'Tornei',            value: counts.tournaments,       color: '#1A1A1A' },
-            { label: 'Riquadri culturali', value: counts.cultural_impacts, color: '#C8A85C' },
-            { label: 'Video YouTube',     value: counts.matches_with_video, color: '#534AB7' },
-            { label: 'Estratti Clerici',  value: counts.matches_with_clerici, color: '#534AB7' },
+            { label: 'Giocatori',         value: counts.players,           color: '#1C1A17' },
+            { label: 'Partite',           value: counts.matches,           color: '#1C1A17' },
+            { label: 'Tornei',            value: counts.tournaments,       color: '#1C1A17' },
+            { label: 'Riquadri culturali', value: counts.cultural_impacts, color: '#9C7C3E' },
+            { label: 'Video YouTube',     value: counts.matches_with_video, color: '#B54A2C' },
+            { label: 'Estratti Clerici',  value: counts.matches_with_clerici, color: '#B54A2C' },
           ].map(({ label, value, color }) => (
             <div
               key={label}
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(26,26,26,0.08)',
+                border: '1px solid rgba(28,26,23,0.08)',
                 borderRadius: 2,
                 padding: '16px 18px',
               }}
             >
               <p style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Source Serif 4', Georgia, serif",
                 fontSize: 28, fontWeight: 600, color, lineHeight: 1,
                 fontVariantNumeric: 'tabular-nums',
               }}>
                 {value.toLocaleString('it-IT')}
               </p>
-              <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7A7870', marginTop: 6 }}>
+              <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7C7568', marginTop: 6 }}>
                 {label}
               </p>
             </div>
@@ -96,7 +96,7 @@ export default async function AdminDashboard() {
         </div>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: 12 }}>
         {sections.map(s => (
           <Link
             key={s.href}
@@ -104,8 +104,8 @@ export default async function AdminDashboard() {
             style={{
               textDecoration: 'none',
               background: '#FFFFFF',
-              border: '1px solid rgba(26,26,26,0.08)',
-              borderLeft: '3px solid #534AB7',
+              border: '1px solid rgba(28,26,23,0.08)',
+              borderLeft: '3px solid #B54A2C',
               borderRadius: 2,
               padding: '20px 22px',
               display: 'block',
@@ -114,15 +114,15 @@ export default async function AdminDashboard() {
             className="hover:border-l-accent"
           >
             <p style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: 18, fontWeight: 600, color: '#1A1A1A', marginBottom: 6,
+              fontFamily: "'Source Serif 4', Georgia, serif",
+              fontSize: 18, fontWeight: 600, color: '#1C1A17', marginBottom: 6,
             }}>
               {s.title}
             </p>
-            <p style={{ fontSize: 13, color: '#7A7870', marginBottom: 10, lineHeight: 1.5 }}>
+            <p style={{ fontSize: 13, color: '#7C7568', marginBottom: 10, lineHeight: 1.5 }}>
               {s.desc}
             </p>
-            <p style={{ fontSize: 11, color: '#534AB7', letterSpacing: '0.06em', fontWeight: 500 }}>
+            <p style={{ fontSize: 11, color: '#B54A2C', letterSpacing: '0.06em', fontWeight: 500 }}>
               {s.stat}
             </p>
           </Link>

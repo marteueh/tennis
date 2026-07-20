@@ -35,9 +35,9 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
       >
         <span
           style={{
-            fontFamily: "'Playfair Display', sans-serif",
-            fontSize: 20,
-            color: '#534AB7',
+            fontFamily: "'Bebas Neue', Impact, sans-serif",
+            fontSize: 24,
+            color: '#B54A2C',
             lineHeight: 1,
             fontVariantNumeric: 'tabular-nums',
           }}
@@ -46,12 +46,12 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
         </span>
         <span
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: '#7A7870',
+            color: '#7C7568',
             textAlign: 'center',
           }}
         >
@@ -59,9 +59,9 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
         </span>
         <span
           style={{
-            fontFamily: "'Playfair Display', sans-serif",
-            fontSize: 20,
-            color: 'rgba(26,26,26,0.35)',
+            fontFamily: "'Bebas Neue', Impact, sans-serif",
+            fontSize: 24,
+            color: 'rgba(28,26,23,0.35)',
             lineHeight: 1,
             fontVariantNumeric: 'tabular-nums',
           }}
@@ -77,14 +77,14 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
               flex: wWidth,
               height: 3,
               borderRadius: '1.5px 0 0 1.5px',
-              background: '#534AB7',
+              background: '#B54A2C',
             }}
           />
           <div
             style={{
               width: 1,
               height: 6,
-              background: 'rgba(26,26,26,0.15)',
+              background: 'rgba(28,26,23,0.15)',
               flexShrink: 0,
             }}
           />
@@ -93,7 +93,7 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
               flex: lWidth,
               height: 3,
               borderRadius: '0 1.5px 1.5px 0',
-              background: 'rgba(26,26,26,0.15)',
+              background: 'rgba(28,26,23,0.15)',
             }}
           />
         </div>
@@ -144,14 +144,14 @@ export function StatsBlock({
           justifyContent: 'space-between',
           marginBottom: 20,
           paddingBottom: 12,
-          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          borderBottom: '1px solid rgba(28,26,23,0.08)',
         }}
       >
         <span
           style={{
-            fontFamily: "'Playfair Display', sans-serif",
+            fontFamily: "'Source Serif 4', serif",
             fontSize: 16,
-            color: '#534AB7',
+            color: '#B54A2C',
             letterSpacing: '0.05em',
           }}
         >
@@ -159,21 +159,21 @@ export function StatsBlock({
         </span>
         <span
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: '#7A7870',
+            color: '#7C7568',
           }}
         >
           Servizio
         </span>
         <span
           style={{
-            fontFamily: "'Playfair Display', sans-serif",
+            fontFamily: "'Source Serif 4', serif",
             fontSize: 16,
-            color: 'rgba(26,26,26,0.35)',
+            color: 'rgba(28,26,23,0.35)',
             letterSpacing: '0.05em',
           }}
         >

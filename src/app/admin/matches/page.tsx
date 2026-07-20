@@ -24,12 +24,12 @@ export default async function AdminMatchesListPage({ searchParams }: Props) {
   }
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px', fontFamily: "'DM Sans', sans-serif" }}>
+    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <div style={{ marginBottom: 24 }}>
-        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7A7870', marginBottom: 6 }}>
+        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 6 }}>
           Admin · Partite
         </p>
-        <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 30, color: '#1A1A1A' }}>
+        <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 30, color: '#1C1A17' }}>
           Schede partite
         </h1>
       </div>
@@ -42,8 +42,8 @@ export default async function AdminMatchesListPage({ searchParams }: Props) {
           placeholder="Cerca per nome giocatore..."
           style={{
             flex: 1, maxWidth: 320, fontSize: 13, padding: '8px 12px',
-            border: '1px solid rgba(26,26,26,0.15)', borderRadius: 2,
-            color: '#1A1A1A',
+            border: '1px solid rgba(28,26,23,0.15)', borderRadius: 2,
+            color: '#1C1A17',
           }}
         />
         <input
@@ -53,13 +53,13 @@ export default async function AdminMatchesListPage({ searchParams }: Props) {
           placeholder="Anno"
           style={{
             width: 100, fontSize: 13, padding: '8px 12px',
-            border: '1px solid rgba(26,26,26,0.15)', borderRadius: 2,
-            color: '#1A1A1A',
+            border: '1px solid rgba(28,26,23,0.15)', borderRadius: 2,
+            color: '#1C1A17',
           }}
         />
         <button type="submit" style={{
           fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase',
-          padding: '8px 18px', background: '#1A1A1A', color: '#FFFFFF',
+          padding: '8px 18px', background: '#1C1A17', color: '#FFFFFF',
           border: 'none', borderRadius: 2, cursor: 'pointer',
         }}>Cerca</button>
       </form>
@@ -70,7 +70,7 @@ export default async function AdminMatchesListPage({ searchParams }: Props) {
         </div>
       )}
 
-      <p style={{ fontSize: 11, color: '#7A7870', marginBottom: 12 }}>
+      <p style={{ fontSize: 11, color: '#7C7568', marginBottom: 12 }}>
         {matches.length} risultat{matches.length === 1 ? 'o' : 'i'}
       </p>
 
@@ -84,8 +84,8 @@ export default async function AdminMatchesListPage({ searchParams }: Props) {
               href={`/admin/matches/${m.slug}`}
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(26,26,26,0.06)',
-                borderLeft: m.featured ? '3px solid #C8A85C' : '3px solid transparent',
+                border: '1px solid rgba(28,26,23,0.06)',
+                borderLeft: m.featured ? '3px solid #9C7C3E' : '3px solid transparent',
                 borderRadius: 2,
                 padding: '10px 14px',
                 textDecoration: 'none',
@@ -96,22 +96,22 @@ export default async function AdminMatchesListPage({ searchParams }: Props) {
               className="hover:border-accent/30"
             >
               <span style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: 14, fontWeight: 600, color: '#1A1A1A',
+                fontFamily: "'Source Serif 4', Georgia, serif",
+                fontSize: 14, fontWeight: 600, color: '#1C1A17',
                 width: 50, fontVariantNumeric: 'tabular-nums',
               }}>
                 {m.year}
               </span>
               <span style={{
                 fontSize: 10, fontWeight: 500, letterSpacing: '0.06em',
-                color: '#C8A85C', width: 32,
+                color: '#9C7C3E', width: 32,
               }}>
                 {ROUND_LABELS[m.round] ?? m.round}
               </span>
-              <span style={{ fontSize: 13, color: '#1A1A1A', flex: 1 }}>
+              <span style={{ fontSize: 13, color: '#1C1A17', flex: 1 }}>
                 <strong>{m.winner_name}</strong> b. {m.loser_name}
               </span>
-              <span style={{ fontSize: 11, color: '#7A7870', minWidth: 130 }}>
+              <span style={{ fontSize: 11, color: '#7C7568', minWidth: 130 }}>
                 {m.tournament_name}
               </span>
               <div style={{ display: 'flex', gap: 4 }}>
@@ -128,7 +128,7 @@ export default async function AdminMatchesListPage({ searchParams }: Props) {
 }
 
 function Pill({ ok, gold, label }: { ok?: boolean; gold?: boolean; label: string }) {
-  const bg = gold ? 'rgba(200,168,92,0.15)' : ok ? 'rgba(34,197,94,0.1)' : 'rgba(26,26,26,0.04)'
+  const bg = gold ? 'rgba(156,124,62,0.15)' : ok ? 'rgba(34,197,94,0.1)' : 'rgba(28,26,23,0.04)'
   const fg = gold ? '#92400E' : ok ? '#16A34A' : '#9CA3AF'
   return (
     <span style={{

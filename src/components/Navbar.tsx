@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
 import { useSession, signOut } from 'next-auth/react'
+import { Logo } from './Logo'
 
 const NAV_LINKS = [
   { href: '/partite',          label: 'Partite' },
@@ -19,6 +20,7 @@ export function Navbar() {
   const [open, setOpen]     = useState(false)
   const [query, setQuery]   = useState('')
   const [userMenu, setUserMenu] = useState(false)
+  const [mobileMenu, setMobileMenu] = useState(false)
   const inputRef  = useRef<HTMLInputElement>(null)
   const wrapRef   = useRef<HTMLDivElement>(null)
   const userRef   = useRef<HTMLDivElement>(null)
@@ -36,6 +38,11 @@ export function Navbar() {
     return () => document.removeEventListener('mousedown', onDown)
   }, [])
 
+  // Chiudi il menu mobile quando cambia pagina
+  useEffect(() => {
+    setMobileMenu(false)
+  }, [pathname])
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const q = query.trim()
@@ -49,94 +56,79 @@ export function Navbar() {
     <header
       style={{
         background: '#FFFFFF',
-        borderBottom: '1px solid rgba(26,26,26,0.1)',
+        borderBottom: '1px solid rgba(28,26,23,0.1)',
         position: 'sticky',
         top: 0,
         zIndex: 50,
       }}
     >
-      {/* Riga superiore: masthead centrato */}
-      <div
-        style={{
-          borderBottom: '1px solid rgba(26,26,26,0.08)',
-          padding: '12px 24px 10px',
-          textAlign: 'center',
-        }}
-      >
-        <Link href="/" style={{ textDecoration: 'none', display: 'inline-block' }}>
-          <span
-            style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: 'clamp(22px, 3vw, 32px)',
-              fontWeight: 700,
-              letterSpacing: '0.04em',
-              color: '#1A1A1A',
-              lineHeight: 1,
-            }}
-          >
-            Ace Chronicle
-          </span>
-          <div
-            style={{
-              marginTop: 4,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 8,
-            }}
-          >
-            <div style={{ flex: 1, maxWidth: 60, height: 1, background: '#C8A85C', opacity: 0.6 }} />
-            <span
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: 9,
-                fontWeight: 500,
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: '#7A7870',
-              }}
-            >
-              Archivio del tennis 1980-2002
-            </span>
-            <div style={{ flex: 1, maxWidth: 60, height: 1, background: '#C8A85C', opacity: 0.6 }} />
+      {/* Riga unica: logo a sinistra, nav + azioni a destra */}
+      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
+
+        <Logo variant="paper" compact />
+
+        {/* Gruppo destro: nav (desktop), hamburger (mobile), azioni */}
+        <div className="flex items-center gap-6">
+
+          {/* Nav links — desktop */}
+          <div className="hidden md:flex items-center gap-6">
+            {NAV_LINKS.map(({ href, label }) => {
+              const active = pathname.startsWith(href)
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  style={{
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontSize: 10,
+                    fontWeight: 500,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: active ? '#1C1A17' : '#7C7568',
+                    textDecoration: 'none',
+                    transition: 'color 0.15s',
+                    borderBottom: active ? '1px solid #B54A2C' : '1px solid transparent',
+                    paddingBottom: 1,
+                  }}
+                >
+                  {label}
+                </Link>
+              )
+            })}
           </div>
-        </Link>
-      </div>
 
-      {/* Riga inferiore: nav + ricerca */}
-      <nav className="max-w-7xl mx-auto px-6 h-10 flex items-center justify-between gap-8">
+          {/* Hamburger — solo mobile */}
+          <button
+            className="flex md:hidden items-center justify-center"
+            onClick={() => setMobileMenu(v => !v)}
+            aria-label={mobileMenu ? 'Chiudi menu' : 'Apri menu'}
+            aria-expanded={mobileMenu}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 6,
+              color: '#1C1A17',
+              flexShrink: 0,
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              {mobileMenu ? (
+                <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              ) : (
+                <>
+                  <path d="M3 6H17" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  <path d="M3 10H17" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  <path d="M3 14H17" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                </>
+              )}
+            </svg>
+          </button>
 
-        {/* Nav links */}
-        <div className="hidden md:flex items-center gap-6">
-          {NAV_LINKS.map(({ href, label }) => {
-            const active = pathname.startsWith(href)
-            return (
-              <Link
-                key={href}
-                href={href}
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: 10,
-                  fontWeight: 500,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: active ? '#1A1A1A' : '#7A7870',
-                  textDecoration: 'none',
-                  transition: 'color 0.15s',
-                  borderBottom: active ? '1px solid #534AB7' : '1px solid transparent',
-                  paddingBottom: 1,
-                }}
-              >
-                {label}
-              </Link>
-            )
-          })}
-        </div>
-
-        {/* Destra: ricerca + newsletter */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          {/* Search */}
-          <div ref={wrapRef} style={{ display: 'flex', alignItems: 'center' }}>
+          {/* Ricerca + account + newsletter */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          {/* Search — solo desktop, su mobile si cerca dal pannello */}
+          <div ref={wrapRef} className="hidden md:flex" style={{ alignItems: 'center' }}>
             <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center' }}>
               <input
                 ref={inputRef}
@@ -150,12 +142,12 @@ export function Navbar() {
                   opacity: open ? 1 : 0,
                   overflow: 'hidden',
                   transition: 'width 0.2s ease, opacity 0.2s ease',
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 12,
                   background: 'transparent',
                   border: 'none',
-                  borderBottom: '1px solid rgba(26,26,26,0.3)',
-                  color: '#1A1A1A',
+                  borderBottom: '1px solid rgba(28,26,23,0.3)',
+                  color: '#1C1A17',
                   padding: open ? '4px 8px' : 0,
                   outline: 'none',
                   borderRadius: 0,
@@ -172,7 +164,7 @@ export function Navbar() {
                 padding: '6px',
                 display: 'flex',
                 alignItems: 'center',
-                color: open ? '#1A1A1A' : '#7A7870',
+                color: open ? '#1C1A17' : '#7C7568',
                 transition: 'color 0.15s',
               }}
             >
@@ -191,10 +183,10 @@ export function Navbar() {
                   onClick={() => setUserMenu(v => !v)}
                   aria-label="Menu utente"
                   style={{
-                    background: 'rgba(83,74,183,0.08)',
-                    border: '1px solid rgba(83,74,183,0.2)',
-                    color: '#534AB7',
-                    fontFamily: "'DM Sans', sans-serif",
+                    background: 'rgba(181,74,44,0.08)',
+                    border: '1px solid rgba(181,74,44,0.2)',
+                    color: '#B54A2C',
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: 10,
                     fontWeight: 600,
                     letterSpacing: '0.06em',
@@ -214,28 +206,28 @@ export function Navbar() {
                       right: 0,
                       minWidth: 200,
                       background: '#FFFFFF',
-                      border: '1px solid rgba(26,26,26,0.1)',
+                      border: '1px solid rgba(28,26,23,0.1)',
                       borderRadius: 2,
                       boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
                       zIndex: 60,
                     }}
                   >
-                    <div style={{ padding: '10px 14px', borderBottom: '1px solid rgba(26,26,26,0.06)' }}>
-                      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: '#7A7870', marginBottom: 2 }}>Connesso come</p>
-                      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#1A1A1A', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <div style={{ padding: '10px 14px', borderBottom: '1px solid rgba(28,26,23,0.06)' }}>
+                      <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: '#7C7568', marginBottom: 2 }}>Connesso come</p>
+                      <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#1C1A17', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {session.data?.user?.email}
                       </p>
                     </div>
                     <Link href="/account" onClick={() => setUserMenu(false)} style={menuItemStyle}>Il mio account</Link>
                     {session.data?.user?.role === 'admin' && (
-                      <Link href="/admin" onClick={() => setUserMenu(false)} style={{ ...menuItemStyle, color: '#C8A85C' }}>Admin</Link>
+                      <Link href="/admin" onClick={() => setUserMenu(false)} style={{ ...menuItemStyle, color: '#9C7C3E' }}>Admin</Link>
                     )}
                     <button
                       onClick={() => signOut({ callbackUrl: '/' })}
                       style={{
                         ...menuItemStyle,
                         width: '100%', textAlign: 'left', background: 'transparent',
-                        border: 'none', cursor: 'pointer', borderTop: '1px solid rgba(26,26,26,0.06)',
+                        border: 'none', cursor: 'pointer', borderTop: '1px solid rgba(28,26,23,0.06)',
                       }}
                     >
                       Esci
@@ -249,12 +241,12 @@ export function Navbar() {
               <Link
                 href="/auth/signin"
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 10,
                   fontWeight: 500,
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
-                  color: '#7A7870',
+                  color: '#7C7568',
                   textDecoration: 'none',
                   padding: '4px 8px',
                 }}
@@ -264,28 +256,116 @@ export function Navbar() {
             )}
           </div>
 
-          {/* CTA newsletter */}
+          {/* CTA newsletter — solo desktop, su mobile è nel pannello */}
           <Link
             href="/newsletter"
+            className="hidden md:inline-block"
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 10,
               fontWeight: 600,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               background: 'transparent',
-              color: '#534AB7',
+              color: '#B54A2C',
               textDecoration: 'none',
               padding: '4px 12px',
-              border: '1px solid rgba(83,74,183,0.4)',
+              border: '1px solid rgba(181,74,44,0.4)',
               borderRadius: 0,
               whiteSpace: 'nowrap',
             }}
           >
             Newsletter
           </Link>
+          </div>
         </div>
       </nav>
+
+      {/* Pannello nav — solo mobile */}
+      {mobileMenu && (
+        <div
+          className="md:hidden"
+          style={{
+            borderTop: '1px solid rgba(28,26,23,0.08)',
+            background: '#FFFFFF',
+          }}
+        >
+          <nav className="flex flex-col px-6 py-2">
+            {NAV_LINKS.map(({ href, label }) => {
+              const active = pathname.startsWith(href)
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileMenu(false)}
+                  style={{
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontSize: 13,
+                    fontWeight: 500,
+                    letterSpacing: '0.04em',
+                    color: active ? '#B54A2C' : '#1C1A17',
+                    textDecoration: 'none',
+                    padding: '12px 0',
+                    borderBottom: '1px solid rgba(28,26,23,0.06)',
+                  }}
+                >
+                  {label}
+                </Link>
+              )
+            })}
+
+            {/* Ricerca — mobile */}
+            <form
+              onSubmit={e => { handleSubmit(e); setMobileMenu(false) }}
+              style={{ display: 'flex', gap: 8, padding: '12px 0', borderBottom: '1px solid rgba(28,26,23,0.06)' }}
+            >
+              <input
+                type="text"
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                placeholder="Cerca giocatore…"
+                style={{
+                  flex: 1,
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontSize: 13,
+                  background: 'transparent',
+                  border: 'none',
+                  borderBottom: '1px solid rgba(28,26,23,0.2)',
+                  color: '#1C1A17',
+                  padding: '4px 0',
+                  outline: 'none',
+                }}
+              />
+              <button
+                type="submit"
+                aria-label="Cerca"
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#7C7568', padding: 4 }}
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.5" />
+                  <path d="M10 10L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
+            </form>
+
+            <Link
+              href="/newsletter"
+              onClick={() => setMobileMenu(false)}
+              style={{
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontSize: 13,
+                fontWeight: 600,
+                letterSpacing: '0.04em',
+                color: '#B54A2C',
+                textDecoration: 'none',
+                padding: '12px 0',
+              }}
+            >
+              Iscriviti alla newsletter →
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }
@@ -293,8 +373,8 @@ export function Navbar() {
 const menuItemStyle: React.CSSProperties = {
   display: 'block',
   padding: '10px 14px',
-  fontFamily: "'DM Sans', sans-serif",
+  fontFamily: "'Plus Jakarta Sans', sans-serif",
   fontSize: 12,
-  color: '#1A1A1A',
+  color: '#1C1A17',
   textDecoration: 'none',
 }

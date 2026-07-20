@@ -19,21 +19,21 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     <div style={{ background: '#FAFAF8', minHeight: '100vh' }}>
       <nav
         style={{
-          background: '#1A1A1A',
+          background: '#1C1A17',
           color: '#FFFFFF',
           padding: '14px 24px',
           display: 'flex',
           gap: 6,
           alignItems: 'center',
           flexWrap: 'wrap',
-          fontFamily: "'DM Sans', sans-serif",
-          borderBottom: '2px solid #C8A85C',
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          borderBottom: '2px solid #9C7C3E',
         }}
       >
         <span style={{
-          fontFamily: "'Playfair Display', Georgia, serif",
+          fontFamily: "'Source Serif 4', Georgia, serif",
           fontSize: 14, fontWeight: 700, letterSpacing: '0.06em',
-          marginRight: 18, color: '#C8A85C',
+          marginRight: 18, color: '#9C7C3E',
         }}>
           ADMIN
         </span>

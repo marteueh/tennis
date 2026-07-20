@@ -64,7 +64,7 @@ export default async function HomePage() {
       {/* ── HERO ──────────────────────────────────────────────── */}
       <section
         style={{
-          background: '#1A1A1A',
+          background: '#1C1A17',
           position: 'relative',
           overflow: 'hidden',
           padding: '72px 0 64px',
@@ -89,20 +89,22 @@ export default async function HomePage() {
           {/* Testo a sinistra */}
           <div>
             <p
+              className="fade-in-up fade-in-up-1"
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase',
-                color: '#C8A85C', marginBottom: 24,
+                color: '#9C7C3E', marginBottom: 24,
                 display: 'flex', alignItems: 'center', gap: 10,
               }}
             >
-              <span style={{ display: 'inline-block', width: 24, height: 1, background: '#C8A85C' }} />
+              <span style={{ display: 'inline-block', width: 24, height: 1, background: '#9C7C3E' }} />
               Archivio editoriale · 1980-2002
             </p>
 
             <h1
+              className="fade-in-up fade-in-up-2"
               style={{
-                fontFamily: "'DM Serif Display', serif",
+                fontFamily: "'Source Serif 4', serif",
                 fontSize: 'clamp(32px, 5vw, 52px)',
                 lineHeight: 1.1, color: '#FFFFFF',
                 marginBottom: 24, maxWidth: 720,
@@ -112,8 +114,9 @@ export default async function HomePage() {
             </h1>
 
             <p
+              className="fade-in-up fade-in-up-3"
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 16, lineHeight: 1.7,
                 color: 'rgba(255,255,255,0.6)',
                 maxWidth: 600, marginBottom: 36,
@@ -125,13 +128,14 @@ export default async function HomePage() {
               Clerici e Rino Tommasi dove la rete le conserva ancora.
             </p>
 
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <div className="fade-in-up fade-in-up-4" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               <Link
                 href="/partite"
+                className="transition-transform active:translate-y-px hover:brightness-110"
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
-                  background: '#534AB7', color: '#ffffff', textDecoration: 'none',
+                  background: '#B54A2C', color: '#ffffff', textDecoration: 'none',
                   padding: '12px 24px', borderRadius: 2,
                 }}
               >
@@ -139,8 +143,9 @@ export default async function HomePage() {
               </Link>
               <Link
                 href="/giocatori"
+                className="transition-colors active:translate-y-px hover:border-white/40 hover:text-white"
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
                   background: 'transparent', color: 'rgba(255,255,255,0.65)',
                   textDecoration: 'none', padding: '12px 24px',
@@ -161,8 +166,8 @@ export default async function HomePage() {
                 <div key={label}>
                   <p
                     style={{
-                      fontFamily: "'Playfair Display', Georgia, serif",
-                      fontSize: 28, fontWeight: 600, color: '#C8A85C',
+                      fontFamily: "'Bebas Neue', Impact, sans-serif",
+                      fontSize: 32, color: '#9C7C3E',
                       lineHeight: 1, letterSpacing: '0.02em',
                       fontVariantNumeric: 'tabular-nums',
                     }}
@@ -171,7 +176,7 @@ export default async function HomePage() {
                   </p>
                   <p
                     style={{
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
                       fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase',
                       color: 'rgba(255,255,255,0.4)', marginTop: 5,
                     }}
@@ -194,26 +199,26 @@ export default async function HomePage() {
           <div>
             <p
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 10,
                 fontWeight: 500,
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                color: '#7A7870',
+                color: '#7C7568',
                 marginBottom: 8,
                 display: 'flex',
                 alignItems: 'center',
                 gap: 8,
               }}
             >
-              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
               Partite in evidenza
             </p>
             <h2
               style={{
-                fontFamily: "'DM Serif Display', serif",
+                fontFamily: "'Source Serif 4', serif",
                 fontSize: 28,
-                color: '#1A1A1A',
+                color: '#1C1A17',
                 lineHeight: 1.2,
               }}
             >
@@ -223,12 +228,12 @@ export default async function HomePage() {
           <Link
             href="/partite"
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 11,
               fontWeight: 500,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              color: '#534AB7',
+              color: '#B54A2C',
               textDecoration: 'none',
             }}
           >
@@ -239,12 +244,15 @@ export default async function HomePage() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
+            gridAutoRows: '1fr',
             gap: 16,
           }}
         >
           {featured.map((match, i) => (
-            <ScoreCard key={match.id} match={match} showNumber={i + 1} />
+            <div key={match.id} className={i === 0 ? 'md:col-span-2' : undefined}>
+              <ScoreCard match={match} showNumber={i + 1} featured={i === 0} />
+            </div>
           ))}
         </div>
       </section>
@@ -258,11 +266,11 @@ export default async function HomePage() {
       >
         <blockquote
           style={{
-            fontFamily: "'DM Serif Display', serif",
+            fontFamily: "'Source Serif 4', serif",
             fontStyle: 'italic',
             fontSize: 'clamp(18px, 2.5vw, 24px)',
             lineHeight: 1.65,
-            color: '#1A1A1A',
+            color: '#1C1A17',
           }}
         >
           Ogni partita di quegli anni ha una storia che i numeri non raccontano da soli
@@ -276,26 +284,26 @@ export default async function HomePage() {
       <section className="max-w-7xl mx-auto px-6">
         <p
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            color: '#7A7870',
+            color: '#7C7568',
             marginBottom: 8,
             display: 'flex',
             alignItems: 'center',
             gap: 8,
           }}
         >
-          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
           I Grandi Slam
         </p>
         <h2
           style={{
-            fontFamily: "'DM Serif Display', serif",
+            fontFamily: "'Source Serif 4', serif",
             fontSize: 28,
-            color: '#1A1A1A',
+            color: '#1C1A17',
             lineHeight: 1.2,
             marginBottom: 32,
           }}
@@ -306,7 +314,7 @@ export default async function HomePage() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(240px, 100%), 1fr))',
             gap: 12,
           }}
         >
@@ -322,20 +330,20 @@ export default async function HomePage() {
               style={{ textDecoration: 'none' }}
             >
               <div
+                className="lift-on-hover"
                 style={{
                   background: '#FFFFFF',
-                  border: '1px solid rgba(26,26,26,0.08)',
+                  border: '1px solid rgba(28,26,23,0.08)',
                   borderRadius: 2,
                   padding: '24px 20px',
-                  transition: 'border-color 0.15s',
                   borderTop: `3px solid ${color}`,
                 }}
               >
                 <p
                   style={{
-                    fontFamily: "'Playfair Display', sans-serif",
+                    fontFamily: "'Source Serif 4', serif",
                     fontSize: 20,
-                    color: '#1A1A1A',
+                    color: '#1C1A17',
                     letterSpacing: '0.05em',
                     marginBottom: 4,
                   }}
@@ -344,9 +352,9 @@ export default async function HomePage() {
                 </p>
                 <p
                   style={{
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: 11,
-                    color: '#7A7870',
+                    color: '#7C7568',
                     letterSpacing: '0.06em',
                   }}
                 >
@@ -364,7 +372,7 @@ export default async function HomePage() {
       <section
         className="hero-loc-texture"
         style={{
-          background: '#1A1A1A',
+          background: '#1C1A17',
           padding: '64px 0',
           position: 'relative',
           overflow: 'hidden',
@@ -381,12 +389,12 @@ export default async function HomePage() {
         >
           <p
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 10,
               fontWeight: 500,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: '#C8A85C',
+              color: '#9C7C3E',
               marginBottom: 16,
             }}
           >
@@ -394,7 +402,7 @@ export default async function HomePage() {
           </p>
           <h2
             style={{
-              fontFamily: "'DM Serif Display', serif",
+              fontFamily: "'Source Serif 4', serif",
               fontSize: 28,
               color: '#FFFFFF',
               lineHeight: 1.3,
@@ -405,7 +413,7 @@ export default async function HomePage() {
           </h2>
           <p
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 14,
               lineHeight: 1.7,
               color: 'rgba(255,255,255,0.5)',

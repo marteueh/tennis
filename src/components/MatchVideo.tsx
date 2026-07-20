@@ -32,7 +32,7 @@ export function MatchVideo({
     return (
       <div
         style={{
-          background: '#1A1A1A',
+          background: '#1C1A17',
           border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: 2,
           padding: '40px 32px',
@@ -46,10 +46,10 @@ export function MatchVideo({
           <rect width="40" height="40" rx="4" fill="white" fillOpacity="0.1" />
           <path d="M16 14l12 6-12 6V14z" fill="white" fillOpacity="0.4" />
         </svg>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: 'rgba(255,255,255,0.45)', marginBottom: 8 }}>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: 'rgba(255,255,255,0.45)', marginBottom: 8 }}>
           Video non disponibile per questa partita
         </p>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: 'rgba(255,255,255,0.25)', lineHeight: 1.6 }}>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: 'rgba(255,255,255,0.25)', lineHeight: 1.6 }}>
           I canali ufficiali degli Slam rilasciano progressivamente i propri archivi su YouTube.
         </p>
       </div>
@@ -64,13 +64,13 @@ export function MatchVideo({
           <button
             onClick={() => setVersion('main')}
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
               padding: '6px 14px',
-              background: version === 'main' ? '#1A1A1A' : 'transparent',
-              color: version === 'main' ? '#FFFFFF' : '#7A7870',
+              background: version === 'main' ? '#1C1A17' : 'transparent',
+              color: version === 'main' ? '#FFFFFF' : '#7C7568',
               border: '1px solid',
-              borderColor: version === 'main' ? '#1A1A1A' : 'rgba(26,26,26,0.15)',
+              borderColor: version === 'main' ? '#1C1A17' : 'rgba(28,26,23,0.15)',
               borderRadius: 2, cursor: 'pointer',
             }}
           >
@@ -79,12 +79,12 @@ export function MatchVideo({
           <button
             onClick={() => setVersion('tommasi')}
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
               padding: '6px 14px',
-              background: version === 'tommasi' ? '#534AB7' : 'transparent',
-              color: version === 'tommasi' ? '#FFFFFF' : '#534AB7',
-              border: '1px solid #534AB7',
+              background: version === 'tommasi' ? '#B54A2C' : 'transparent',
+              color: version === 'tommasi' ? '#FFFFFF' : '#B54A2C',
+              border: '1px solid #B54A2C',
               borderRadius: 2, cursor: 'pointer',
             }}
           >
@@ -104,8 +104,8 @@ export function MatchVideo({
         />
       </div>
       <p style={{
-        marginTop: 8, fontFamily: "'DM Sans', sans-serif",
-        fontSize: 11, color: 'rgba(26,26,26,0.35)', letterSpacing: '0.04em',
+        marginTop: 8, fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontSize: 11, color: 'rgba(28,26,23,0.35)', letterSpacing: '0.04em',
       }}>
         {version === 'tommasi' && tommasiVideoId
           ? <>Telecronaca di Rino Tommasi e Gianni Clerici · canale {tommasiChannel ?? 'YouTube'} · embed in Privacy Enhanced Mode</>

@@ -64,14 +64,14 @@ export default async function PartitePage({ searchParams }: { searchParams: Prom
     <div className="max-w-7xl mx-auto px-6 py-12">
 
       <div style={{ marginBottom: 40 }}>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7A7870', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
           Archivio
         </p>
-        <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 38, lineHeight: 1.1, color: '#1A1A1A' }}>
+        <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 38, lineHeight: 1.1, color: '#1C1A17' }}>
           Partite
         </h1>
-        <p style={{ marginTop: 8, fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: '#7A7870' }}>
+        <p style={{ marginTop: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: '#7C7568' }}>
           {total.toLocaleString('it-IT')} partite · Grandi Slam 1980–2002
         </p>
       </div>
@@ -81,12 +81,12 @@ export default async function PartitePage({ searchParams }: { searchParams: Prom
         method="get"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(170px, 100%), 1fr))',
           gap: 12,
           marginBottom: 14,
           padding: '18px 20px',
           background: '#FFFFFF',
-          border: '1px solid rgba(26,26,26,0.08)',
+          border: '1px solid rgba(28,26,23,0.08)',
           borderRadius: 2,
           alignItems: 'end',
         }}
@@ -114,9 +114,9 @@ export default async function PartitePage({ searchParams }: { searchParams: Prom
           <button
             type="submit"
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase',
-              padding: '9px 18px', background: '#534AB7', color: '#FFFFFF',
+              padding: '9px 18px', background: '#B54A2C', color: '#FFFFFF',
               border: 'none', borderRadius: 2, cursor: 'pointer', flex: 1,
             }}
           >
@@ -126,10 +126,10 @@ export default async function PartitePage({ searchParams }: { searchParams: Prom
             <Link
               href="/partite"
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 11, fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase',
-                padding: '9px 14px', color: '#7A7870', textDecoration: 'none',
-                border: '1px solid rgba(26,26,26,0.12)', borderRadius: 2,
+                padding: '9px 14px', color: '#7C7568', textDecoration: 'none',
+                border: '1px solid rgba(28,26,23,0.12)', borderRadius: 2,
                 display: 'inline-flex', alignItems: 'center',
               }}
             >
@@ -142,8 +142,8 @@ export default async function PartitePage({ searchParams }: { searchParams: Prom
       {/* Riepilogo filtri attivi */}
       {(year || torneo || turno || surface) && (
         <p style={{
-          fontFamily: "'DM Sans', sans-serif",
-          fontSize: 12, color: '#7A7870', marginBottom: 24,
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontSize: 12, color: '#7C7568', marginBottom: 24,
         }}>
           Filtri attivi:
           {year && <FilterPill label={String(year)} />}
@@ -155,11 +155,11 @@ export default async function PartitePage({ searchParams }: { searchParams: Prom
 
       {/* Lista partite */}
       {matches.length === 0 ? (
-        <p style={{ fontFamily: "'DM Serif Display', serif", fontStyle: 'italic', fontSize: 16, color: '#7A7870', textAlign: 'center', padding: '48px 0' }}>
+        <p style={{ fontFamily: "'Source Serif 4', serif", fontStyle: 'italic', fontSize: 16, color: '#7C7568', textAlign: 'center', padding: '48px 0' }}>
           Nessuna partita trovata con i filtri selezionati.
         </p>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))', gap: 16 }}>
           {matches.map((match, i) => (
             <ScoreCard key={match.id} match={match} showNumber={(page - 1) * 20 + i + 1} />
           ))}
@@ -172,7 +172,7 @@ export default async function PartitePage({ searchParams }: { searchParams: Prom
           {page > 1 && (
             <PaginationLink href={buildUrl({ year, surface, torneo, turno, p: page - 1 })} label="← Precedente" />
           )}
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: '#7A7870', padding: '8px 12px' }}>
+          <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, color: '#7C7568', padding: '8px 12px' }}>
             Pagina {page} di {totalPages}
           </span>
           {page < totalPages && (
@@ -193,9 +193,9 @@ function SelectField({ label, name, value, options }: {
   return (
     <div>
       <label style={{
-        display: 'block', fontFamily: "'DM Sans', sans-serif",
+        display: 'block', fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 9, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase',
-        color: '#7A7870', marginBottom: 6,
+        color: '#7C7568', marginBottom: 6,
       }}>
         {label}
       </label>
@@ -203,10 +203,10 @@ function SelectField({ label, name, value, options }: {
         name={name}
         defaultValue={value}
         style={{
-          width: '100%', fontFamily: "'DM Sans', sans-serif",
+          width: '100%', fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 13, padding: '8px 10px',
-          border: '1px solid rgba(26,26,26,0.15)', borderRadius: 2,
-          background: '#FFFFFF', color: '#1A1A1A', cursor: 'pointer',
+          border: '1px solid rgba(28,26,23,0.15)', borderRadius: 2,
+          background: '#FFFFFF', color: '#1C1A17', cursor: 'pointer',
         }}
       >
         {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
@@ -220,7 +220,7 @@ function FilterPill({ label }: { label: string }) {
     <span style={{
       display: 'inline-block', marginLeft: 6,
       padding: '2px 8px', borderRadius: 2,
-      background: 'rgba(83,74,183,0.1)', color: '#534AB7',
+      background: 'rgba(181,74,44,0.1)', color: '#B54A2C',
       fontSize: 11, fontWeight: 500, letterSpacing: '0.04em',
     }}>
       {label}
@@ -230,7 +230,7 @@ function FilterPill({ label }: { label: string }) {
 
 function PaginationLink({ href, label }: { href: string; label: string }) {
   return (
-    <Link href={href} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 500, color: '#534AB7', textDecoration: 'none', padding: '8px 16px', border: '1px solid rgba(83,74,183,0.3)', borderRadius: 2 }}>
+    <Link href={href} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, fontWeight: 500, color: '#B54A2C', textDecoration: 'none', padding: '8px 16px', border: '1px solid rgba(181,74,44,0.3)', borderRadius: 2 }}>
       {label}
     </Link>
   )

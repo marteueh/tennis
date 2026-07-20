@@ -51,34 +51,34 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
       <div style={{ marginBottom: 40 }}>
         <p
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            color: '#7A7870',
+            color: '#7C7568',
             marginBottom: 8,
             display: 'flex',
             alignItems: 'center',
             gap: 8,
           }}
         >
-          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
           Archivio
         </p>
         <h1
           style={{
-            fontFamily: "'DM Serif Display', serif",
+            fontFamily: "'Source Serif 4', serif",
             fontSize: 38,
             lineHeight: 1.1,
-            color: '#1A1A1A',
+            color: '#1C1A17',
           }}
         >
           Giocatori
         </h1>
-        <p style={{ marginTop: 8, fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: '#7A7870' }}>
+        <p style={{ marginTop: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: '#7C7568' }}>
           {q
-            ? <>{total} risultat{total === 1 ? 'o' : 'i'} per <em style={{ color: '#1A1A1A' }}>&ldquo;{q}&rdquo;</em></>
+            ? <>{total} risultat{total === 1 ? 'o' : 'i'} per <em style={{ color: '#1C1A17' }}>&ldquo;{q}&rdquo;</em></>
             : <>I protagonisti del tennis 1980–2002 · {total.toLocaleString('it-IT')} giocatori in archivio</>
           }
         </p>
@@ -92,8 +92,8 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
             placeholder="Cerca per nome o cognome…"
             style={{
               width: '100%', maxWidth: 360, fontSize: 13, padding: '9px 12px',
-              border: '1px solid rgba(26,26,26,0.18)', borderRadius: 2,
-              color: '#1A1A1A', fontFamily: "'DM Sans', sans-serif",
+              border: '1px solid rgba(28,26,23,0.18)', borderRadius: 2,
+              color: '#1C1A17', fontFamily: "'Plus Jakarta Sans', sans-serif",
             }}
           />
         </form>
@@ -102,7 +102,7 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
           gap: 12,
         }}
       >
@@ -115,12 +115,11 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
             <div
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(26,26,26,0.08)',
+                border: '1px solid rgba(28,26,23,0.08)',
                 borderRadius: 2,
                 overflow: 'hidden',
-                transition: 'border-color 0.15s',
               }}
-              className="hover:border-accent/25"
+              className="hover:border-accent/25 lift-on-hover"
             >
               {/* Foto + header */}
               <div style={{ display: 'flex', gap: 0 }}>
@@ -130,8 +129,8 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                     width: 72,
                     flexShrink: 0,
                     position: 'relative',
-                    background: player.photo_url ? 'transparent' : 'rgba(26,26,26,0.04)',
-                    borderRight: '1px solid rgba(26,26,26,0.06)',
+                    background: player.photo_url ? 'transparent' : 'rgba(28,26,23,0.04)',
+                    borderRight: '1px solid rgba(28,26,23,0.06)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -150,10 +149,10 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                   ) : (
                     <span
                       style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontFamily: "'Source Serif 4', Georgia, serif",
                         fontSize: 20,
                         fontWeight: 600,
-                        color: 'rgba(26,26,26,0.18)',
+                        color: 'rgba(28,26,23,0.18)',
                         letterSpacing: '0.04em',
                         userSelect: 'none',
                       }}
@@ -169,10 +168,10 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                     <div>
                       <p
                         style={{
-                          fontFamily: "'Playfair Display', Georgia, serif",
+                          fontFamily: "'Source Serif 4', Georgia, serif",
                           fontSize: 17,
                           fontWeight: 600,
-                          color: '#1A1A1A',
+                          color: '#1C1A17',
                           lineHeight: 1.1,
                           marginBottom: 3,
                         }}
@@ -181,9 +180,9 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                       </p>
                       <p
                         style={{
-                          fontFamily: "'DM Sans', sans-serif",
+                          fontFamily: "'Plus Jakarta Sans', sans-serif",
                           fontSize: 11,
-                          color: '#7A7870',
+                          color: '#7C7568',
                           letterSpacing: '0.04em',
                         }}
                       >
@@ -193,11 +192,11 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                     {player.atp_peak_rank === 1 && (
                       <span
                         style={{
-                          fontFamily: "'Playfair Display', Georgia, serif",
-                          fontSize: 11,
+                          fontFamily: "'Bebas Neue', Impact, sans-serif",
+                          fontSize: 13,
                           letterSpacing: '0.1em',
-                          color: '#C8A85C',
-                          background: 'rgba(200,168,92,0.1)',
+                          color: '#9C7C3E',
+                          background: 'rgba(156,124,62,0.1)',
                           padding: '2px 7px',
                           borderRadius: 2,
                           flexShrink: 0,
@@ -213,23 +212,23 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                       gap: 14,
                       marginTop: 10,
                       paddingTop: 10,
-                      borderTop: '1px solid rgba(26,26,26,0.06)',
+                      borderTop: '1px solid rgba(28,26,23,0.06)',
                     }}
                   >
                     {player.grand_slams > 0 && (
                       <div>
-                        <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 20, color: '#C8A85C', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
+                        <p style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 22, color: '#9C7C3E', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
                           {player.grand_slams}
                         </p>
-                        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 9, color: '#7A7870', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Slam</p>
+                        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 9, color: '#7C7568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Slam</p>
                       </div>
                     )}
                     {player.atp_peak_rank && (
                       <div>
-                        <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 20, color: '#534AB7', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
+                        <p style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 22, color: '#B54A2C', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
                           #{player.atp_peak_rank}
                         </p>
-                        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 9, color: '#7A7870', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Best rank</p>
+                        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 9, color: '#7C7568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Best rank</p>
                       </div>
                     )}
                   </div>
@@ -277,7 +276,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
         alignItems: 'center',
         gap: 4,
         marginTop: 40,
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
       }}
     >
       {currentPage > 1 && (
@@ -285,7 +284,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
       )}
       {pages.map((p, i) =>
         p === '…' ? (
-          <span key={`e${i}`} style={{ padding: '6px 4px', color: 'rgba(26,26,26,0.3)', fontSize: 13 }}>…</span>
+          <span key={`e${i}`} style={{ padding: '6px 4px', color: 'rgba(28,26,23,0.3)', fontSize: 13 }}>…</span>
         ) : (
           <Link
             key={p}
@@ -311,9 +310,9 @@ function pageBtnStyle(active = false): React.CSSProperties {
     letterSpacing: '0.04em',
     padding: '6px 11px',
     border: '1px solid',
-    borderColor: active ? '#534AB7' : 'rgba(26,26,26,0.12)',
-    background: active ? '#534AB7' : 'transparent',
-    color: active ? '#FFFFFF' : '#1A1A1A',
+    borderColor: active ? '#B54A2C' : 'rgba(28,26,23,0.12)',
+    background: active ? '#B54A2C' : 'transparent',
+    color: active ? '#FFFFFF' : '#1C1A17',
     textDecoration: 'none',
     borderRadius: 2,
     fontVariantNumeric: 'tabular-nums',

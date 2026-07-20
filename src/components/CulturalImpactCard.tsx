@@ -17,9 +17,9 @@ const LEVEL_LABELS: Record<string, string> = {
 }
 
 const LEVEL_COLORS: Record<string, string> = {
-  direct:       '#534AB7',
-  contextual:   '#7A7870',
-  archetypal:   '#C8A85C',
+  direct:       '#B54A2C',
+  contextual:   '#7C7568',
+  archetypal:   '#9C7C3E',
 }
 
 interface Props {
@@ -32,7 +32,7 @@ export function CulturalImpactCard({ item, compact = false }: Props) {
     <div
       style={{
         background: '#FFFFFF',
-        border: '1px solid rgba(26,26,26,0.08)',
+        border: '1px solid rgba(28,26,23,0.08)',
         borderRadius: 2,
         padding: compact ? '16px 18px' : '20px 22px',
         display: 'flex',
@@ -48,13 +48,13 @@ export function CulturalImpactCard({ item, compact = false }: Props) {
           )}
           <span
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 9,
               fontWeight: 600,
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              color: '#7A7870',
-              background: 'rgba(26,26,26,0.05)',
+              color: '#7C7568',
+              background: 'rgba(28,26,23,0.05)',
               padding: '2px 7px',
               borderRadius: 2,
             }}
@@ -64,9 +64,9 @@ export function CulturalImpactCard({ item, compact = false }: Props) {
           {item.year && (
             <span
               style={{
-                fontFamily: "'Playfair Display', sans-serif",
+                fontFamily: "'Source Serif 4', serif",
                 fontSize: 13,
-                color: '#7A7870',
+                color: '#7C7568',
                 letterSpacing: '0.06em',
               }}
             >
@@ -76,12 +76,12 @@ export function CulturalImpactCard({ item, compact = false }: Props) {
         </div>
         <span
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 9,
             fontWeight: 500,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: LEVEL_COLORS[item.link_level] ?? '#7A7870',
+            color: LEVEL_COLORS[item.link_level] ?? '#7C7568',
             flexShrink: 0,
           }}
         >
@@ -92,9 +92,9 @@ export function CulturalImpactCard({ item, compact = false }: Props) {
       {/* Title */}
       <p
         style={{
-          fontFamily: "'DM Serif Display', serif",
+          fontFamily: "'Source Serif 4', serif",
           fontSize: compact ? 14 : 15,
-          color: '#1A1A1A',
+          color: '#1C1A17',
           lineHeight: 1.4,
         }}
       >
@@ -105,9 +105,9 @@ export function CulturalImpactCard({ item, compact = false }: Props) {
       {item.author && (
         <p
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 11,
-            color: '#7A7870',
+            color: '#7C7568',
             fontStyle: 'italic',
             lineHeight: 1.5,
           }}
@@ -119,10 +119,10 @@ export function CulturalImpactCard({ item, compact = false }: Props) {
       {/* Body */}
       <p
         style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 13,
           lineHeight: 1.7,
-          color: '#1A1A1A',
+          color: '#1C1A17',
         }}
       >
         {item.body}
@@ -135,10 +135,10 @@ export function CulturalImpactCard({ item, compact = false }: Props) {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 11,
             fontWeight: 500,
-            color: '#534AB7',
+            color: '#B54A2C',
             textDecoration: 'none',
             letterSpacing: '0.03em',
             alignSelf: 'flex-start',
@@ -163,25 +163,25 @@ export function CulturalImpactSection({ items, title = "Eco culturale" }: Sectio
     <div style={{ marginBottom: 32 }}>
       <p
         style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 10,
           fontWeight: 500,
           letterSpacing: '0.12em',
           textTransform: 'uppercase',
-          color: '#7A7870',
+          color: '#7C7568',
           marginBottom: 12,
           display: 'flex',
           alignItems: 'center',
           gap: 8,
         }}
       >
-        <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+        <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
         {title}
       </p>
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
           gap: 12,
         }}
       >

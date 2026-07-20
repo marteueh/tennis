@@ -51,7 +51,7 @@ export default function LaVoceNarrantePage() {
       {/* Hero — tipografico-editoriale */}
       <section
         style={{
-          background: '#1A1A1A',
+          background: '#1C1A17',
           padding: '72px 0 64px',
           position: 'relative',
           overflow: 'hidden',
@@ -67,9 +67,9 @@ export default function LaVoceNarrantePage() {
             right: '-2%',
             top: '50%',
             transform: 'translateY(-50%)',
-            fontFamily: "'DM Serif Display', serif",
+            fontFamily: "'Source Serif 4', serif",
             fontSize: 'clamp(200px, 28vw, 420px)',
-            color: 'rgba(200,168,92,0.06)',
+            color: 'rgba(156,124,62,0.06)',
             lineHeight: 0.8,
             userSelect: 'none',
             fontWeight: 700,
@@ -81,26 +81,24 @@ export default function LaVoceNarrantePage() {
         <div className="max-w-7xl mx-auto px-6" style={{ position: 'relative', zIndex: 1 }}>
           <p
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase',
-              color: '#C8A85C', marginBottom: 18,
+              color: '#9C7C3E', marginBottom: 18,
               display: 'flex', alignItems: 'center', gap: 10,
             }}
           >
-            <span style={{ display: 'inline-block', width: 24, height: 1, background: '#C8A85C' }} />
+            <span style={{ display: 'inline-block', width: 24, height: 1, background: '#9C7C3E' }} />
             Le voci narranti
           </p>
 
           {/* Coppia di nomi con epiteti */}
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'auto auto',
               gap: 'clamp(24px, 6vw, 80px)',
               alignItems: 'baseline',
               marginBottom: 32,
             }}
-            className="grid-cols-1 md:grid-cols-2"
+            className="grid grid-cols-1 md:grid-cols-[auto_auto]"
           >
             <NameBlock
               name="Gianni Clerici"
@@ -120,13 +118,13 @@ export default function LaVoceNarrantePage() {
 
           <p
             style={{
-              fontFamily: "'DM Serif Display', serif",
+              fontFamily: "'Source Serif 4', serif",
               fontStyle: 'italic',
               fontSize: 'clamp(15px, 1.6vw, 17px)',
               lineHeight: 1.75,
               color: 'rgba(255,255,255,0.55)',
               maxWidth: 760,
-              borderLeft: '3px solid #534AB7',
+              borderLeft: '3px solid #B54A2C',
               paddingLeft: 18,
             }}
           >
@@ -143,18 +141,13 @@ export default function LaVoceNarrantePage() {
 
         {/* Clerici + Tommasi */}
         <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 48,
-            marginBottom: 56,
-          }}
-          className="grid-cols-1 md:grid-cols-2"
+          style={{ gap: 48, marginBottom: 56 }}
+          className="grid grid-cols-1 md:grid-cols-2"
         >
           {/* Clerici */}
           <div>
             <SectionLabel>Il cronista</SectionLabel>
-            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 26, color: '#1A1A1A', marginBottom: 16, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 26, color: '#1C1A17', marginBottom: 16, lineHeight: 1.2 }}>
               Gianni Clerici (1930–2021)
             </h2>
             <p style={paragraphStyle}>
@@ -166,7 +159,7 @@ export default function LaVoceNarrantePage() {
             <p style={paragraphStyle}>
               Sui campi dal 1980 al 2002 era presente ogni volta che la storia si faceva.
               I suoi articoli sono ricercabili nell&#39;archivio digitale de La Repubblica su{' '}
-              <a href="https://ricerca.repubblica.it" target="_blank" rel="noopener noreferrer" style={{ color: '#534AB7' }}>
+              <a href="https://ricerca.repubblica.it" target="_blank" rel="noopener noreferrer" style={{ color: '#B54A2C' }}>
                 ricerca.repubblica.it
               </a>.
             </p>
@@ -182,7 +175,7 @@ export default function LaVoceNarrantePage() {
           {/* Tommasi */}
           <div>
             <SectionLabel>Il computer</SectionLabel>
-            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 26, color: '#1A1A1A', marginBottom: 16, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 26, color: '#1C1A17', marginBottom: 16, lineHeight: 1.2 }}>
               Rino Tommasi (1934–2025)
             </h2>
             <p style={paragraphStyle}>
@@ -201,14 +194,14 @@ export default function LaVoceNarrantePage() {
             <div
               style={{
                 marginTop: 20,
-                background: 'rgba(83,74,183,0.05)',
-                border: '1px solid rgba(83,74,183,0.15)',
-                borderLeft: '3px solid #534AB7',
+                background: 'rgba(181,74,44,0.05)',
+                border: '1px solid rgba(181,74,44,0.15)',
+                borderLeft: '3px solid #B54A2C',
                 padding: '16px 18px',
                 borderRadius: '0 2px 2px 0',
               }}
             >
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, lineHeight: 1.7, color: '#1A1A1A' }}>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, lineHeight: 1.7, color: '#1C1A17' }}>
                 <strong>Su Ace Chronicle:</strong> dove possibile, alle schede partita
                 affianchiamo la versione con la telecronaca di Tommasi e Clerici accanto
                 a quella originale. Un toggle sopra il player permette di scegliere
@@ -224,14 +217,14 @@ export default function LaVoceNarrantePage() {
         {/* Bibliografia Clerici */}
         <div style={{ marginBottom: 56 }}>
           <SectionLabel>Bibliografia di Clerici</SectionLabel>
-          <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 28, color: '#1A1A1A', marginBottom: 8 }}>
+          <h2 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 28, color: '#1C1A17', marginBottom: 8 }}>
             I libri di tennis di Gianni Clerici
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, lineHeight: 1.7, color: '#7A7870', marginBottom: 28, maxWidth: 720 }}>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, lineHeight: 1.7, color: '#7C7568', marginBottom: 28, maxWidth: 720 }}>
             Da <em>Il grande tennis</em> del 1965 a <em>Divinità alate</em>, una sintesi
             di un&#39;opera che ha fondato la letteratura sportiva italiana sul gioco.
           </p>
-          <BookList books={CLERICI_BOOKS} accent="#534AB7" />
+          <BookList books={CLERICI_BOOKS} accent="#B54A2C" />
         </div>
 
         <SectionDivider />
@@ -239,26 +232,26 @@ export default function LaVoceNarrantePage() {
         {/* Bibliografia estesa */}
         <div style={{ marginBottom: 40 }}>
           <SectionLabel>Bibliografia estesa</SectionLabel>
-          <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 28, color: '#1A1A1A', marginBottom: 8 }}>
+          <h2 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 28, color: '#1C1A17', marginBottom: 8 }}>
             Altri libri sul tennis
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, lineHeight: 1.7, color: '#7A7870', marginBottom: 28, maxWidth: 720 }}>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, lineHeight: 1.7, color: '#7C7568', marginBottom: 28, maxWidth: 720 }}>
             Una selezione di autobiografie, reportage e saggistica che ha contribuito
             a costruire la cultura del gioco — dai grandi classici americani alle
             voci italiane oltre Clerici.
           </p>
-          <BookList books={TENNIS_BOOKS} accent="#C8A85C" />
+          <BookList books={TENNIS_BOOKS} accent="#9C7C3E" />
         </div>
 
         <SectionDivider />
 
         {/* Attribuzione */}
         <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, lineHeight: 1.7, color: 'rgba(26,26,26,0.45)' }}>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, lineHeight: 1.7, color: 'rgba(28,26,23,0.45)' }}>
             Ace Chronicle utilizza estratti brevi degli articoli di Gianni Clerici su La Repubblica
             con attribuzione completa, rimandando sempre alla fonte originale.
           </p>
-          <p style={{ marginTop: 8, fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: 'rgba(26,26,26,0.3)' }}>
+          <p style={{ marginTop: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: 'rgba(28,26,23,0.3)' }}>
             © La Repubblica / GEDI — riproduzione parziale per fini culturali ex art. 70 L. 633/1941
           </p>
         </div>
@@ -279,14 +272,14 @@ function NameBlock({ name, years, epithet, quote, attrib }: {
   return (
     <div>
       <p style={{
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 10, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase',
-        color: '#C8A85C', marginBottom: 6,
+        color: '#9C7C3E', marginBottom: 6,
       }}>
         {epithet}
       </p>
       <h2 style={{
-        fontFamily: "'DM Serif Display', serif",
+        fontFamily: "'Source Serif 4', serif",
         fontSize: 'clamp(28px, 4vw, 44px)',
         lineHeight: 1.05,
         color: '#FFFFFF',
@@ -295,7 +288,7 @@ function NameBlock({ name, years, epithet, quote, attrib }: {
         {name}
       </h2>
       <p style={{
-        fontFamily: "'Playfair Display', Georgia, serif",
+        fontFamily: "'Source Serif 4', Georgia, serif",
         fontSize: 13,
         letterSpacing: '0.08em',
         color: 'rgba(255,255,255,0.45)',
@@ -306,7 +299,7 @@ function NameBlock({ name, years, epithet, quote, attrib }: {
       </p>
       <blockquote style={{
         margin: 0,
-        fontFamily: "'DM Serif Display', serif",
+        fontFamily: "'Source Serif 4', serif",
         fontStyle: 'italic',
         fontSize: 14,
         lineHeight: 1.6,
@@ -316,7 +309,7 @@ function NameBlock({ name, years, epithet, quote, attrib }: {
       </blockquote>
       <p style={{
         marginTop: 6,
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 11, letterSpacing: '0.04em',
         color: 'rgba(255,255,255,0.3)',
       }}>
@@ -330,13 +323,13 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
       style={{
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 10, fontWeight: 500, letterSpacing: '0.14em',
-        textTransform: 'uppercase', color: '#7A7870',
+        textTransform: 'uppercase', color: '#7C7568',
         marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8,
       }}
     >
-      <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+      <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
       {children}
     </p>
   )
@@ -347,7 +340,7 @@ function BookList({ books, accent }: { books: Book[]; accent: string }) {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))',
         gap: 10,
       }}
     >
@@ -356,7 +349,7 @@ function BookList({ books, accent }: { books: Book[]; accent: string }) {
           key={i}
           style={{
             background: '#FFFFFF',
-            border: '1px solid rgba(26,26,26,0.07)',
+            border: '1px solid rgba(28,26,23,0.07)',
             borderLeft: `3px solid ${accent}`,
             borderRadius: '0 2px 2px 0',
             padding: '12px 16px',
@@ -368,15 +361,15 @@ function BookList({ books, accent }: { books: Book[]; accent: string }) {
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 8 }}>
             <h3
               style={{
-                fontFamily: "'DM Serif Display', serif",
-                fontSize: 15, color: '#1A1A1A', lineHeight: 1.3, flex: 1,
+                fontFamily: "'Source Serif 4', serif",
+                fontSize: 15, color: '#1C1A17', lineHeight: 1.3, flex: 1,
               }}
             >
               {b.title}
             </h3>
             <span
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Source Serif 4', Georgia, serif",
                 fontSize: 13, color: accent, flexShrink: 0,
                 fontVariantNumeric: 'tabular-nums',
               }}
@@ -385,12 +378,12 @@ function BookList({ books, accent }: { books: Book[]; accent: string }) {
             </span>
           </div>
           {b.publisher && (
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: '#7A7870', fontStyle: 'italic' }}>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: '#7C7568', fontStyle: 'italic' }}>
               {b.publisher}
             </p>
           )}
           {b.note && (
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#1A1A1A', lineHeight: 1.5, marginTop: 4 }}>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#1C1A17', lineHeight: 1.5, marginTop: 4 }}>
               {b.note}
             </p>
           )}
@@ -401,6 +394,6 @@ function BookList({ books, accent }: { books: Book[]; accent: string }) {
 }
 
 const paragraphStyle: React.CSSProperties = {
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 14, lineHeight: 1.75, color: '#1A1A1A', marginBottom: 12,
+  fontFamily: "'Plus Jakarta Sans', sans-serif",
+  fontSize: 14, lineHeight: 1.75, color: '#1C1A17', marginBottom: 12,
 }

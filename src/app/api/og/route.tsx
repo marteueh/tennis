@@ -3,11 +3,11 @@ import type { NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 
-const PAPER  = '#F5F2EB'
-const INK    = '#1A1A1A'
-const ACCENT = '#534AB7'
-const GOLD   = '#C8A85C'
-const MUTED  = '#7A7870'
+const PAPER  = '#F3EEE3'
+const INK    = '#1C1A17'
+const ACCENT = '#B54A2C'
+const GOLD   = '#9C7C3E'
+const MUTED  = '#7C7568'
 
 async function fetchFont(url: string): Promise<ArrayBuffer | null> {
   try {
@@ -64,7 +64,7 @@ export async function GET(req: NextRequest) {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: `linear-gradient(rgba(26,26,26,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,26,26,0.04) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(28,26,23,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(28,26,23,0.04) 1px, transparent 1px)`,
             backgroundSize: '40px 40px',
             display: 'flex',
           }}
@@ -95,20 +95,20 @@ export async function GET(req: NextRequest) {
 
         {/* Separator */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-          <div style={{ height: 1, width: 32, background: 'rgba(26,26,26,0.18)', display: 'flex' }} />
+          <div style={{ height: 1, width: 32, background: 'rgba(28,26,23,0.18)', display: 'flex' }} />
           <span style={{ fontSize: 11, color: MUTED, fontFamily: 'sans-serif', letterSpacing: '0.12em' }}>b.</span>
-          <div style={{ height: 1, flex: 1, background: 'rgba(26,26,26,0.08)', display: 'flex' }} />
+          <div style={{ height: 1, flex: 1, background: 'rgba(28,26,23,0.08)', display: 'flex' }} />
         </div>
 
         {/* Loser */}
-        <span style={{ fontSize: 54, color: 'rgba(26,26,26,0.3)', lineHeight: 1, fontFamily: bebasFamily, letterSpacing: '0.02em' }}>
+        <span style={{ fontSize: 54, color: 'rgba(28,26,23,0.3)', lineHeight: 1, fontFamily: bebasFamily, letterSpacing: '0.02em' }}>
           {loser.toUpperCase()}
         </span>
 
         <div style={{ flex: 1, display: 'flex' }} />
 
         {/* Footer */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(26,26,26,0.1)', paddingTop: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(28,26,23,0.1)', paddingTop: 16 }}>
           <span style={{ fontSize: 11, color: MUTED, fontFamily: 'sans-serif' }}>acechronicle.it</span>
           <span style={{ fontSize: 11, color: GOLD, fontFamily: 'sans-serif', letterSpacing: '0.06em' }}>ARCHIVIO TENNIS 1980-2002</span>
         </div>

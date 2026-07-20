@@ -15,7 +15,7 @@ import {
 export const dynamic = 'force-dynamic'
 
 const TABS: { value: 'pending' | 'flagged' | 'approved' | 'rejected'; label: string; color: string }[] = [
-  { value: 'pending',  label: 'Da moderare', color: '#534AB7' },
+  { value: 'pending',  label: 'Da moderare', color: '#B54A2C' },
   { value: 'flagged',  label: 'Segnalati',   color: '#DC2626' },
   { value: 'approved', label: 'Approvati',   color: '#16A34A' },
   { value: 'rejected', label: 'Rifiutati',   color: '#9CA3AF' },
@@ -47,12 +47,12 @@ export default async function AdminCommentsPage({ searchParams }: Props) {
   }
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px', fontFamily: "'DM Sans', sans-serif" }}>
+    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <div style={{ marginBottom: 18 }}>
-        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7A7870', marginBottom: 6 }}>
+        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 6 }}>
           Admin · Moderazione
         </p>
-        <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 30, color: '#1A1A1A' }}>
+        <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 30, color: '#1C1A17' }}>
           Commenti
         </h1>
       </div>
@@ -89,7 +89,7 @@ export default async function AdminCommentsPage({ searchParams }: Props) {
           placeholder="Cerca nel testo o per email..."
           style={{
             width: 320, fontSize: 13, padding: '8px 12px',
-            border: '1px solid rgba(26,26,26,0.15)', borderRadius: 2, color: '#1A1A1A',
+            border: '1px solid rgba(28,26,23,0.15)', borderRadius: 2, color: '#1C1A17',
           }}
         />
       </form>
@@ -101,7 +101,7 @@ export default async function AdminCommentsPage({ searchParams }: Props) {
       )}
 
       {comments.length === 0 ? (
-        <p style={{ fontSize: 13, color: 'rgba(26,26,26,0.4)', fontStyle: 'italic', padding: '32px 0', textAlign: 'center' }}>
+        <p style={{ fontSize: 13, color: 'rgba(28,26,23,0.4)', fontStyle: 'italic', padding: '32px 0', textAlign: 'center' }}>
           Nessun commento {status === 'pending' ? 'da moderare' : `nella sezione "${TABS.find(t=>t.value===status)?.label}"`}.
         </p>
       ) : (
@@ -120,10 +120,10 @@ function BulkActions() {
   return (
     <div style={{
       display: 'flex', gap: 8, padding: '10px 14px',
-      background: '#FFFFFF', border: '1px solid rgba(26,26,26,0.08)',
+      background: '#FFFFFF', border: '1px solid rgba(28,26,23,0.08)',
       borderRadius: 2, alignItems: 'center',
     }}>
-      <span style={{ fontSize: 11, color: '#7A7870' }}>Azioni in massa sui selezionati:</span>
+      <span style={{ fontSize: 11, color: '#7C7568' }}>Azioni in massa sui selezionati:</span>
       <button
         type="submit"
         formAction={bulkApprove}
@@ -158,9 +158,9 @@ function CommentCard({ comment: c }: { comment: AdminCommentRow }) {
     <div
       style={{
         background: '#FFFFFF',
-        border: '1px solid rgba(26,26,26,0.08)',
+        border: '1px solid rgba(28,26,23,0.08)',
         borderLeft: c.status === 'flagged' ? '3px solid #DC2626'
-                   : c.status === 'pending' ? '3px solid #534AB7'
+                   : c.status === 'pending' ? '3px solid #B54A2C'
                    : c.status === 'approved' ? '3px solid #16A34A'
                    : '3px solid #9CA3AF',
         borderRadius: 2,
@@ -168,22 +168,22 @@ function CommentCard({ comment: c }: { comment: AdminCommentRow }) {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 10 }}>
-        <input type="checkbox" name="ids" value={c.id} style={{ marginTop: 4, accentColor: '#534AB7' }} />
+        <input type="checkbox" name="ids" value={c.id} style={{ marginTop: 4, accentColor: '#B54A2C' }} />
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'baseline', marginBottom: 4 }}>
-            <span style={{ fontSize: 13, fontWeight: 600, color: '#1A1A1A' }}>
+            <span style={{ fontSize: 13, fontWeight: 600, color: '#1C1A17' }}>
               {c.user_name ?? c.user_email}
             </span>
-            <span style={{ fontSize: 11, color: '#7A7870' }}>
+            <span style={{ fontSize: 11, color: '#7C7568' }}>
               {c.user_email}
             </span>
             <RoleBadge role={c.user_role} />
-            <span style={{ fontSize: 11, color: '#7A7870', marginLeft: 'auto' }}>
+            <span style={{ fontSize: 11, color: '#7C7568', marginLeft: 'auto' }}>
               {dateLabel}
             </span>
           </div>
-          <p style={{ fontSize: 11, color: '#7A7870' }}>
-            <Link href={`/partite/${c.match_slug}`} target="_blank" style={{ color: '#534AB7', textDecoration: 'none' }}>
+          <p style={{ fontSize: 11, color: '#7C7568' }}>
+            <Link href={`/partite/${c.match_slug}`} target="_blank" style={{ color: '#B54A2C', textDecoration: 'none' }}>
               {c.match_winner_name} b. {c.match_loser_name} · {c.match_tournament_name} {c.match_year} ({c.match_round}) ↗
             </Link>
           </p>
@@ -191,10 +191,10 @@ function CommentCard({ comment: c }: { comment: AdminCommentRow }) {
       </div>
 
       <p style={{
-        fontSize: 14, lineHeight: 1.6, color: '#1A1A1A',
+        fontSize: 14, lineHeight: 1.6, color: '#1C1A17',
         whiteSpace: 'pre-wrap',
         padding: '8px 12px',
-        background: 'rgba(26,26,26,0.03)',
+        background: 'rgba(28,26,23,0.03)',
         borderRadius: 2,
         marginBottom: 10,
       }}>
@@ -218,8 +218,8 @@ function CommentCard({ comment: c }: { comment: AdminCommentRow }) {
           <input type="hidden" name="user_id" value={c.user_id} />
           <select name="role" defaultValue={c.user_role} style={{
             fontSize: 11, padding: '4px 8px',
-            border: '1px solid rgba(26,26,26,0.15)', borderRadius: 2,
-            color: '#1A1A1A',
+            border: '1px solid rgba(28,26,23,0.15)', borderRadius: 2,
+            color: '#1C1A17',
           }}>
             <option value="user">user</option>
             <option value="trusted">trusted</option>
@@ -235,10 +235,10 @@ function CommentCard({ comment: c }: { comment: AdminCommentRow }) {
 
 function RoleBadge({ role }: { role: string }) {
   const cfg: Record<string, { bg: string; fg: string }> = {
-    admin:   { bg: 'rgba(200,168,92,0.15)', fg: '#92400E' },
+    admin:   { bg: 'rgba(156,124,62,0.15)', fg: '#92400E' },
     trusted: { bg: 'rgba(34,197,94,0.1)',   fg: '#16A34A' },
     banned:  { bg: 'rgba(220,38,38,0.1)',   fg: '#991B1B' },
-    user:    { bg: 'rgba(26,26,26,0.05)',   fg: '#7A7870' },
+    user:    { bg: 'rgba(28,26,23,0.05)',   fg: '#7C7568' },
   }
   const c = cfg[role] ?? cfg.user
   return (
@@ -264,6 +264,6 @@ const btnReject: React.CSSProperties = {
 }
 const btnGhost: React.CSSProperties = {
   fontSize: 11, fontWeight: 500, letterSpacing: '0.06em',
-  padding: '4px 10px', background: 'transparent', color: '#534AB7',
-  border: '1px solid rgba(83,74,183,0.3)', borderRadius: 2, cursor: 'pointer',
+  padding: '4px 10px', background: 'transparent', color: '#B54A2C',
+  border: '1px solid rgba(181,74,44,0.3)', borderRadius: 2, cursor: 'pointer',
 }

@@ -39,18 +39,18 @@ export function NewsletterForm({ source = 'homepage', compact = false }: Newslet
       <div
         style={{
           padding: compact ? '12px 16px' : '20px 24px',
-          background: 'rgba(83,74,183,0.08)',
-          border: '1px solid rgba(83,74,183,0.2)',
+          background: 'rgba(181,74,44,0.08)',
+          border: '1px solid rgba(181,74,44,0.2)',
           borderRadius: 2,
           textAlign: 'center',
         }}
       >
         <p
           style={{
-            fontFamily: "'DM Serif Display', serif",
+            fontFamily: "'Source Serif 4', serif",
             fontStyle: 'italic',
             fontSize: compact ? 14 : 16,
-            color: '#534AB7',
+            color: '#B54A2C',
           }}
         >
           Iscrizione confermata. A presto.
@@ -71,11 +71,11 @@ export function NewsletterForm({ source = 'homepage', compact = false }: Newslet
           flex: 1,
           minWidth: 200,
           padding: compact ? '8px 12px' : '10px 14px',
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 13,
-          color: '#1A1A1A',
+          color: '#1C1A17',
           background: '#FFFFFF',
-          border: '1px solid rgba(26,26,26,0.15)',
+          border: '1px solid rgba(28,26,23,0.15)',
           borderRadius: 2,
           outline: 'none',
         }}
@@ -85,12 +85,12 @@ export function NewsletterForm({ source = 'homepage', compact = false }: Newslet
         disabled={status === 'loading'}
         style={{
           padding: compact ? '8px 16px' : '10px 20px',
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 11,
           fontWeight: 600,
           letterSpacing: '0.08em',
           textTransform: 'uppercase',
-          background: '#534AB7',
+          background: '#B54A2C',
           color: '#ffffff',
           border: 'none',
           borderRadius: 2,
@@ -104,7 +104,7 @@ export function NewsletterForm({ source = 'homepage', compact = false }: Newslet
         <p
           style={{
             width: '100%',
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 12,
             color: '#D84F2E',
             marginTop: 4,

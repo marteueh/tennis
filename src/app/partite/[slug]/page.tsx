@@ -136,53 +136,48 @@ export default async function PartitaPage({
 
       {/* Breadcrumb */}
       <nav style={{ marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center' }}>
-        <Link href="/partite" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#7A7870', textDecoration: 'none' }}>
+        <Link href="/partite" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#7C7568', textDecoration: 'none' }}>
           Partite
         </Link>
-        <span style={{ color: 'rgba(26,26,26,0.2)', fontSize: 12 }}>›</span>
+        <span style={{ color: 'rgba(28,26,23,0.2)', fontSize: 12 }}>›</span>
         {tourn && (
           <>
-            <Link href={`/tornei/${tourn.slug}`} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#7A7870', textDecoration: 'none' }}>
+            <Link href={`/tornei/${tourn.slug}`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#7C7568', textDecoration: 'none' }}>
               {tournLabel}
             </Link>
-            <span style={{ color: 'rgba(26,26,26,0.2)', fontSize: 12 }}>›</span>
+            <span style={{ color: 'rgba(28,26,23,0.2)', fontSize: 12 }}>›</span>
           </>
         )}
-        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#1A1A1A' }}>
+        <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#1C1A17' }}>
           {match.year}
         </span>
       </nav>
 
       <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 320px',
-          gap: 40,
-          alignItems: 'start',
-        }}
-        className="grid-cols-1 lg:grid-cols-[1fr_320px]"
+        style={{ gap: 40, alignItems: 'start' }}
+        className="grid grid-cols-1 lg:grid-cols-[1fr_320px]"
       >
         {/* ── Colonna principale ── */}
         <div>
           {/* Meta tag */}
           <div style={{ display: 'flex', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
             {tourn && (
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#534AB7' }}>
+              <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#B54A2C' }}>
                 {tournLabel}
               </span>
             )}
-            <span style={{ color: 'rgba(26,26,26,0.2)', fontSize: 10 }}>·</span>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7A7870' }}>
+            <span style={{ color: 'rgba(28,26,23,0.2)', fontSize: 10 }}>·</span>
+            <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7C7568' }}>
               {match.year}
             </span>
-            <span style={{ color: 'rgba(26,26,26,0.2)', fontSize: 10 }}>·</span>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C8A85C' }}>
+            <span style={{ color: 'rgba(28,26,23,0.2)', fontSize: 10 }}>·</span>
+            <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9C7C3E' }}>
               {ROUND_LABELS[match.round] ?? match.round}
             </span>
             {match.surface && (
               <>
-                <span style={{ color: 'rgba(26,26,26,0.2)', fontSize: 10 }}>·</span>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7A7870' }}>
+                <span style={{ color: 'rgba(28,26,23,0.2)', fontSize: 10 }}>·</span>
+                <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7C7568' }}>
                   {SURFACE_LABELS[match.surface] ?? match.surface}
                 </span>
               </>
@@ -193,7 +188,7 @@ export default async function PartitaPage({
           <div
             style={{
               background: '#FFFFFF',
-              border: '1px solid rgba(26,26,26,0.08)',
+              border: '1px solid rgba(28,26,23,0.08)',
               borderRadius: 2,
               padding: '32px',
               marginBottom: 32,
@@ -203,10 +198,12 @@ export default async function PartitaPage({
             <div
               style={{
                 display: 'flex',
+                flexWrap: 'wrap',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                gap: 8,
                 padding: '12px 16px',
-                background: 'rgba(83,74,183,0.08)',
+                background: 'rgba(181,74,44,0.08)',
                 borderRadius: 2,
                 marginBottom: 8,
               }}
@@ -219,22 +216,22 @@ export default async function PartitaPage({
                   >
                     <span
                       style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontFamily: "'Source Serif 4', Georgia, serif",
                         fontSize: 24,
                         fontWeight: 600,
-                        color: '#534AB7',
+                        color: '#B54A2C',
                         lineHeight: 1.1,
                         display: 'block',
                       }}
                     >
                       {playerFullName(winner)}
                     </span>
-                    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: '#7A7870', letterSpacing: '0.04em' }}>
+                    <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: '#7C7568', letterSpacing: '0.04em' }}>
                       {winner.country_code} · Rank #{match.winner_rank ?? '–'}
                     </span>
                   </Link>
                 ) : (
-                  <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 600, color: '#534AB7' }}>N/D</span>
+                  <span style={{ fontFamily: "'Source Serif 4', serif", fontSize: 24, fontWeight: 600, color: '#B54A2C' }}>N/D</span>
                 )}
               </div>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexShrink: 0 }}>
@@ -252,10 +249,9 @@ export default async function PartitaPage({
                         display: 'inline-block',
                         width: 36,
                         textAlign: 'center',
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                        fontSize: 30,
-                        fontWeight: wonSet ? 600 : 400,
-                        color: wonSet ? '#1A1A1A' : 'rgba(26,26,26,0.3)',
+                        fontFamily: "'Bebas Neue', Impact, sans-serif",
+                        fontSize: 34,
+                        color: wonSet ? '#1C1A17' : 'rgba(28,26,23,0.3)',
                         lineHeight: 1,
                         fontVariantNumeric: 'tabular-nums',
                       }}
@@ -271,8 +267,10 @@ export default async function PartitaPage({
             <div
               style={{
                 display: 'flex',
+                flexWrap: 'wrap',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                gap: 8,
                 padding: '8px 16px',
               }}
             >
@@ -281,22 +279,22 @@ export default async function PartitaPage({
                   <Link href={`/giocatori/${loser.slug}`} style={{ textDecoration: 'none' }}>
                     <span
                       style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontFamily: "'Source Serif 4', Georgia, serif",
                         fontSize: 20,
                         fontWeight: 400,
-                        color: 'rgba(26,26,26,0.45)',
+                        color: 'rgba(28,26,23,0.45)',
                         lineHeight: 1.1,
                         display: 'block',
                       }}
                     >
                       {playerFullName(loser)}
                     </span>
-                    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: 'rgba(26,26,26,0.3)', letterSpacing: '0.04em' }}>
+                    <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: 'rgba(28,26,23,0.3)', letterSpacing: '0.04em' }}>
                       {loser.country_code} · Rank #{match.loser_rank ?? '–'}
                     </span>
                   </Link>
                 ) : (
-                  <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: 'rgba(26,26,26,0.45)' }}>N/D</span>
+                  <span style={{ fontFamily: "'Source Serif 4', serif", fontSize: 20, color: 'rgba(28,26,23,0.45)' }}>N/D</span>
                 )}
               </div>
               <div style={{ display: 'flex', gap: 10, flexShrink: 0 }}>
@@ -316,10 +314,9 @@ export default async function PartitaPage({
                         width: 36,
                         textAlign: 'center',
                         position: 'relative',
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                        fontSize: 30,
-                        fontWeight: wonSet ? 600 : 400,
-                        color: wonSet ? 'rgba(26,26,26,0.55)' : 'rgba(26,26,26,0.2)',
+                        fontFamily: "'Bebas Neue', Impact, sans-serif",
+                        fontSize: 34,
+                        color: wonSet ? 'rgba(28,26,23,0.55)' : 'rgba(28,26,23,0.2)',
                         lineHeight: 1,
                         fontVariantNumeric: 'tabular-nums',
                       }}
@@ -331,8 +328,8 @@ export default async function PartitaPage({
                           top: -2,
                           right: -11,
                           fontSize: 10,
-                          fontFamily: "'DM Sans', sans-serif",
-                          color: 'rgba(26,26,26,0.35)',
+                          fontFamily: "'Plus Jakarta Sans', sans-serif",
+                          color: 'rgba(28,26,23,0.35)',
                           fontWeight: 400,
                         }}>
                           {tb}
@@ -349,19 +346,19 @@ export default async function PartitaPage({
           <div style={{ marginBottom: 32 }}>
             <p
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: 10,
                 fontWeight: 500,
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
-                color: '#7A7870',
+                color: '#7C7568',
                 marginBottom: 12,
                 display: 'flex',
                 alignItems: 'center',
                 gap: 8,
               }}
             >
-              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
               Video
             </p>
             <MatchVideo
@@ -379,7 +376,7 @@ export default async function PartitaPage({
             <div
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(26,26,26,0.08)',
+                border: '1px solid rgba(28,26,23,0.08)',
                 borderRadius: 2,
                 padding: '28px',
                 marginBottom: 32,
@@ -387,19 +384,19 @@ export default async function PartitaPage({
             >
               <p
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 10,
                   fontWeight: 500,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  color: '#7A7870',
+                  color: '#7C7568',
                   marginBottom: 20,
                   display: 'flex',
                   alignItems: 'center',
                   gap: 8,
                 }}
               >
-                <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+                <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
                 Statistiche
               </p>
               <StatsBlock
@@ -422,19 +419,19 @@ export default async function PartitaPage({
             <div style={{ marginBottom: 32 }}>
               <p
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 10,
                   fontWeight: 500,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  color: '#7A7870',
+                  color: '#7C7568',
                   marginBottom: 12,
                   display: 'flex',
                   alignItems: 'center',
                   gap: 8,
                 }}
               >
-                <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+                <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
                 La voce narrante
               </p>
               <ClericiVoice
@@ -456,18 +453,18 @@ export default async function PartitaPage({
             <div
               style={{
                 padding: '16px 20px',
-                background: 'rgba(200,168,92,0.07)',
-                border: '1px solid rgba(200,168,92,0.2)',
+                background: 'rgba(156,124,62,0.07)',
+                border: '1px solid rgba(156,124,62,0.2)',
                 borderRadius: 2,
               }}
             >
               <p
                 style={{
-                  fontFamily: "'DM Serif Display', serif",
+                  fontFamily: "'Source Serif 4', serif",
                   fontStyle: 'italic',
                   fontSize: 14,
                   lineHeight: 1.7,
-                  color: '#1A1A1A',
+                  color: '#1C1A17',
                 }}
               >
                 {match.editorial_note_it}
@@ -481,20 +478,20 @@ export default async function PartitaPage({
           <div
             style={{
               background: '#FFFFFF',
-              border: '1px solid rgba(26,26,26,0.08)',
+              border: '1px solid rgba(28,26,23,0.08)',
               borderRadius: 2,
               overflow: 'hidden',
             }}
           >
-            <div style={{ padding: '12px 16px', borderBottom: '2px solid #1A1A1A' }}>
+            <div style={{ padding: '12px 16px', borderBottom: '2px solid #1C1A17' }}>
               <p
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 9,
                   fontWeight: 500,
                   letterSpacing: '0.18em',
                   textTransform: 'uppercase',
-                  color: '#7A7870',
+                  color: '#7C7568',
                 }}
               >
                 Info Partita
@@ -516,19 +513,19 @@ export default async function PartitaPage({
                     display: 'flex',
                     justifyContent: 'space-between',
                     padding: '10px 16px',
-                    borderBottom: '1px solid rgba(26,26,26,0.05)',
+                    borderBottom: '1px solid rgba(28,26,23,0.05)',
                     gap: 12,
                   }}
                 >
-                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#7A7870', flexShrink: 0 }}>
+                  <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#7C7568', flexShrink: 0 }}>
                     {label}
                   </span>
                   <span
                     style={{
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
                       fontSize: 12,
                       fontWeight: 500,
-                      color: '#1A1A1A',
+                      color: '#1C1A17',
                       textAlign: 'right',
                       fontVariantNumeric: 'tabular-nums',
                     }}
@@ -546,13 +543,13 @@ export default async function PartitaPage({
               <Link
                 href={`/giocatori/${winner.slug}`}
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 12,
                   fontWeight: 500,
-                  color: '#534AB7',
+                  color: '#B54A2C',
                   textDecoration: 'none',
                   padding: '10px 14px',
-                  border: '1px solid rgba(83,74,183,0.25)',
+                  border: '1px solid rgba(181,74,44,0.25)',
                   borderRadius: 2,
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -567,13 +564,13 @@ export default async function PartitaPage({
               <Link
                 href={`/giocatori/${loser.slug}`}
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 12,
                   fontWeight: 500,
-                  color: '#7A7870',
+                  color: '#7C7568',
                   textDecoration: 'none',
                   padding: '10px 14px',
-                  border: '1px solid rgba(26,26,26,0.1)',
+                  border: '1px solid rgba(28,26,23,0.1)',
                   borderRadius: 2,
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -594,16 +591,16 @@ export default async function PartitaPage({
       <section style={{ maxWidth: 760, margin: '0 auto 48px' }}>
         <p
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 10, fontWeight: 500, letterSpacing: '0.12em',
-            textTransform: 'uppercase', color: '#7A7870',
+            textTransform: 'uppercase', color: '#7C7568',
             marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8,
           }}
         >
-          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7A7870', opacity: 0.4 }} />
+          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
           Conversazione
           {comments.length > 0 && (
-            <span style={{ color: 'rgba(26,26,26,0.4)', fontSize: 10 }}>
+            <span style={{ color: 'rgba(28,26,23,0.4)', fontSize: 10 }}>
               · {comments.length} commento{comments.length === 1 ? '' : 'i'}
             </span>
           )}
@@ -619,9 +616,9 @@ export default async function PartitaPage({
       <SectionDivider />
 
       {/* Attribuzione dati */}
-      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: 'rgba(26,26,26,0.3)', textAlign: 'center' }}>
+      <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: 'rgba(28,26,23,0.3)', textAlign: 'center' }}>
         Dati statistici: Jeff Sackmann / Tennis Abstract (CC-BY-NC-SA 4.0) ·{' '}
-        <a href="https://github.com/JeffSackmann/tennis_atp" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(26,26,26,0.45)' }}>
+        <a href="https://github.com/JeffSackmann/tennis_atp" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(28,26,23,0.45)' }}>
           github.com/JeffSackmann/tennis_atp
         </a>
       </p>

@@ -9,17 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper:   '#F5F2EB',
-        ink:     '#1A1A1A',
-        accent:  '#534AB7',
-        gold:    '#C8A85C',
-        coral:   '#D84F2E',
-        muted:   '#7A7870',
+        paper:   '#F3EEE3',
+        ink:     '#1C1A17',
+        accent:  '#B54A2C',
+        gold:    '#9C7C3E',
+        coral:   '#B54A2C',
+        muted:   '#7C7568',
         surface: '#FFFFFF',
       },
       fontFamily: {
-        serif:  ['DM Serif Display', 'Georgia', 'serif'],
-        sans:   ['DM Sans', 'system-ui', 'sans-serif'],
+        serif:  ['Source Serif 4', 'Georgia', 'serif'],
+        sans:   ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
         bebas:  ['Bebas Neue', 'Impact', 'sans-serif'],
       },
       fontSize: {
@@ -35,8 +35,8 @@ const config: Config = {
       backgroundImage: {
         'grid-lines': `repeating-linear-gradient(
           0deg,
-          rgba(26,26,26,0.04) 0px,
-          rgba(26,26,26,0.04) 1px,
+          rgba(28,26,23,0.04) 0px,
+          rgba(28,26,23,0.04) 1px,
           transparent 1px,
           transparent 36px
         )`,
