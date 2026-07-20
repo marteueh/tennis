@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "regions": ["fra1"],
+  "crons": [
+    {
+      "path": "/api/cron/youtube-match",
+      "schedule": "0 3 * * 1"
+    }
+  ],
+  "functions": {
+    "src/app/api/cron/youtube-match/route.ts": {
+      "maxDuration": 300
+    }
+  }
+}

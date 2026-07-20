@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper:   #F5F2EB;
+  --ink:     #1A1A1A;
+  --accent:  #534AB7;
+  --gold:    #C8A85C;
+  --coral:   #D84F2E;
+  --muted:   #7A7870;
+  --border:  rgba(26,26,26,0.10);
+  --surface: #FFFFFF;
+}
+
+@layer base {
+  html {
+    background-color: var(--paper);
+    color: var(--ink);
+  }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink);
+    background-color: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tutti i numeri in tabular nums */
+  [data-stat], .stat-num, .score-num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}
+
+@layer components {
+  /* ── Divisore tre righe ── */
+  .section-divider {
+    @apply relative flex items-center gap-0 my-12;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-ink/10;
+  }
+  .section-divider-inner {
+    @apply w-8 h-px bg-accent mx-0;
+  }
+
+  /* ── Tag uppercase ── */
+  .tag {
+    @apply text-label font-sans font-medium uppercase tracking-widest text-muted;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tag::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
+  }
+
+  /* ── Score chip ── */
+  .score-chip {
+    @apply font-display text-2xl;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  /* ── Video wrapper responsive ── */
+  .video-wrapper {
+    @apply relative w-full overflow-hidden rounded-sm;
+    aspect-ratio: 16/9;
+  }
+  .video-wrapper iframe {
+    @apply absolute inset-0 w-full h-full;
+  }
+
+  /* ── Stat bar ── */
+  .stat-bar-track {
+    @apply h-[3px] rounded-full overflow-hidden bg-ink/10;
+  }
+  .stat-bar-fill-winner {
+    @apply h-full rounded-full bg-accent;
+  }
+  .stat-bar-fill-loser {
+    @apply h-full rounded-full bg-ink/20;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Playfair Display', Georgia, serif; }
+  .font-serif   { font-family: 'DM Serif Display', Georgia, serif; }
+  .font-sans    { font-family: 'DM Sans', system-ui, sans-serif; }
+  .font-garamond { font-family: 'EB Garamond', Georgia, serif; }
+
+  /* Anno decorativo hero — su sfondo chiaro */
+  .year-watermark {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(80px, 15vw, 140px);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ink);
+    opacity: 0.04;
+    user-select: none;
+    pointer-events: none;
+    letter-spacing: -0.02em;
+  }
+
+  /* Griglia linee decorativa su sfondo chiaro */
+  .hero-grid {
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(26,26,26,0.03) 0px,
+      rgba(26,26,26,0.03) 1px,
+      transparent 1px,
+      transparent 36px
+    );
+  }
+
+  /*
+   * Texture LOC — Library of Congress free-to-use tennis photos
+   * (loc.gov/free-to-use/tennis) come sfondo a bassa opacità.
+   * Sovrappone il CSS var --hero-loc-image se impostata nel parent.
+   * Uso: <div class="hero-loc-texture" style="--hero-loc-image: url('/loc/tennis-1.jpg')">
+   */
+  .hero-loc-texture {
+    position: relative;
+    isolation: isolate;
+  }
+  .hero-loc-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--hero-loc-image, none);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+    mix-blend-mode: luminosity;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-loc-texture > * {
+    position: relative;
+    z-index: 1;
+  }
+}

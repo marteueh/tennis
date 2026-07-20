@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ace Chronicle — Logo v2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:  #F5F2EB;
+      --ink:    #1A1A1A;
+      --accent: #534AB7;
+      --gold:   #C8A85C;
+      --muted:  #7A7870;
+    }
+
+    body {
+      background: #111;
+      font-family: 'DM Sans', sans-serif;
+      padding: 80px 64px;
+    }
+
+    /* ─── utility ─── */
+    .label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.2);
+      margin-bottom: 28px;
+    }
+    .label em { color: var(--gold); font-style: normal; }
+
+    section { margin-bottom: 80px; }
+
+    .row { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+
+    .box {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 52px 64px;
+      border-radius: 2px;
+    }
+    .box.dark  { background: var(--ink); }
+    .box.paper { background: var(--paper); }
+
+    .sep {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.055);
+      margin: 72px 0;
+    }
+
+    /* ─── LOGO ─── */
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      user-select: none;
+    }
+
+    /* Riga principale: ACE [ball] CHRONICLE */
+    .logo-wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-wordmark span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 46px;
+      line-height: 1;
+      letter-spacing: .07em;
+    }
+
+    .w-ace        { color: #fff; }
+    .w-chronicle  { color: #fff; }
+
+    /* Era tag sotto */
+    .logo-era {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 5px;
+      padding-left: 2px;
+    }
+    .logo-era-line {
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: .55;
+      min-width: 20px;
+    }
+    .logo-era span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ─ on-paper ─ */
+    .logo.on-paper .w-ace,
+    .logo.on-paper .w-chronicle { color: var(--ink); }
+
+    /* compact */
+    .logo.compact .logo-wordmark span { font-size: 28px; }
+    .logo.compact .logo-wordmark { gap: 7px; }
+    .logo.compact .logo-era { margin-top: 3px; }
+    .logo.compact .logo-era span { font-size: 7.5px; }
+
+    /* ─── ICON GRID ─── */
+    .icon-grid { display: flex; gap: 32px; align-items: flex-end; flex-wrap: wrap; }
+    .icon-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .icon-item figcaption {
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.2);
+    }
+
+    /* ─── concept note ─── */
+    .note {
+      max-width: 460px;
+      padding-left: 18px;
+      border-left: 2px solid var(--accent);
+      margin-top: 8px;
+    }
+    .note p {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .note small {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      font-size: 9.5px;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.15);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ 01 — DARK ══════════ -->
+<section>
+  <p class="label">01 — Logo principale · sfondo scuro <em>(navbar)</em></p>
+  <div class="box dark">
+    <div class="logo">
+      <div class="logo-wordmark">
+        <span class="w-ace">ACE</span>
+
+        <!-- PALLINA: due S-curve che si incrociano al centro = cucitura reale -->
+        <svg width="26" height="26" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="26" cy="26" r="22" stroke="#C8A85C" stroke-width="2"/>
+          <path d="M 6 18 C 14 22 38 30 46 34" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 6 34 C 14 30 38 22 46 18" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+
+        <span class="w-chronicle">CHRONICLE</span>
+      </div>
+
+      <!-- era tag -->
+      <div class="logo-era" style="width:100%">
+        <div class="logo-era-line"></div>
+        <span>Archivio del tennis 1985 – 2000</span>
+        <div class="logo-era-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ 02 — PAPER ══════════ -->
+<section>
+  <p class="label">02 — Logo principale · sfondo carta</p>
+  <div class="box paper">
+    <div class="logo on-paper">
+      <div class="logo-wordmark">
+        <span class="w-ace">ACE</span>
+        <svg width="26" height="26" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="26" cy="26" r="22" stroke="#C8A85C" stroke-width="2"/>
+          <path d="M 6 18 C 14 22 38 30 46 34" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 6 34 C 14 30 38 22 46 18" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="w-chronicle">CHRONICLE</span>
+      </div>
+      <div class="logo-era" style="width:100%">
+        <div class="logo-era-line"></div>
+        <span style="color:var(--muted)">Archivio del tennis 1985 – 2000</span>
+        <div class="logo-era-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<hr class="sep">
+
+
+<!-- ══════════ 03 — SOLO WORDMARK (senza tagline) ══════════ -->
+<section>
+  <p class="label">03 — Versione essenziale · senza tagline <em>(navbar compatta)</em></p>
+  <div class="row">
+    <div class="box dark">
+      <div class="logo-wordmark">
+        <span class="w-ace">ACE</span>
+        <svg width="26" height="26" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="26" cy="26" r="22" stroke="#C8A85C" stroke-width="2"/>
+          <path d="M 6 18 C 14 22 38 30 46 34" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 6 34 C 14 30 38 22 46 18" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="w-chronicle">CHRONICLE</span>
+      </div>
+    </div>
+
+    <div class="box paper">
+      <div class="logo-wordmark">
+        <span class="w-ace" style="color:var(--ink)">ACE</span>
+        <svg width="26" height="26" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="26" cy="26" r="22" stroke="#C8A85C" stroke-width="2"/>
+          <path d="M 6 18 C 14 22 38 30 46 34" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 6 34 C 14 30 38 22 46 18" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="w-chronicle" style="color:var(--ink)">CHRONICLE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ 04 — COMPACT ══════════ -->
+<section>
+  <p class="label">04 — Variante compatta <em>(mobile)</em></p>
+  <div class="row">
+    <div class="box dark">
+      <div class="logo compact">
+        <div class="logo-wordmark">
+          <span class="w-ace">ACE</span>
+          <svg width="17" height="17" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="22" stroke="#C8A85C" stroke-width="2.5"/>
+            <path d="M 6 18 C 14 22 38 30 46 34" stroke="#534AB7" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M 6 34 C 14 30 38 22 46 18" stroke="#534AB7" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <span class="w-chronicle">CHRONICLE</span>
+        </div>
+        <div class="logo-era" style="width:100%">
+          <div class="logo-era-line"></div>
+          <span>1985 – 2000</span>
+          <div class="logo-era-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box paper">
+      <div class="logo compact on-paper">
+        <div class="logo-wordmark">
+          <span class="w-ace">ACE</span>
+          <svg width="17" height="17" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="22" stroke="#C8A85C" stroke-width="2.5"/>
+            <path d="M 6 18 C 14 22 38 30 46 34" stroke="#534AB7" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M 6 34 C 14 30 38 22 46 18" stroke="#534AB7" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <span class="w-chronicle">CHRONICLE</span>
+        </div>
+        <div class="logo-era" style="width:100%">
+          <div class="logo-era-line"></div>
+          <span style="color:var(--muted)">1985 – 2000</span>
+          <div class="logo-era-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<hr class="sep">
+
+
+<!-- ══════════ 05 — ICONE ══════════ -->
+<section>
+  <p class="label">05 — Icona quadrata <em>(favicon · avatar social)</em></p>
+  <div class="icon-grid">
+
+    <!-- 128 -->
+    <figure class="icon-item">
+      <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="128" height="128" rx="24" fill="#1A1A1A"/>
+        <circle cx="64" cy="64" r="44" stroke="#C8A85C" stroke-width="2.5"/>
+        <path d="M 22 46 C 36 54 92 74 106 82" stroke="#534AB7" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 22 82 C 36 74 92 54 106 46" stroke="#534AB7" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <figcaption>128 px</figcaption>
+    </figure>
+
+    <!-- 96 -->
+    <figure class="icon-item">
+      <svg width="96" height="96" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="128" height="128" rx="24" fill="#1A1A1A"/>
+        <circle cx="64" cy="64" r="44" stroke="#C8A85C" stroke-width="2.5"/>
+        <path d="M 22 46 C 36 54 92 74 106 82" stroke="#534AB7" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 22 82 C 36 74 92 54 106 46" stroke="#534AB7" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <figcaption>96 px</figcaption>
+    </figure>
+
+    <!-- 64 -->
+    <figure class="icon-item">
+      <svg width="64" height="64" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="128" height="128" rx="24" fill="#1A1A1A"/>
+        <circle cx="64" cy="64" r="44" stroke="#C8A85C" stroke-width="3"/>
+        <path d="M 22 46 C 36 54 92 74 106 82" stroke="#534AB7" stroke-width="3" stroke-linecap="round"/>
+        <path d="M 22 82 C 36 74 92 54 106 46" stroke="#534AB7" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <figcaption>64 px</figcaption>
+    </figure>
+
+    <!-- 48 -->
+    <figure class="icon-item">
+      <svg width="48" height="48" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="128" height="128" rx="24" fill="#1A1A1A"/>
+        <circle cx="64" cy="64" r="44" stroke="#C8A85C" stroke-width="4"/>
+        <path d="M 22 46 C 36 54 92 74 106 82" stroke="#534AB7" stroke-width="4" stroke-linecap="round"/>
+        <path d="M 22 82 C 36 74 92 54 106 46" stroke="#534AB7" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <figcaption>48 px</figcaption>
+    </figure>
+
+    <!-- 32 — viola per contrasto -->
+    <figure class="icon-item">
+      <svg width="32" height="32" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="128" height="128" rx="24" fill="#534AB7"/>
+        <circle cx="64" cy="64" r="44" stroke="#C8A85C" stroke-width="5"/>
+        <path d="M 22 46 C 36 54 92 74 106 82" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M 22 82 C 36 74 92 54 106 46" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+      </svg>
+      <figcaption>32 px</figcaption>
+    </figure>
+
+    <!-- 16 -->
+    <figure class="icon-item">
+      <svg width="16" height="16" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="128" height="128" rx="24" fill="#534AB7"/>
+        <circle cx="64" cy="64" r="44" stroke="#C8A85C" stroke-width="7"/>
+        <path d="M 22 46 C 36 54 92 74 106 82" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <path d="M 22 82 C 36 74 92 54 106 46" stroke="white" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+      <figcaption>16 px</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+
+<hr class="sep">
+
+
+<!-- ══════════ 06 — MARK SU VARI SFONDI ══════════ -->
+<section>
+  <p class="label">06 — Mark isolato</p>
+  <div class="row">
+
+    <div style="display:inline-flex;flex-direction:column;align-items:center;gap:12px;">
+      <div style="background:var(--ink);padding:40px;border-radius:2px;display:flex;">
+        <svg width="72" height="72" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="22" stroke="#C8A85C" stroke-width="1.8"/>
+          <path d="M 6 18 C 14 22 38 30 46 34" stroke="#534AB7" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M 6 34 C 14 30 38 22 46 18" stroke="#534AB7" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.18)">scuro</span>
+    </div>
+
+    <div style="display:inline-flex;flex-direction:column;align-items:center;gap:12px;">
+      <div style="background:var(--paper);padding:40px;border-radius:2px;display:flex;">
+        <svg width="72" height="72" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="22" stroke="#C8A85C" stroke-width="1.8"/>
+          <path d="M 6 18 C 14 22 38 30 46 34" stroke="#534AB7" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M 6 34 C 14 30 38 22 46 18" stroke="#534AB7" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.18)">carta</span>
+    </div>
+
+    <div style="display:inline-flex;flex-direction:column;align-items:center;gap:12px;">
+      <div style="background:var(--accent);padding:40px;border-radius:2px;display:flex;">
+        <svg width="72" height="72" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="22" stroke="#C8A85C" stroke-width="1.8"/>
+          <path d="M 6 18 C 14 22 38 30 46 34" stroke="rgba(255,255,255,.9)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M 6 34 C 14 30 38 22 46 18" stroke="rgba(255,255,255,.9)" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.18)">viola</span>
+    </div>
+
+    <div style="display:inline-flex;flex-direction:column;align-items:center;gap:12px;">
+      <div style="background:var(--gold);padding:40px;border-radius:2px;display:flex;">
+        <svg width="72" height="72" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="22" stroke="var(--ink)" stroke-width="1.8"/>
+          <path d="M 6 18 C 14 22 38 30 46 34" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M 6 34 C 14 30 38 22 46 18" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.18)">oro</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════ NOTE ══════════ -->
+<div class="note" style="margin-top:16px;">
+  <p>La pallina divide i due lemmi come un sigillo editoriale. Le cuciture sono due S-curve che si incrociano esattamente al centro — geometria reale di una pallina da tennis, non decorazione.</p>
+  <small>Oro #C8A85C · Viola #534AB7 · Bebas Neue · DM Sans</small>
+</div>
+
+</body>
+</html>
