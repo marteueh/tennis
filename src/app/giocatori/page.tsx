@@ -100,10 +100,12 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
       </div>
 
       <div
+        id="risultati"
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
           gap: 12,
+          scrollMarginTop: 80,
         }}
       >
         {players.map((player) => (
@@ -253,7 +255,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
     if (search) params.set('q', search)
     if (p > 1) params.set('page', String(p))
     const qs = params.toString()
-    return qs ? `/giocatori?${qs}` : '/giocatori'
+    return (qs ? `/giocatori?${qs}` : '/giocatori') + '#risultati'
   }
 
   // Costruisci elenco pagine con ellipsi
@@ -280,7 +282,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
       }}
     >
       {currentPage > 1 && (
-        <Link href={pageUrl(currentPage - 1)} scroll={false} style={pageBtnStyle()}>← Prec</Link>
+        <Link href={pageUrl(currentPage - 1)} style={pageBtnStyle()}>← Prec</Link>
       )}
       {pages.map((p, i) =>
         p === '…' ? (
@@ -289,7 +291,6 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
           <Link
             key={p}
             href={pageUrl(p)}
-            scroll={false}
             aria-current={p === currentPage ? 'page' : undefined}
             style={pageBtnStyle(p === currentPage)}
           >
@@ -298,7 +299,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
         ),
       )}
       {currentPage < totalPages && (
-        <Link href={pageUrl(currentPage + 1)} scroll={false} style={pageBtnStyle()}>Succ →</Link>
+        <Link href={pageUrl(currentPage + 1)} style={pageBtnStyle()}>Succ →</Link>
       )}
     </nav>
   )

@@ -159,7 +159,7 @@ export default async function PartitePage({ searchParams }: { searchParams: Prom
           Nessuna partita trovata con i filtri selezionati.
         </p>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 16 }}>
+        <div id="risultati" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 16, scrollMarginTop: 80 }}>
           {matches.map((match, i) => (
             <ScoreCard key={match.id} match={match} showNumber={(page - 1) * 20 + i + 1} />
           ))}
@@ -230,7 +230,7 @@ function FilterPill({ label }: { label: string }) {
 
 function PaginationLink({ href, label }: { href: string; label: string }) {
   return (
-    <Link href={href} scroll={false} style={{ fontFamily: "var(--font-sans)", fontSize: 12, fontWeight: 500, color: 'var(--accent)', textDecoration: 'none', padding: '8px 16px', border: '1px solid rgba(var(--accent-rgb),0.3)', borderRadius: 2 }}>
+    <Link href={href} style={{ fontFamily: "var(--font-sans)", fontSize: 12, fontWeight: 500, color: 'var(--accent)', textDecoration: 'none', padding: '8px 16px', border: '1px solid rgba(var(--accent-rgb),0.3)', borderRadius: 2 }}>
       {label}
     </Link>
   )
@@ -244,5 +244,5 @@ function buildUrl(p: { year?: number; surface?: string; torneo?: string; turno?:
   if (p.turno)   qs.set('turno',   p.turno)
   if (p.p && p.p > 1) qs.set('p', String(p.p))
   const str = qs.toString()
-  return `/partite${str ? `?${str}` : ''}`
+  return `/partite${str ? `?${str}` : ''}#risultati`
 }

@@ -347,7 +347,7 @@ export default async function GiocatorePage({
           <CulturalImpactSection items={culturalItems} title="Eco culturale" />
 
           {/* Partite */}
-          <div>
+          <div id="partite" style={{ scrollMarginTop: 80 }}>
             <h2
               style={{
                 fontFamily: "var(--font-serif)",
@@ -440,7 +440,7 @@ export default async function GiocatorePage({
 
 function MatchesPagination({ slug, currentPage, totalPages }: { slug: string; currentPage: number; totalPages: number }) {
   function pageUrl(p: number) {
-    return p > 1 ? `/giocatori/${slug}?p=${p}` : `/giocatori/${slug}`
+    return p > 1 ? `/giocatori/${slug}?p=${p}#partite` : `/giocatori/${slug}#partite`
   }
 
   const pages: (number | '…')[] = []
@@ -459,7 +459,7 @@ function MatchesPagination({ slug, currentPage, totalPages }: { slug: string; cu
       style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, marginTop: 32, fontFamily: "var(--font-sans)" }}
     >
       {currentPage > 1 && (
-        <Link href={pageUrl(currentPage - 1)} scroll={false} style={pageBtnStyle()}>← Prec</Link>
+        <Link href={pageUrl(currentPage - 1)} style={pageBtnStyle()}>← Prec</Link>
       )}
       {pages.map((p, i) =>
         p === '…' ? (
@@ -468,7 +468,6 @@ function MatchesPagination({ slug, currentPage, totalPages }: { slug: string; cu
           <Link
             key={p}
             href={pageUrl(p)}
-            scroll={false}
             aria-current={p === currentPage ? 'page' : undefined}
             style={pageBtnStyle(p === currentPage)}
           >
@@ -477,7 +476,7 @@ function MatchesPagination({ slug, currentPage, totalPages }: { slug: string; cu
         ),
       )}
       {currentPage < totalPages && (
-        <Link href={pageUrl(currentPage + 1)} scroll={false} style={pageBtnStyle()}>Succ →</Link>
+        <Link href={pageUrl(currentPage + 1)} style={pageBtnStyle()}>Succ →</Link>
       )}
     </nav>
   )
