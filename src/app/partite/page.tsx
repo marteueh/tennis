@@ -230,7 +230,7 @@ function FilterPill({ label }: { label: string }) {
 
 function PaginationLink({ href, label }: { href: string; label: string }) {
   return (
-    <Link href={href} style={{ fontFamily: "var(--font-sans)", fontSize: 12, fontWeight: 500, color: 'var(--accent)', textDecoration: 'none', padding: '8px 16px', border: '1px solid rgba(var(--accent-rgb),0.3)', borderRadius: 2 }}>
+    <Link href={href} scroll={false} style={{ fontFamily: "var(--font-sans)", fontSize: 12, fontWeight: 500, color: 'var(--accent)', textDecoration: 'none', padding: '8px 16px', border: '1px solid rgba(var(--accent-rgb),0.3)', borderRadius: 2 }}>
       {label}
     </Link>
   )

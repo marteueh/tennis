@@ -280,7 +280,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
       }}
     >
       {currentPage > 1 && (
-        <Link href={pageUrl(currentPage - 1)} style={pageBtnStyle()}>← Prec</Link>
+        <Link href={pageUrl(currentPage - 1)} scroll={false} style={pageBtnStyle()}>← Prec</Link>
       )}
       {pages.map((p, i) =>
         p === '…' ? (
@@ -289,6 +289,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
           <Link
             key={p}
             href={pageUrl(p)}
+            scroll={false}
             aria-current={p === currentPage ? 'page' : undefined}
             style={pageBtnStyle(p === currentPage)}
           >
@@ -297,7 +298,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
         ),
       )}
       {currentPage < totalPages && (
-        <Link href={pageUrl(currentPage + 1)} style={pageBtnStyle()}>Succ →</Link>
+        <Link href={pageUrl(currentPage + 1)} scroll={false} style={pageBtnStyle()}>Succ →</Link>
       )}
     </nav>
   )
