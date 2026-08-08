@@ -18,7 +18,7 @@ export default async function AdminTournamentsListPage() {
         </h1>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))', gap: 10 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 10 }}>
         {tournaments.map(t => (
           <Link
             key={t.id}

@@ -159,7 +159,7 @@ export default async function PartitePage({ searchParams }: { searchParams: Prom
           Nessuna partita trovata con i filtri selezionati.
         </p>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 16 }}>
           {matches.map((match, i) => (
             <ScoreCard key={match.id} match={match} showNumber={(page - 1) * 20 + i + 1} />
           ))}

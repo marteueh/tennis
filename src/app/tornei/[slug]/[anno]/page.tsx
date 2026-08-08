@@ -132,7 +132,7 @@ export default async function TorneoAnnoPage({
               </span>
               <div style={{ flex: 1, height: 1, background: 'rgba(28,26,23,0.08)' }} />
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))', gap: 12 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 12 }}>
               {roundMatches.map(m => (
                 <ScoreCard key={m.id} match={m} />
               ))}

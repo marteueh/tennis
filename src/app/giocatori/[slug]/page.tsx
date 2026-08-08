@@ -352,14 +352,14 @@ export default async function GiocatorePage({
                 >
                   Finali Slam vinte
                 </p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: 12 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 12 }}>
                   {slamWins.slice(0, 4).map(m => (
                     <ScoreCard key={m.id} match={m} />
                   ))}
                 </div>
               </div>
             )}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: 12, marginTop: 16 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 12, marginTop: 16 }}>
               {matches.slice(0, 20).map((m, i) => (
                 <ScoreCard key={m.id} match={m} showNumber={i + 1} />
               ))}

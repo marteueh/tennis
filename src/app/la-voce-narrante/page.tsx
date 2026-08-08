@@ -340,7 +340,7 @@ function BookList({ books, accent }: { books: Book[]; accent: string }) {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
         gap: 10,
       }}
     >

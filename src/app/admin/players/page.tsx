@@ -53,7 +53,7 @@ export default async function AdminPlayersListPage({ searchParams }: Props) {
         {players.length} risultat{players.length === 1 ? 'o' : 'i'}
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(240px, 100%), 1fr))', gap: 8 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 8 }}>
         {players.map(p => {
           const hasPhoto = !!p.photo_url
           const hasBio   = !!(p.bio_it || p.bio_en)

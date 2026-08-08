@@ -99,7 +99,7 @@ export default function NewsletterPage() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(min(220px, 100%), 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
             gap: 16,
             marginBottom: 56,
           }}

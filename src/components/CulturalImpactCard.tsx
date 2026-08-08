@@ -181,7 +181,7 @@ export function CulturalImpactSection({ items, title = "Eco culturale" }: Sectio
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
           gap: 12,
         }}
       >

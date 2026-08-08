@@ -92,7 +92,7 @@ export default async function TorneiPage() {
         >
           Grandi Slam
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 14 }}>
           {slams.map((t) => (
             <TournamentCard key={t.id} tournament={t} accent={SLAM_COLORS[t.slug] ?? '#B54A2C'} />
           ))}
@@ -115,7 +115,7 @@ export default async function TorneiPage() {
           >
             Masters Series e ATP
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(220px, 100%), 1fr))', gap: 10 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 10 }}>
             {others.map((t) => (
               <TournamentCard key={t.id} tournament={t} accent="#B54A2C" compact />
             ))}
