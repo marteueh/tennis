@@ -89,9 +89,9 @@ export async function generateMetadata({
   }
 }
 
-// La prima "pagina" dell'archivio partite mostra 12 risultati, le successive 16
+// La prima "pagina" dell'archivio partite mostra 12 risultati, le successive 15
 const FIRST_PAGE_SIZE = 12
-const NEXT_PAGE_SIZE = 16
+const NEXT_PAGE_SIZE = 15
 
 function matchesPageSlice(page: number): { start: number; end: number } {
   if (page <= 1) return { start: 0, end: FIRST_PAGE_SIZE }
