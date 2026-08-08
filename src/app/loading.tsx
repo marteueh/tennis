@@ -10,18 +10,17 @@ export default function Loading() {
         gap: 16,
       }}
     >
-      {/* Pallina animata */}
+      {/* Spinner */}
       <svg
-        width="32"
-        height="32"
-        viewBox="0 0 52 52"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
         fill="none"
-        style={{ animation: 'spin 1.2s linear infinite' }}
+        style={{ animation: 'spin 0.8s linear infinite' }}
         aria-hidden="true"
       >
-        <circle cx="26" cy="26" r="22" stroke="var(--gold)" strokeWidth="2" strokeDasharray="80 60" />
-        <path d="M 6 18 C 14 22 38 30 46 34" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
-        <path d="M 6 34 C 14 30 38 22 46 18" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="14" cy="14" r="11" stroke="rgba(var(--ink-rgb),0.12)" strokeWidth="2.5" />
+        <path d="M14 3a11 11 0 0 1 11 11" stroke="var(--accent)" strokeWidth="2.5" strokeLinecap="round" />
       </svg>
       <p
         style={{
