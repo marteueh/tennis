@@ -89,12 +89,30 @@ export async function generateMetadata({
   }
 }
 
+// La prima "pagina" dell'archivio partite mostra 12 risultati, le successive 16
+const FIRST_PAGE_SIZE = 12
+const NEXT_PAGE_SIZE = 16
+
+function matchesPageSlice(page: number): { start: number; end: number } {
+  if (page <= 1) return { start: 0, end: FIRST_PAGE_SIZE }
+  const start = FIRST_PAGE_SIZE + (page - 2) * NEXT_PAGE_SIZE
+  return { start, end: start + NEXT_PAGE_SIZE }
+}
+
+function matchesTotalPages(total: number): number {
+  if (total <= FIRST_PAGE_SIZE) return 1
+  return 1 + Math.ceil((total - FIRST_PAGE_SIZE) / NEXT_PAGE_SIZE)
+}
+
 export default async function GiocatorePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>
+  searchParams: Promise<{ p?: string }>
 }) {
   const { slug } = await params
+  const { p: pageRaw } = await searchParams
   const data = await getData(slug)
   if (!data) notFound()
 
@@ -107,7 +125,10 @@ export default async function GiocatorePage({
   const wins   = matches.filter(m => m.winner_id === player.id)
   const losses = matches.filter(m => m.loser_id  === player.id)
 
-  const slamWins = wins.filter(m => m.tournament?.category === 'GrandSlam')
+  const totalPages = matchesTotalPages(matches.length)
+  const page = Math.min(totalPages, Math.max(1, parseInt(pageRaw ?? '1', 10) || 1))
+  const { start, end } = matchesPageSlice(page)
+  const pageMatches = matches.slice(start, end)
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
@@ -337,33 +358,14 @@ export default async function GiocatorePage({
             >
               Partite nell&#39;archivio
             </h2>
-            {slamWins.length > 0 && (
-              <div style={{ marginBottom: 24 }}>
-                <p
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: 10,
-                    fontWeight: 500,
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: 'var(--gold)',
-                    marginBottom: 12,
-                  }}
-                >
-                  Finali Slam vinte
-                </p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 12 }}>
-                  {slamWins.slice(0, 4).map(m => (
-                    <ScoreCard key={m.id} match={m} />
-                  ))}
-                </div>
-              </div>
-            )}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 12, marginTop: 16 }}>
-              {matches.slice(0, 20).map((m, i) => (
-                <ScoreCard key={m.id} match={m} showNumber={i + 1} />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 12 }}>
+              {pageMatches.map((m, i) => (
+                <ScoreCard key={m.id} match={m} showNumber={start + i + 1} />
               ))}
             </div>
+            {totalPages > 1 && (
+              <MatchesPagination slug={slug} currentPage={page} totalPages={totalPages} />
+            )}
           </div>
         </div>
 
@@ -434,4 +436,66 @@ export default async function GiocatorePage({
       </div>
     </div>
   )
+}
+
+function MatchesPagination({ slug, currentPage, totalPages }: { slug: string; currentPage: number; totalPages: number }) {
+  function pageUrl(p: number) {
+    return p > 1 ? `/giocatori/${slug}?p=${p}` : `/giocatori/${slug}`
+  }
+
+  const pages: (number | '…')[] = []
+  const range = 2
+  for (let p = 1; p <= totalPages; p++) {
+    if (p === 1 || p === totalPages || (p >= currentPage - range && p <= currentPage + range)) {
+      pages.push(p)
+    } else if (pages[pages.length - 1] !== '…') {
+      pages.push('…')
+    }
+  }
+
+  return (
+    <nav
+      aria-label="Paginazione partite"
+      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, marginTop: 32, fontFamily: "var(--font-sans)" }}
+    >
+      {currentPage > 1 && (
+        <Link href={pageUrl(currentPage - 1)} style={pageBtnStyle()}>← Prec</Link>
+      )}
+      {pages.map((p, i) =>
+        p === '…' ? (
+          <span key={`e${i}`} style={{ padding: '6px 4px', color: 'rgba(var(--ink-rgb),0.3)', fontSize: 13 }}>…</span>
+        ) : (
+          <Link
+            key={p}
+            href={pageUrl(p)}
+            aria-current={p === currentPage ? 'page' : undefined}
+            style={pageBtnStyle(p === currentPage)}
+          >
+            {p}
+          </Link>
+        ),
+      )}
+      {currentPage < totalPages && (
+        <Link href={pageUrl(currentPage + 1)} style={pageBtnStyle()}>Succ →</Link>
+      )}
+    </nav>
+  )
+}
+
+function pageBtnStyle(active = false): React.CSSProperties {
+  return {
+    fontSize: 12,
+    fontWeight: 500,
+    letterSpacing: '0.04em',
+    padding: '6px 11px',
+    border: '1px solid',
+    borderColor: active ? 'var(--accent)' : 'rgba(var(--ink-rgb),0.12)',
+    background: active ? 'var(--accent)' : 'transparent',
+    color: active ? '#FFFFFF' : 'var(--ink)',
+    textDecoration: 'none',
+    borderRadius: 2,
+    fontVariantNumeric: 'tabular-nums',
+    minWidth: 30,
+    textAlign: 'center',
+  }
 }
