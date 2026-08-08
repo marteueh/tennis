@@ -343,33 +343,35 @@ export default async function PartitaPage({
           </div>
 
           {/* Video */}
-          <div style={{ marginBottom: 32 }}>
-            <p
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: 10,
-                fontWeight: 500,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: '#7C7568',
-                marginBottom: 12,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-              }}
-            >
-              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
-              Video
-            </p>
-            <MatchVideo
-              videoId={match.youtube_video_id}
-              tommasiVideoId={match.youtube_tommasi_id}
-              tommasiChannel={match.youtube_tommasi_channel}
-              title={matchTitle}
-              tournament={tournLabel}
-              year={match.year}
-            />
-          </div>
+          {(match.youtube_video_id || match.youtube_tommasi_id) && (
+            <div style={{ marginBottom: 32 }}>
+              <p
+                style={{
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontSize: 10,
+                  fontWeight: 500,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#7C7568',
+                  marginBottom: 12,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                }}
+              >
+                <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
+                Video
+              </p>
+              <MatchVideo
+                videoId={match.youtube_video_id}
+                tommasiVideoId={match.youtube_tommasi_id}
+                tommasiChannel={match.youtube_tommasi_channel}
+                title={matchTitle}
+                tournament={tournLabel}
+                year={match.year}
+              />
+            </div>
+          )}
 
           {/* Statistiche */}
           {(match.w_svpt != null || match.l_svpt != null) && (

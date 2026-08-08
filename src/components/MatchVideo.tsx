@@ -28,34 +28,6 @@ export function MatchVideo({
     }
   }, [activeVideoId, title, tournament, year])
 
-  if (!videoId && !tommasiVideoId) {
-    return (
-      <div
-        style={{
-          background: '#1C1A17',
-          border: '1px solid rgba(255,255,255,0.08)',
-          borderRadius: 2,
-          padding: '40px 32px',
-          textAlign: 'center',
-        }}
-      >
-        <svg
-          width="40" height="40" viewBox="0 0 40 40" fill="none"
-          style={{ margin: '0 auto 16px', opacity: 0.25 }} aria-hidden="true"
-        >
-          <rect width="40" height="40" rx="4" fill="white" fillOpacity="0.1" />
-          <path d="M16 14l12 6-12 6V14z" fill="white" fillOpacity="0.4" />
-        </svg>
-        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: 'rgba(255,255,255,0.45)', marginBottom: 8 }}>
-          Video non disponibile per questa partita
-        </p>
-        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: 'rgba(255,255,255,0.25)', lineHeight: 1.6 }}>
-          I canali ufficiali degli Slam rilasciano progressivamente i propri archivi su YouTube.
-        </p>
-      </div>
-    )
-  }
-
   return (
     <div>
       {/* Toggle versioni — solo se entrambe disponibili */}
