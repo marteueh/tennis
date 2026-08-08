@@ -8,7 +8,6 @@ interface LogoProps {
 
 export function Logo({ variant = 'dark', compact = false, className = '' }: LogoProps) {
   const textColor = variant === 'dark' ? '#ffffff' : 'var(--ink)'
-  const ballSize  = compact ? 17 : 26
   const fontSize  = compact ? 28 : 46
   const eraSize   = compact ? 7.5 : 9.5
 
@@ -27,29 +26,6 @@ export function Logo({ variant = 'dark', compact = false, className = '' }: Logo
         >
           ACE
         </span>
-
-        {/* Tennis ball SVG */}
-        <svg
-          width={ballSize}
-          height={ballSize}
-          viewBox="0 0 52 52"
-          fill="none"
-          aria-hidden="true"
-        >
-          <circle cx="26" cy="26" r="22" stroke="var(--gold)" strokeWidth="2" />
-          <path
-            d="M 6 18 C 14 22 38 30 46 34"
-            stroke="var(--accent)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M 6 34 C 14 30 38 22 46 18"
-            stroke="var(--accent)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
 
         <span
           style={{
