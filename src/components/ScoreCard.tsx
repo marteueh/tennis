@@ -33,9 +33,9 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
       <article
         className="group lift-on-hover"
         style={{
-          background: featured ? '#1C1A17' : '#FFFFFF',
-          border: featured ? 'none' : '1px solid rgba(28,26,23,0.08)',
-          borderTop: featured ? '3px solid #9C7C3E' : undefined,
+          background: featured ? 'var(--ink)' : '#FFFFFF',
+          border: featured ? 'none' : '1px solid rgba(var(--ink-rgb),0.08)',
+          borderTop: featured ? '3px solid var(--gold)' : undefined,
           borderRadius: 2,
           position: 'relative',
           display: 'flex',
@@ -45,7 +45,7 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
       >
         {/* Barra laterale — oro per le finali, neutra per il resto */}
         {!featured && (
-          <div style={{ width: 4, flexShrink: 0, background: isFinal ? '#9C7C3E' : 'rgba(28,26,23,0.12)' }} />
+          <div style={{ width: 4, flexShrink: 0, background: isFinal ? 'var(--gold)' : 'rgba(var(--ink-rgb),0.12)' }} />
         )}
 
         <div style={{ flex: 1, padding: featured ? '32px 36px' : '18px 20px', position: 'relative', minWidth: 0 }}>
@@ -58,7 +58,7 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
                 right: 18,
                 fontFamily: "'Bebas Neue', Impact, sans-serif",
                 fontSize: 32,
-                color: 'rgba(28,26,23,0.06)',
+                color: 'rgba(var(--ink-rgb),0.06)',
                 lineHeight: 1,
                 transition: 'color 0.15s',
                 userSelect: 'none',
@@ -74,12 +74,12 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
             {featured && (
               <span
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: 10,
                   fontWeight: 600,
                   letterSpacing: '0.18em',
                   textTransform: 'uppercase',
-                  color: '#9C7C3E',
+                  color: 'var(--gold)',
                   marginRight: 4,
                 }}
               >
@@ -91,28 +91,28 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
                 fontFamily: "'Bebas Neue', Impact, sans-serif",
                 fontSize: featured ? 15 : 12,
                 letterSpacing: '0.08em',
-                color: isFinal ? '#9C7C3E' : featured ? 'rgba(255,255,255,0.5)' : '#7C7568',
+                color: isFinal ? 'var(--gold)' : featured ? 'rgba(255,255,255,0.5)' : 'var(--muted)',
               }}
             >
               {ROUND_LABELS[match.round] ?? match.round}
             </span>
-            <span style={{ color: featured ? 'rgba(255,255,255,0.2)' : 'rgba(28,26,23,0.2)', fontSize: 10 }}>·</span>
+            <span style={{ color: featured ? 'rgba(255,255,255,0.2)' : 'rgba(var(--ink-rgb),0.2)', fontSize: 10 }}>·</span>
             <span
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "var(--font-sans)",
                 fontSize: featured ? 13 : 11,
                 fontWeight: 500,
-                color: featured ? 'rgba(255,255,255,0.6)' : '#7C7568',
+                color: featured ? 'rgba(255,255,255,0.6)' : 'var(--muted)',
               }}
             >
               {match.tournament?.name_it ?? match.tournament?.name ?? ''}
             </span>
-            <span style={{ color: featured ? 'rgba(255,255,255,0.2)' : 'rgba(28,26,23,0.2)', fontSize: 10 }}>·</span>
+            <span style={{ color: featured ? 'rgba(255,255,255,0.2)' : 'rgba(var(--ink-rgb),0.2)', fontSize: 10 }}>·</span>
             <span
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "var(--font-sans)",
                 fontSize: featured ? 13 : 11,
-                color: featured ? 'rgba(255,255,255,0.4)' : 'rgba(28,26,23,0.4)',
+                color: featured ? 'rgba(255,255,255,0.4)' : 'rgba(var(--ink-rgb),0.4)',
                 fontVariantNumeric: 'tabular-nums',
               }}
             >
@@ -126,10 +126,10 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
               <span
                 style={{
-                  fontFamily: "'Source Serif 4', Georgia, serif",
+                  fontFamily: "var(--font-serif)",
                   fontSize: featured ? 30 : 16,
                   fontWeight: 600,
-                  color: featured ? '#FFFFFF' : '#1C1A17',
+                  color: featured ? '#FFFFFF' : 'var(--ink)',
                   lineHeight: 1.15,
                   minWidth: 0,
                 }}
@@ -149,7 +149,7 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
                         textAlign: 'center',
                         fontFamily: "'Bebas Neue', Impact, sans-serif",
                         fontSize: featured ? 30 : 20,
-                        color: wonSet ? '#B54A2C' : featured ? 'rgba(255,255,255,0.3)' : 'rgba(28,26,23,0.25)',
+                        color: wonSet ? 'var(--accent)' : featured ? 'rgba(255,255,255,0.3)' : 'rgba(var(--ink-rgb),0.25)',
                         lineHeight: 1,
                         fontVariantNumeric: 'tabular-nums',
                       }}
@@ -165,10 +165,10 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
               <span
                 style={{
-                  fontFamily: "'Source Serif 4', Georgia, serif",
+                  fontFamily: "var(--font-serif)",
                   fontSize: featured ? 20 : 14,
                   fontWeight: 400,
-                  color: featured ? 'rgba(255,255,255,0.45)' : 'rgba(28,26,23,0.5)',
+                  color: featured ? 'rgba(255,255,255,0.45)' : 'rgba(var(--ink-rgb),0.5)',
                   lineHeight: 1.2,
                 }}
               >
@@ -188,7 +188,7 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
                         position: 'relative',
                         fontFamily: "'Bebas Neue', Impact, sans-serif",
                         fontSize: featured ? 22 : 20,
-                        color: wonSet ? (featured ? 'rgba(255,255,255,0.6)' : 'rgba(28,26,23,0.55)') : featured ? 'rgba(255,255,255,0.15)' : 'rgba(28,26,23,0.2)',
+                        color: wonSet ? (featured ? 'rgba(255,255,255,0.6)' : 'rgba(var(--ink-rgb),0.55)') : featured ? 'rgba(255,255,255,0.15)' : 'rgba(var(--ink-rgb),0.2)',
                         lineHeight: 1,
                         fontVariantNumeric: 'tabular-nums',
                       }}
@@ -200,8 +200,8 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
                           top: -2,
                           right: -9,
                           fontSize: 8,
-                          fontFamily: "'Plus Jakarta Sans', sans-serif",
-                          color: featured ? 'rgba(255,255,255,0.4)' : 'rgba(28,26,23,0.35)',
+                          fontFamily: "var(--font-sans)",
+                          color: featured ? 'rgba(255,255,255,0.4)' : 'rgba(var(--ink-rgb),0.35)',
                           fontWeight: 400,
                         }}>
                           {tb}
@@ -222,18 +222,18 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
                 gap: 16,
                 marginTop: featured ? 24 : 12,
                 paddingTop: featured ? 20 : 10,
-                borderTop: featured ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(28,26,23,0.06)',
+                borderTop: featured ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(var(--ink-rgb),0.06)',
               }}
             >
               {match.youtube_video_id && (
                 <span
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     fontSize: featured ? 11 : 10,
                     fontWeight: 500,
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: '#B54A2C',
+                    color: 'var(--accent)',
                   }}
                 >
                   ▶ Video
@@ -242,12 +242,12 @@ export function ScoreCard({ match, showNumber, featured = false }: ScoreCardProp
               {(match.clerici_excerpt_it || match.clerici_source?.startsWith('free:')) && (
                 <span
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     fontSize: featured ? 11 : 10,
                     fontWeight: 500,
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: '#9C7C3E',
+                    color: 'var(--gold)',
                   }}
                 >
                   ✒ Clerici

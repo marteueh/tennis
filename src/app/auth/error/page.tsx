@@ -18,11 +18,11 @@ export default async function AuthErrorPage({ searchParams }: Props) {
   const message = MESSAGES[error] ?? MESSAGES.Default
 
   return (
-    <div style={{ maxWidth: 440, margin: '60px auto', padding: '0 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div style={{ maxWidth: 440, margin: '60px auto', padding: '0 24px', fontFamily: "var(--font-sans)" }}>
       <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#991B1B', marginBottom: 8 }}>
         Errore di autenticazione
       </p>
-      <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 28, color: '#1C1A17', marginBottom: 16 }}>
+      <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 28, color: 'var(--ink)', marginBottom: 16 }}>
         Qualcosa è andato storto
       </h1>
       <div style={{
@@ -31,10 +31,10 @@ export default async function AuthErrorPage({ searchParams }: Props) {
         border: '1px solid rgba(220,38,38,0.18)',
         borderRadius: 2,
       }}>
-        <p style={{ fontSize: 14, lineHeight: 1.7, color: '#1C1A17' }}>{message}</p>
+        <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--ink)' }}>{message}</p>
       </div>
       <p style={{ marginTop: 24, fontSize: 12 }}>
-        <Link href="/auth/signin" style={{ color: '#B54A2C', textDecoration: 'none' }}>← Torna alla pagina di accesso</Link>
+        <Link href="/auth/signin" style={{ color: 'var(--accent)', textDecoration: 'none' }}>← Torna alla pagina di accesso</Link>
       </p>
     </div>
   )

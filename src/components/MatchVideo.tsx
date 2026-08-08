@@ -36,13 +36,13 @@ export function MatchVideo({
           <button
             onClick={() => setVersion('main')}
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
               padding: '6px 14px',
-              background: version === 'main' ? '#1C1A17' : 'transparent',
-              color: version === 'main' ? '#FFFFFF' : '#7C7568',
+              background: version === 'main' ? 'var(--ink)' : 'transparent',
+              color: version === 'main' ? '#FFFFFF' : 'var(--muted)',
               border: '1px solid',
-              borderColor: version === 'main' ? '#1C1A17' : 'rgba(28,26,23,0.15)',
+              borderColor: version === 'main' ? 'var(--ink)' : 'rgba(var(--ink-rgb),0.15)',
               borderRadius: 2, cursor: 'pointer',
             }}
           >
@@ -51,12 +51,12 @@ export function MatchVideo({
           <button
             onClick={() => setVersion('tommasi')}
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
               padding: '6px 14px',
-              background: version === 'tommasi' ? '#B54A2C' : 'transparent',
-              color: version === 'tommasi' ? '#FFFFFF' : '#B54A2C',
-              border: '1px solid #B54A2C',
+              background: version === 'tommasi' ? 'var(--accent)' : 'transparent',
+              color: version === 'tommasi' ? '#FFFFFF' : 'var(--accent)',
+              border: '1px solid var(--accent)',
               borderRadius: 2, cursor: 'pointer',
             }}
           >
@@ -76,8 +76,8 @@ export function MatchVideo({
         />
       </div>
       <p style={{
-        marginTop: 8, fontFamily: "'Plus Jakarta Sans', sans-serif",
-        fontSize: 11, color: 'rgba(28,26,23,0.35)', letterSpacing: '0.04em',
+        marginTop: 8, fontFamily: "var(--font-sans)",
+        fontSize: 11, color: 'rgba(var(--ink-rgb),0.35)', letterSpacing: '0.04em',
       }}>
         {version === 'tommasi' && tommasiVideoId
           ? <>Telecronaca di Rino Tommasi e Gianni Clerici · canale {tommasiChannel ?? 'YouTube'} · embed in Privacy Enhanced Mode</>

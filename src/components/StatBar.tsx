@@ -37,7 +37,7 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
           style={{
             fontFamily: "'Bebas Neue', Impact, sans-serif",
             fontSize: 24,
-            color: '#B54A2C',
+            color: 'var(--accent)',
             lineHeight: 1,
             fontVariantNumeric: 'tabular-nums',
           }}
@@ -46,12 +46,12 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
         </span>
         <span
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: '#7C7568',
+            color: 'var(--muted)',
             textAlign: 'center',
           }}
         >
@@ -61,7 +61,7 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
           style={{
             fontFamily: "'Bebas Neue', Impact, sans-serif",
             fontSize: 24,
-            color: 'rgba(28,26,23,0.35)',
+            color: 'rgba(var(--ink-rgb),0.35)',
             lineHeight: 1,
             fontVariantNumeric: 'tabular-nums',
           }}
@@ -77,14 +77,14 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
               flex: wWidth,
               height: 3,
               borderRadius: '1.5px 0 0 1.5px',
-              background: '#B54A2C',
+              background: 'var(--accent)',
             }}
           />
           <div
             style={{
               width: 1,
               height: 6,
-              background: 'rgba(28,26,23,0.15)',
+              background: 'rgba(var(--ink-rgb),0.15)',
               flexShrink: 0,
             }}
           />
@@ -93,7 +93,7 @@ export function StatRow({ label, winnerValue, loserValue, total, unit = '', show
               flex: lWidth,
               height: 3,
               borderRadius: '0 1.5px 1.5px 0',
-              background: 'rgba(28,26,23,0.15)',
+              background: 'rgba(var(--ink-rgb),0.15)',
             }}
           />
         </div>
@@ -144,14 +144,14 @@ export function StatsBlock({
           justifyContent: 'space-between',
           marginBottom: 20,
           paddingBottom: 12,
-          borderBottom: '1px solid rgba(28,26,23,0.08)',
+          borderBottom: '1px solid rgba(var(--ink-rgb),0.08)',
         }}
       >
         <span
           style={{
-            fontFamily: "'Source Serif 4', serif",
+            fontFamily: "var(--font-serif)",
             fontSize: 16,
-            color: '#B54A2C',
+            color: 'var(--accent)',
             letterSpacing: '0.05em',
           }}
         >
@@ -159,21 +159,21 @@ export function StatsBlock({
         </span>
         <span
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: '#7C7568',
+            color: 'var(--muted)',
           }}
         >
           Servizio
         </span>
         <span
           style={{
-            fontFamily: "'Source Serif 4', serif",
+            fontFamily: "var(--font-serif)",
             fontSize: 16,
-            color: 'rgba(28,26,23,0.35)',
+            color: 'rgba(var(--ink-rgb),0.35)',
             letterSpacing: '0.05em',
           }}
         >

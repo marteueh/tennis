@@ -19,12 +19,12 @@ export default async function AdminPlayersListPage({ searchParams }: Props) {
   }
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px', fontFamily: "var(--font-sans)" }}>
       <div style={{ marginBottom: 24 }}>
-        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 6 }}>
+        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 6 }}>
           Admin · Giocatori
         </p>
-        <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 30, color: '#1C1A17' }}>
+        <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 30, color: 'var(--ink)' }}>
           Schede atleti
         </h1>
       </div>
@@ -37,8 +37,8 @@ export default async function AdminPlayersListPage({ searchParams }: Props) {
           placeholder="Cerca giocatore..."
           style={{
             width: 320, fontSize: 13, padding: '8px 12px',
-            border: '1px solid rgba(28,26,23,0.15)', borderRadius: 2,
-            color: '#1C1A17', fontFamily: "'Plus Jakarta Sans', sans-serif",
+            border: '1px solid rgba(var(--ink-rgb),0.15)', borderRadius: 2,
+            color: 'var(--ink)', fontFamily: "var(--font-sans)",
           }}
         />
       </form>
@@ -49,7 +49,7 @@ export default async function AdminPlayersListPage({ searchParams }: Props) {
         </div>
       )}
 
-      <p style={{ fontSize: 11, color: '#7C7568', marginBottom: 12 }}>
+      <p style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 12 }}>
         {players.length} risultat{players.length === 1 ? 'o' : 'i'}
       </p>
 
@@ -63,7 +63,7 @@ export default async function AdminPlayersListPage({ searchParams }: Props) {
               href={`/admin/players/${p.slug}`}
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(28,26,23,0.08)',
+                border: '1px solid rgba(var(--ink-rgb),0.08)',
                 borderRadius: 2,
                 padding: '10px 14px',
                 textDecoration: 'none',
@@ -74,24 +74,24 @@ export default async function AdminPlayersListPage({ searchParams }: Props) {
               className="hover:border-accent/30"
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <span style={{ fontSize: 14, fontWeight: 500, color: '#1C1A17' }}>
+                <span style={{ fontSize: 14, fontWeight: 500, color: 'var(--ink)' }}>
                   {p.first_name} {p.last_name}
                 </span>
-                <span style={{ fontSize: 11, color: '#7C7568' }}>
+                <span style={{ fontSize: 11, color: 'var(--muted)' }}>
                   {p.country_code}
                 </span>
               </div>
               <div style={{ display: 'flex', gap: 6, fontSize: 9, fontWeight: 500, letterSpacing: '0.06em' }}>
                 <span style={{
                   padding: '2px 6px', borderRadius: 2,
-                  background: hasPhoto ? 'rgba(34,197,94,0.1)' : 'rgba(28,26,23,0.04)',
+                  background: hasPhoto ? 'rgba(34,197,94,0.1)' : 'rgba(var(--ink-rgb),0.04)',
                   color: hasPhoto ? '#16A34A' : '#9CA3AF',
                 }}>
                   {hasPhoto ? '✓ FOTO' : 'NO FOTO'}
                 </span>
                 <span style={{
                   padding: '2px 6px', borderRadius: 2,
-                  background: hasBio ? 'rgba(34,197,94,0.1)' : 'rgba(28,26,23,0.04)',
+                  background: hasBio ? 'rgba(34,197,94,0.1)' : 'rgba(var(--ink-rgb),0.04)',
                   color: hasBio ? '#16A34A' : '#9CA3AF',
                 }}>
                   {hasBio ? '✓ BIO' : 'NO BIO'}
@@ -99,7 +99,7 @@ export default async function AdminPlayersListPage({ searchParams }: Props) {
                 {p.grand_slams > 0 && (
                   <span style={{
                     padding: '2px 6px', borderRadius: 2,
-                    background: 'rgba(156,124,62,0.12)', color: '#92400E',
+                    background: 'rgba(var(--gold-rgb),0.12)', color: '#92400E',
                   }}>
                     {p.grand_slams} SLAM
                   </span>

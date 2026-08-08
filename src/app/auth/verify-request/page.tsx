@@ -4,29 +4,29 @@ export const metadata = { title: 'Controlla la tua email — Ace Chronicle' }
 
 export default function VerifyRequestPage() {
   return (
-    <div style={{ maxWidth: 440, margin: '60px auto', padding: '0 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-      <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#9C7C3E', marginBottom: 8 }}>
+    <div style={{ maxWidth: 440, margin: '60px auto', padding: '0 24px', fontFamily: "var(--font-sans)" }}>
+      <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 8 }}>
         Magic link inviato
       </p>
-      <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 30, color: '#1C1A17', marginBottom: 16 }}>
+      <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 30, color: 'var(--ink)', marginBottom: 16 }}>
         Controlla la tua casella
       </h1>
       <div style={{
         padding: '20px 22px',
-        background: 'rgba(181,74,44,0.05)',
-        border: '1px solid rgba(181,74,44,0.15)',
-        borderLeft: '3px solid #B54A2C',
+        background: 'rgba(var(--accent-rgb),0.05)',
+        border: '1px solid rgba(var(--accent-rgb),0.15)',
+        borderLeft: '3px solid var(--accent)',
         borderRadius: '0 2px 2px 0',
       }}>
-        <p style={{ fontSize: 14, lineHeight: 1.7, color: '#1C1A17', marginBottom: 10 }}>
+        <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--ink)', marginBottom: 10 }}>
           Ti abbiamo inviato un link per accedere. Clicca sul pulsante nell&apos;email per entrare.
         </p>
-        <p style={{ fontSize: 13, lineHeight: 1.7, color: '#7C7568' }}>
+        <p style={{ fontSize: 13, lineHeight: 1.7, color: 'var(--muted)' }}>
           Il link scade in 24 ore. Se non lo trovi, controlla nella cartella spam.
         </p>
       </div>
       <p style={{ marginTop: 24, fontSize: 12 }}>
-        <Link href="/auth/signin" style={{ color: '#B54A2C', textDecoration: 'none' }}>← Cambia indirizzo email</Link>
+        <Link href="/auth/signin" style={{ color: 'var(--accent)', textDecoration: 'none' }}>← Cambia indirizzo email</Link>
       </p>
     </div>
   )

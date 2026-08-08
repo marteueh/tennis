@@ -21,9 +21,9 @@ export default function Error({
     >
       <h2
         style={{
-          fontFamily: "'Source Serif 4', serif",
+          fontFamily: "var(--font-serif)",
           fontSize: 24,
-          color: '#1C1A17',
+          color: 'var(--ink)',
           marginBottom: 12,
         }}
       >
@@ -31,9 +31,9 @@ export default function Error({
       </h2>
       <p
         style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "var(--font-sans)",
           fontSize: 13,
-          color: '#7C7568',
+          color: 'var(--muted)',
           marginBottom: 24,
         }}
       >
@@ -42,12 +42,12 @@ export default function Error({
       <button
         onClick={reset}
         style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "var(--font-sans)",
           fontSize: 12,
           fontWeight: 600,
           letterSpacing: '0.08em',
           textTransform: 'uppercase',
-          background: '#B54A2C',
+          background: 'var(--accent)',
           color: '#ffffff',
           border: 'none',
           padding: '10px 20px',

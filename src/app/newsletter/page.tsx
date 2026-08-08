@@ -30,7 +30,7 @@ export default function NewsletterPage() {
       <section
         className="hero-loc-texture"
         style={{
-          background: '#1C1A17',
+          background: 'var(--ink)',
           padding: '72px 0 64px',
           position: 'relative',
           overflow: 'hidden',
@@ -41,24 +41,24 @@ export default function NewsletterPage() {
         <div className="max-w-7xl mx-auto px-6" style={{ maxWidth: 640, position: 'relative', zIndex: 1 }}>
           <p
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 10,
               fontWeight: 500,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: '#9C7C3E',
+              color: 'var(--gold)',
               marginBottom: 16,
               display: 'flex',
               alignItems: 'center',
               gap: 10,
             }}
           >
-            <span style={{ display: 'inline-block', width: 24, height: 1, background: '#9C7C3E' }} />
+            <span style={{ display: 'inline-block', width: 24, height: 1, background: 'var(--gold)' }} />
             Newsletter settimanale
           </p>
           <h1
             style={{
-              fontFamily: "'Source Serif 4', serif",
+              fontFamily: "var(--font-serif)",
               fontSize: 'clamp(32px, 5vw, 48px)',
               lineHeight: 1.1,
               color: '#FFFFFF',
@@ -69,7 +69,7 @@ export default function NewsletterPage() {
           </h1>
           <p
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 15,
               lineHeight: 1.7,
               color: 'rgba(255,255,255,0.5)',
@@ -83,7 +83,7 @@ export default function NewsletterPage() {
           <p
             style={{
               marginTop: 12,
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 11,
               color: 'rgba(255,255,255,0.2)',
               letterSpacing: '0.04em',
@@ -130,7 +130,7 @@ export default function NewsletterPage() {
               key={title}
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(28,26,23,0.08)',
+                border: '1px solid rgba(var(--ink-rgb),0.08)',
                 borderRadius: 2,
                 padding: '20px',
               }}
@@ -144,10 +144,10 @@ export default function NewsletterPage() {
               >
                 {icon}
               </p>
-              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, fontWeight: 600, color: '#1C1A17', marginBottom: 6 }}>
+              <p style={{ fontFamily: "var(--font-sans)", fontSize: 14, fontWeight: 600, color: 'var(--ink)', marginBottom: 6 }}>
                 {title}
               </p>
-              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, lineHeight: 1.65, color: '#7C7568' }}>
+              <p style={{ fontFamily: "var(--font-sans)", fontSize: 13, lineHeight: 1.65, color: 'var(--muted)' }}>
                 {body}
               </p>
             </div>
@@ -160,22 +160,22 @@ export default function NewsletterPage() {
         <div>
           <p
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 10,
               fontWeight: 500,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: '#7C7568',
+              color: 'var(--muted)',
               marginBottom: 16,
               display: 'flex',
               alignItems: 'center',
               gap: 8,
             }}
           >
-            <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
+            <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--muted)', opacity: 0.4 }} />
             Edizioni passate
           </p>
-          <h2 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 26, color: '#1C1A17', marginBottom: 24 }}>
+          <h2 style={{ fontFamily: "var(--font-serif)", fontSize: 26, color: 'var(--ink)', marginBottom: 24 }}>
             Archivio newsletter
           </h2>
 
@@ -188,28 +188,28 @@ export default function NewsletterPage() {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   padding: '16px 0',
-                  borderBottom: '1px solid rgba(28,26,23,0.06)',
+                  borderBottom: '1px solid rgba(var(--ink-rgb),0.06)',
                   gap: 16,
                 }}
               >
                 <div>
-                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: '#7C7568', marginBottom: 4 }}>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: 'var(--muted)', marginBottom: 4 }}>
                     {ed.week}
                   </p>
-                  <p style={{ fontFamily: "'Source Serif 4', serif", fontSize: 16, color: '#1C1A17', marginBottom: 2 }}>
+                  <p style={{ fontFamily: "var(--font-serif)", fontSize: 16, color: 'var(--ink)', marginBottom: 2 }}>
                     {ed.title}
                   </p>
-                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, color: '#7C7568', fontStyle: 'italic' }}>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: 13, color: 'var(--muted)', fontStyle: 'italic' }}>
                     {ed.subtitle}
                   </p>
                 </div>
                 <a
                   href={`/partite/${ed.slug}`}
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     fontSize: 11,
                     fontWeight: 500,
-                    color: '#B54A2C',
+                    color: 'var(--accent)',
                     textDecoration: 'none',
                     whiteSpace: 'nowrap',
                     letterSpacing: '0.04em',

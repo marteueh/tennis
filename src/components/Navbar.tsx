@@ -56,7 +56,7 @@ export function Navbar() {
     <header
       style={{
         background: '#FFFFFF',
-        borderBottom: '1px solid rgba(28,26,23,0.1)',
+        borderBottom: '1px solid rgba(var(--ink-rgb),0.1)',
         position: 'sticky',
         top: 0,
         zIndex: 50,
@@ -79,15 +79,15 @@ export function Navbar() {
                   key={href}
                   href={href}
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     fontSize: 10,
                     fontWeight: 500,
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
-                    color: active ? '#1C1A17' : '#7C7568',
+                    color: active ? 'var(--ink)' : 'var(--muted)',
                     textDecoration: 'none',
                     transition: 'color 0.15s',
-                    borderBottom: active ? '1px solid #B54A2C' : '1px solid transparent',
+                    borderBottom: active ? '1px solid var(--accent)' : '1px solid transparent',
                     paddingBottom: 1,
                   }}
                 >
@@ -108,7 +108,7 @@ export function Navbar() {
               border: 'none',
               cursor: 'pointer',
               padding: 6,
-              color: '#1C1A17',
+              color: 'var(--ink)',
               flexShrink: 0,
             }}
           >
@@ -142,12 +142,12 @@ export function Navbar() {
                   opacity: open ? 1 : 0,
                   overflow: 'hidden',
                   transition: 'width 0.2s ease, opacity 0.2s ease',
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: 12,
                   background: 'transparent',
                   border: 'none',
-                  borderBottom: '1px solid rgba(28,26,23,0.3)',
-                  color: '#1C1A17',
+                  borderBottom: '1px solid rgba(var(--ink-rgb),0.3)',
+                  color: 'var(--ink)',
                   padding: open ? '4px 8px' : 0,
                   outline: 'none',
                   borderRadius: 0,
@@ -164,7 +164,7 @@ export function Navbar() {
                 padding: '6px',
                 display: 'flex',
                 alignItems: 'center',
-                color: open ? '#1C1A17' : '#7C7568',
+                color: open ? 'var(--ink)' : 'var(--muted)',
                 transition: 'color 0.15s',
               }}
             >
@@ -183,10 +183,10 @@ export function Navbar() {
                   onClick={() => setUserMenu(v => !v)}
                   aria-label="Menu utente"
                   style={{
-                    background: 'rgba(181,74,44,0.08)',
-                    border: '1px solid rgba(181,74,44,0.2)',
-                    color: '#B54A2C',
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    background: 'rgba(var(--accent-rgb),0.08)',
+                    border: '1px solid rgba(var(--accent-rgb),0.2)',
+                    color: 'var(--accent)',
+                    fontFamily: "var(--font-sans)",
                     fontSize: 10,
                     fontWeight: 600,
                     letterSpacing: '0.06em',
@@ -206,28 +206,28 @@ export function Navbar() {
                       right: 0,
                       minWidth: 200,
                       background: '#FFFFFF',
-                      border: '1px solid rgba(28,26,23,0.1)',
+                      border: '1px solid rgba(var(--ink-rgb),0.1)',
                       borderRadius: 2,
                       boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
                       zIndex: 60,
                     }}
                   >
-                    <div style={{ padding: '10px 14px', borderBottom: '1px solid rgba(28,26,23,0.06)' }}>
-                      <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, color: '#7C7568', marginBottom: 2 }}>Connesso come</p>
-                      <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#1C1A17', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <div style={{ padding: '10px 14px', borderBottom: '1px solid rgba(var(--ink-rgb),0.06)' }}>
+                      <p style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: 'var(--muted)', marginBottom: 2 }}>Connesso come</p>
+                      <p style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: 'var(--ink)', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {session.data?.user?.email}
                       </p>
                     </div>
                     <Link href="/account" onClick={() => setUserMenu(false)} style={menuItemStyle}>Il mio account</Link>
                     {session.data?.user?.role === 'admin' && (
-                      <Link href="/admin" onClick={() => setUserMenu(false)} style={{ ...menuItemStyle, color: '#9C7C3E' }}>Admin</Link>
+                      <Link href="/admin" onClick={() => setUserMenu(false)} style={{ ...menuItemStyle, color: 'var(--gold)' }}>Admin</Link>
                     )}
                     <button
                       onClick={() => signOut({ callbackUrl: '/' })}
                       style={{
                         ...menuItemStyle,
                         width: '100%', textAlign: 'left', background: 'transparent',
-                        border: 'none', cursor: 'pointer', borderTop: '1px solid rgba(28,26,23,0.06)',
+                        border: 'none', cursor: 'pointer', borderTop: '1px solid rgba(var(--ink-rgb),0.06)',
                       }}
                     >
                       Esci
@@ -241,12 +241,12 @@ export function Navbar() {
               <Link
                 href="/auth/signin"
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: 10,
                   fontWeight: 500,
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
-                  color: '#7C7568',
+                  color: 'var(--muted)',
                   textDecoration: 'none',
                   padding: '4px 8px',
                 }}
@@ -261,16 +261,16 @@ export function Navbar() {
             href="/newsletter"
             className="hidden md:inline-block"
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 10,
               fontWeight: 600,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               background: 'transparent',
-              color: '#B54A2C',
+              color: 'var(--accent)',
               textDecoration: 'none',
               padding: '4px 12px',
-              border: '1px solid rgba(181,74,44,0.4)',
+              border: '1px solid rgba(var(--accent-rgb),0.4)',
               borderRadius: 0,
               whiteSpace: 'nowrap',
             }}
@@ -286,7 +286,7 @@ export function Navbar() {
         <div
           className="md:hidden"
           style={{
-            borderTop: '1px solid rgba(28,26,23,0.08)',
+            borderTop: '1px solid rgba(var(--ink-rgb),0.08)',
             background: '#FFFFFF',
           }}
         >
@@ -299,14 +299,14 @@ export function Navbar() {
                   href={href}
                   onClick={() => setMobileMenu(false)}
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     fontSize: 13,
                     fontWeight: 500,
                     letterSpacing: '0.04em',
-                    color: active ? '#B54A2C' : '#1C1A17',
+                    color: active ? 'var(--accent)' : 'var(--ink)',
                     textDecoration: 'none',
                     padding: '12px 0',
-                    borderBottom: '1px solid rgba(28,26,23,0.06)',
+                    borderBottom: '1px solid rgba(var(--ink-rgb),0.06)',
                   }}
                 >
                   {label}
@@ -317,7 +317,7 @@ export function Navbar() {
             {/* Ricerca — mobile */}
             <form
               onSubmit={e => { handleSubmit(e); setMobileMenu(false) }}
-              style={{ display: 'flex', gap: 8, padding: '12px 0', borderBottom: '1px solid rgba(28,26,23,0.06)' }}
+              style={{ display: 'flex', gap: 8, padding: '12px 0', borderBottom: '1px solid rgba(var(--ink-rgb),0.06)' }}
             >
               <input
                 type="text"
@@ -326,12 +326,12 @@ export function Navbar() {
                 placeholder="Cerca giocatore…"
                 style={{
                   flex: 1,
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: 13,
                   background: 'transparent',
                   border: 'none',
-                  borderBottom: '1px solid rgba(28,26,23,0.2)',
-                  color: '#1C1A17',
+                  borderBottom: '1px solid rgba(var(--ink-rgb),0.2)',
+                  color: 'var(--ink)',
                   padding: '4px 0',
                   outline: 'none',
                 }}
@@ -339,7 +339,7 @@ export function Navbar() {
               <button
                 type="submit"
                 aria-label="Cerca"
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#7C7568', padding: 4 }}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--muted)', padding: 4 }}
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.5" />
@@ -352,11 +352,11 @@ export function Navbar() {
               href="/newsletter"
               onClick={() => setMobileMenu(false)}
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "var(--font-sans)",
                 fontSize: 13,
                 fontWeight: 600,
                 letterSpacing: '0.04em',
-                color: '#B54A2C',
+                color: 'var(--accent)',
                 textDecoration: 'none',
                 padding: '12px 0',
               }}
@@ -373,8 +373,8 @@ export function Navbar() {
 const menuItemStyle: React.CSSProperties = {
   display: 'block',
   padding: '10px 14px',
-  fontFamily: "'Plus Jakarta Sans', sans-serif",
+  fontFamily: "var(--font-sans)",
   fontSize: 12,
-  color: '#1C1A17',
+  color: 'var(--ink)',
   textDecoration: 'none',
 }

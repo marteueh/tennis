@@ -15,10 +15,10 @@ export default function NotFound() {
     >
       <p
         style={{
-          fontFamily: "'Source Serif 4', serif",
+          fontFamily: "var(--font-serif)",
           fontSize: 'clamp(80px, 20vw, 160px)',
           lineHeight: 1,
-          color: 'rgba(28,26,23,0.06)',
+          color: 'rgba(var(--ink-rgb),0.06)',
           letterSpacing: '0.04em',
           marginBottom: 0,
           userSelect: 'none',
@@ -28,9 +28,9 @@ export default function NotFound() {
       </p>
       <h1
         style={{
-          fontFamily: "'Source Serif 4', serif",
+          fontFamily: "var(--font-serif)",
           fontSize: 28,
-          color: '#1C1A17',
+          color: 'var(--ink)',
           lineHeight: 1.2,
           marginTop: -16,
           marginBottom: 12,
@@ -40,9 +40,9 @@ export default function NotFound() {
       </h1>
       <p
         style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "var(--font-sans)",
           fontSize: 14,
-          color: '#7C7568',
+          color: 'var(--muted)',
           lineHeight: 1.7,
           maxWidth: 400,
           marginBottom: 32,
@@ -55,12 +55,12 @@ export default function NotFound() {
         <Link
           href="/partite"
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 12,
             fontWeight: 600,
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
-            background: '#B54A2C',
+            background: 'var(--accent)',
             color: '#ffffff',
             textDecoration: 'none',
             padding: '10px 20px',
@@ -72,16 +72,16 @@ export default function NotFound() {
         <Link
           href="/"
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 12,
             fontWeight: 600,
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             background: 'transparent',
-            color: '#7C7568',
+            color: 'var(--muted)',
             textDecoration: 'none',
             padding: '10px 20px',
-            border: '1px solid rgba(28,26,23,0.12)',
+            border: '1px solid rgba(var(--ink-rgb),0.12)',
             borderRadius: 2,
           }}
         >

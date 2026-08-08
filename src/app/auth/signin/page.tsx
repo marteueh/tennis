@@ -19,14 +19,14 @@ export default async function SignInPage({ searchParams }: Props) {
   }
 
   return (
-    <div style={{ maxWidth: 440, margin: '60px auto', padding: '0 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-      <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 8 }}>
+    <div style={{ maxWidth: 440, margin: '60px auto', padding: '0 24px', fontFamily: "var(--font-sans)" }}>
+      <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 8 }}>
         Accesso
       </p>
-      <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 32, color: '#1C1A17', marginBottom: 8 }}>
+      <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 32, color: 'var(--ink)', marginBottom: 8 }}>
         Entra nella conversazione
       </h1>
-      <p style={{ fontSize: 14, lineHeight: 1.7, color: '#7C7568', marginBottom: 28 }}>
+      <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--muted)', marginBottom: 28 }}>
         Inserisci la tua email. Ti invieremo un link sicuro per accedere — niente password da ricordare.
       </p>
 
@@ -44,7 +44,7 @@ export default async function SignInPage({ searchParams }: Props) {
 
       <form action={login} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
         <div>
-          <label style={{ display: 'block', fontSize: 10, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 6 }}>
+          <label style={{ display: 'block', fontSize: 10, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 6 }}>
             Email
           </label>
           <input
@@ -55,9 +55,9 @@ export default async function SignInPage({ searchParams }: Props) {
             placeholder="tu@esempio.it"
             style={{
               width: '100%', fontSize: 14, padding: '10px 12px',
-              border: '1px solid rgba(28,26,23,0.2)', borderRadius: 2,
-              boxSizing: 'border-box', color: '#1C1A17',
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              border: '1px solid rgba(var(--ink-rgb),0.2)', borderRadius: 2,
+              boxSizing: 'border-box', color: 'var(--ink)',
+              fontFamily: "var(--font-sans)",
             }}
           />
         </div>
@@ -65,7 +65,7 @@ export default async function SignInPage({ searchParams }: Props) {
           type="submit"
           style={{
             fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
-            padding: '12px', background: '#B54A2C', color: '#FFFFFF',
+            padding: '12px', background: 'var(--accent)', color: '#FFFFFF',
             border: 'none', borderRadius: 2, cursor: 'pointer',
           }}
         >
@@ -73,12 +73,12 @@ export default async function SignInPage({ searchParams }: Props) {
         </button>
       </form>
 
-      <p style={{ marginTop: 28, fontSize: 11, color: 'rgba(28,26,23,0.45)', lineHeight: 1.7 }}>
+      <p style={{ marginTop: 28, fontSize: 11, color: 'rgba(var(--ink-rgb),0.45)', lineHeight: 1.7 }}>
         Memorizziamo solo la tua email per autenticarti. Nessuna password, nessun tracking.
         Puoi cancellare l&apos;account in qualsiasi momento.
       </p>
-      <p style={{ marginTop: 14, fontSize: 11, color: 'rgba(28,26,23,0.4)' }}>
-        <Link href="/" style={{ color: '#B54A2C', textDecoration: 'none' }}>← Torna al sito</Link>
+      <p style={{ marginTop: 14, fontSize: 11, color: 'rgba(var(--ink-rgb),0.4)' }}>
+        <Link href="/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>← Torna al sito</Link>
       </p>
     </div>
   )

@@ -54,25 +54,25 @@ export default async function TorneiPage() {
       <div style={{ marginBottom: 40 }}>
         <p
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            color: '#7C7568',
+            color: 'var(--muted)',
             marginBottom: 8,
             display: 'flex',
             alignItems: 'center',
             gap: 8,
           }}
         >
-          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
+          <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--muted)', opacity: 0.4 }} />
           Archivio
         </p>
-        <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 38, lineHeight: 1.1, color: '#1C1A17' }}>
+        <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 38, lineHeight: 1.1, color: 'var(--ink)' }}>
           Tornei
         </h1>
-        <p style={{ marginTop: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: '#7C7568' }}>
+        <p style={{ marginTop: 8, fontFamily: "var(--font-sans)", fontSize: 14, color: 'var(--muted)' }}>
           Dai Grandi Slam ai Masters Series — il circuito ATP 1980-2002
         </p>
       </div>
@@ -81,12 +81,12 @@ export default async function TorneiPage() {
       <section style={{ marginBottom: 48 }}>
         <p
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
-            color: '#9C7C3E',
+            color: 'var(--gold)',
             marginBottom: 16,
           }}
         >
@@ -94,7 +94,7 @@ export default async function TorneiPage() {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 14 }}>
           {slams.map((t) => (
-            <TournamentCard key={t.id} tournament={t} accent={SLAM_COLORS[t.slug] ?? '#B54A2C'} />
+            <TournamentCard key={t.id} tournament={t} accent={SLAM_COLORS[t.slug] ?? 'var(--accent)'} />
           ))}
         </div>
       </section>
@@ -104,12 +104,12 @@ export default async function TorneiPage() {
         <section>
           <p
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 10,
               fontWeight: 500,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: '#7C7568',
+              color: 'var(--muted)',
               marginBottom: 16,
             }}
           >
@@ -117,7 +117,7 @@ export default async function TorneiPage() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 10 }}>
             {others.map((t) => (
-              <TournamentCard key={t.id} tournament={t} accent="#B54A2C" compact />
+              <TournamentCard key={t.id} tournament={t} accent="var(--accent)" compact />
             ))}
           </div>
         </section>
@@ -142,7 +142,7 @@ function TournamentCard({
         className="lift-on-hover"
         style={{
           background: '#FFFFFF',
-          border: '1px solid rgba(28,26,23,0.08)',
+          border: '1px solid rgba(var(--ink-rgb),0.08)',
           borderTop: `3px solid ${accent}`,
           borderRadius: 2,
           padding: compact ? '16px 18px' : '22px 22px 20px',
@@ -153,10 +153,10 @@ function TournamentCard({
       >
         <p
           style={{
-            fontFamily: "'Source Serif 4', Georgia, serif",
+            fontFamily: "var(--font-serif)",
             fontSize: compact ? 17 : 22,
             fontWeight: 600,
-            color: '#1C1A17',
+            color: 'var(--ink)',
             lineHeight: 1.1,
             marginBottom: 6,
           }}
@@ -165,9 +165,9 @@ function TournamentCard({
         </p>
         <p
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 11,
-            color: '#7C7568',
+            color: 'var(--muted)',
             letterSpacing: '0.04em',
             marginBottom: !compact && intro ? 14 : 0,
           }}
@@ -177,11 +177,11 @@ function TournamentCard({
         {!compact && intro && (
           <p
             style={{
-              fontFamily: "'Source Serif 4', serif",
+              fontFamily: "var(--font-serif)",
               fontStyle: 'italic',
               fontSize: 13,
               lineHeight: 1.65,
-              color: '#1C1A17',
+              color: 'var(--ink)',
               flex: 1,
             }}
           >
@@ -192,7 +192,7 @@ function TournamentCard({
           <p
             style={{
               marginTop: 14,
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 11,
               fontWeight: 500,
               color: accent,

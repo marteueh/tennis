@@ -19,18 +19,18 @@ export default function Loading() {
         style={{ animation: 'spin 1.2s linear infinite' }}
         aria-hidden="true"
       >
-        <circle cx="26" cy="26" r="22" stroke="#9C7C3E" strokeWidth="2" strokeDasharray="80 60" />
-        <path d="M 6 18 C 14 22 38 30 46 34" stroke="#B54A2C" strokeWidth="2" strokeLinecap="round" />
-        <path d="M 6 34 C 14 30 38 22 46 18" stroke="#B54A2C" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="26" cy="26" r="22" stroke="var(--gold)" strokeWidth="2" strokeDasharray="80 60" />
+        <path d="M 6 18 C 14 22 38 30 46 34" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
+        <path d="M 6 34 C 14 30 38 22 46 18" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
       </svg>
       <p
         style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "var(--font-sans)",
           fontSize: 11,
           fontWeight: 500,
           letterSpacing: '0.14em',
           textTransform: 'uppercase',
-          color: '#7C7568',
+          color: 'var(--muted)',
         }}
       >
         Caricamento archivio…

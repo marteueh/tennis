@@ -14,18 +14,18 @@ export default async function AccountPage() {
   const approvedCount = await getUserApprovedCommentsCount(userId).catch(() => 0)
 
   return (
-    <div style={{ maxWidth: 640, margin: '40px auto 80px', padding: '0 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-      <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 8 }}>
+    <div style={{ maxWidth: 640, margin: '40px auto 80px', padding: '0 24px', fontFamily: "var(--font-sans)" }}>
+      <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 8 }}>
         Account
       </p>
-      <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 32, color: '#1C1A17', marginBottom: 24 }}>
+      <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 32, color: 'var(--ink)', marginBottom: 24 }}>
         Il mio account
       </h1>
 
       {/* Info */}
       <div style={{
         background: '#FFFFFF',
-        border: '1px solid rgba(28,26,23,0.08)',
+        border: '1px solid rgba(var(--ink-rgb),0.08)',
         borderRadius: 2,
         padding: '20px 22px',
         marginBottom: 20,
@@ -35,7 +35,7 @@ export default async function AccountPage() {
         <Row label="Commenti approvati" value={String(approvedCount)} />
       </div>
 
-      <p style={{ fontSize: 12, color: '#7C7568', lineHeight: 1.7, marginBottom: 28 }}>
+      <p style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.7, marginBottom: 28 }}>
         Memorizziamo solo la tua email e i tuoi commenti. Nessun tracciamento né condivisione con terzi.
       </p>
 
@@ -47,10 +47,10 @@ export default async function AccountPage() {
         borderRadius: '0 2px 2px 0',
         padding: '16px 20px',
       }}>
-        <h2 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 18, color: '#1C1A17', marginBottom: 8 }}>
+        <h2 style={{ fontFamily: "var(--font-serif)", fontSize: 18, color: 'var(--ink)', marginBottom: 8 }}>
           Zona pericolosa
         </h2>
-        <p style={{ fontSize: 13, color: '#1C1A17', lineHeight: 1.6, marginBottom: 14 }}>
+        <p style={{ fontSize: 13, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 14 }}>
           Cancellando l&apos;account elimineremo i tuoi commenti e i tuoi dati personali (email, nome).
           Questa operazione è <strong>irreversibile</strong>.
         </p>
@@ -73,7 +73,7 @@ export default async function AccountPage() {
       </div>
 
       <p style={{ marginTop: 24, fontSize: 12 }}>
-        <Link href="/" style={{ color: '#B54A2C', textDecoration: 'none' }}>← Torna al sito</Link>
+        <Link href="/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>← Torna al sito</Link>
       </p>
     </div>
   )
@@ -81,9 +81,9 @@ export default async function AccountPage() {
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '8px 0', borderBottom: '1px solid rgba(28,26,23,0.05)' }}>
-      <span style={{ fontSize: 12, color: '#7C7568' }}>{label}</span>
-      <span style={{ fontSize: 13, color: '#1C1A17', fontWeight: 500 }}>{value}</span>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '8px 0', borderBottom: '1px solid rgba(var(--ink-rgb),0.05)' }}>
+      <span style={{ fontSize: 12, color: 'var(--muted)' }}>{label}</span>
+      <span style={{ fontSize: 13, color: 'var(--ink)', fontWeight: 500 }}>{value}</span>
     </div>
   )
 }

@@ -12,9 +12,9 @@ const TYPE_OPTIONS: { value: string; label: string }[] = [
 ]
 
 const LEVEL_OPTIONS: { value: string; label: string; color: string }[] = [
-  { value: 'direct',     label: 'Diretto',    color: '#B54A2C' },
-  { value: 'contextual', label: 'Contestuale', color: '#7C7568' },
-  { value: 'archetypal', label: 'Archetipo',   color: '#9C7C3E' },
+  { value: 'direct',     label: 'Diretto',    color: 'var(--accent)' },
+  { value: 'contextual', label: 'Contestuale', color: 'var(--muted)' },
+  { value: 'archetypal', label: 'Archetipo',   color: 'var(--gold)' },
 ]
 
 interface Props {
@@ -30,7 +30,7 @@ export function CulturalImpactsManager({ items, context }: Props) {
     <div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16 }}>
         {items.length === 0 && (
-          <p style={{ fontSize: 12, color: 'rgba(28,26,23,0.4)', fontStyle: 'italic', padding: '16px 0' }}>
+          <p style={{ fontSize: 12, color: 'rgba(var(--ink-rgb),0.4)', fontStyle: 'italic', padding: '16px 0' }}>
             Nessun riquadro associato. Aggiungi il primo qui sotto.
           </p>
         )}
@@ -43,7 +43,7 @@ export function CulturalImpactsManager({ items, context }: Props) {
       <details
         style={{
           background: '#FFFFFF',
-          border: '1px dashed rgba(181,74,44,0.4)',
+          border: '1px dashed rgba(var(--accent-rgb),0.4)',
           borderRadius: 2,
           padding: '0',
         }}
@@ -51,11 +51,11 @@ export function CulturalImpactsManager({ items, context }: Props) {
         <summary style={{
           padding: '12px 16px', cursor: 'pointer',
           fontSize: 12, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase',
-          color: '#B54A2C', listStyle: 'none',
+          color: 'var(--accent)', listStyle: 'none',
         }}>
           + Aggiungi nuovo riquadro
         </summary>
-        <div style={{ borderTop: '1px solid rgba(181,74,44,0.15)', padding: '16px' }}>
+        <div style={{ borderTop: '1px solid rgba(var(--accent-rgb),0.15)', padding: '16px' }}>
           <ImpactForm context={context} />
         </div>
       </details>
@@ -70,7 +70,7 @@ function ImpactRow({ item, context }: { item: CulturalImpact; context: Props['co
     <details
       style={{
         background: '#FFFFFF',
-        border: '1px solid rgba(28,26,23,0.08)',
+        border: '1px solid rgba(var(--ink-rgb),0.08)',
         borderLeft: `3px solid ${levelCfg.color}`,
         borderRadius: 2,
       }}
@@ -82,15 +82,15 @@ function ImpactRow({ item, context }: { item: CulturalImpact; context: Props['co
         {item.emoji && <span style={{ fontSize: 16 }}>{item.emoji}</span>}
         <span style={{
           fontSize: 9, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase',
-          padding: '2px 6px', background: 'rgba(28,26,23,0.05)', color: '#7C7568', borderRadius: 2,
+          padding: '2px 6px', background: 'rgba(var(--ink-rgb),0.05)', color: 'var(--muted)', borderRadius: 2,
         }}>
           {typeLabel}
         </span>
-        <span style={{ fontSize: 13, fontWeight: 500, color: '#1C1A17', flex: 1 }}>
+        <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--ink)', flex: 1 }}>
           {item.title}
         </span>
         {item.year && (
-          <span style={{ fontSize: 11, color: '#7C7568', fontVariantNumeric: 'tabular-nums' }}>
+          <span style={{ fontSize: 11, color: 'var(--muted)', fontVariantNumeric: 'tabular-nums' }}>
             {item.year}
           </span>
         )}
@@ -101,7 +101,7 @@ function ImpactRow({ item, context }: { item: CulturalImpact; context: Props['co
           {levelCfg.label}
         </span>
       </summary>
-      <div style={{ padding: '12px 14px', borderTop: '1px solid rgba(28,26,23,0.06)' }}>
+      <div style={{ padding: '12px 14px', borderTop: '1px solid rgba(var(--ink-rgb),0.06)' }}>
         <ImpactForm item={item} context={context} />
         <form action={deleteCulturalImpactAction} style={{ marginTop: 12 }}>
           <input type="hidden" name="id" value={item.id} />
@@ -155,7 +155,7 @@ function ImpactForm({ item, context }: { item?: CulturalImpact; context: Props['
           style={{
             ...inputStyle,
             resize: 'vertical',
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             lineHeight: 1.5,
           }}
         />
@@ -166,7 +166,7 @@ function ImpactForm({ item, context }: { item?: CulturalImpact; context: Props['
         style={{
           alignSelf: 'flex-start',
           fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase',
-          padding: '8px 18px', background: '#B54A2C', color: '#FFFFFF',
+          padding: '8px 18px', background: 'var(--accent)', color: '#FFFFFF',
           border: 'none', borderRadius: 2, cursor: 'pointer',
         }}
       >
@@ -178,14 +178,14 @@ function ImpactForm({ item, context }: { item?: CulturalImpact; context: Props['
 
 const labelStyle: React.CSSProperties = {
   display: 'block', fontSize: 9, fontWeight: 500, letterSpacing: '0.12em',
-  textTransform: 'uppercase', color: '#7C7568', marginBottom: 4,
+  textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 4,
 }
 
 const inputStyle: React.CSSProperties = {
   width: '100%', fontSize: 13, padding: '7px 10px',
-  border: '1px solid rgba(28,26,23,0.15)', borderRadius: 2,
-  boxSizing: 'border-box', color: '#1C1A17',
-  fontFamily: "'Plus Jakarta Sans', sans-serif",
+  border: '1px solid rgba(var(--ink-rgb),0.15)', borderRadius: 2,
+  boxSizing: 'border-box', color: 'var(--ink)',
+  fontFamily: "var(--font-sans)",
 }
 
 interface FieldProps {

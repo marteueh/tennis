@@ -114,11 +114,11 @@ export default async function GiocatorePage({
 
       {/* Breadcrumb */}
       <nav style={{ marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center' }}>
-        <Link href="/giocatori" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#7C7568', textDecoration: 'none' }}>
+        <Link href="/giocatori" style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: 'var(--muted)', textDecoration: 'none' }}>
           Giocatori
         </Link>
-        <span style={{ color: 'rgba(28,26,23,0.2)', fontSize: 12 }}>›</span>
-        <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#1C1A17' }}>
+        <span style={{ color: 'rgba(var(--ink-rgb),0.2)', fontSize: 12 }}>›</span>
+        <span style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: 'var(--ink)' }}>
           {playerFullName(player)}
         </span>
       </nav>
@@ -130,7 +130,7 @@ export default async function GiocatorePage({
           {/* Hero giocatore */}
           <div
             style={{
-              borderBottom: '2px solid #1C1A17',
+              borderBottom: '2px solid var(--ink)',
               paddingBottom: 32,
               marginBottom: 40,
               display: 'grid',
@@ -142,12 +142,12 @@ export default async function GiocatorePage({
             <div>
               <p
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: 10,
                   fontWeight: 500,
                   letterSpacing: '0.18em',
                   textTransform: 'uppercase',
-                  color: '#9C7C3E',
+                  color: 'var(--gold)',
                   marginBottom: 10,
                 }}
               >
@@ -155,11 +155,11 @@ export default async function GiocatorePage({
               </p>
               <h1
                 style={{
-                  fontFamily: "'Source Serif 4', Georgia, serif",
+                  fontFamily: "var(--font-serif)",
                   fontSize: 'clamp(36px, 5vw, 64px)',
                   fontWeight: 700,
                   letterSpacing: '-0.01em',
-                  color: '#1C1A17',
+                  color: 'var(--ink)',
                   lineHeight: 1.05,
                   marginBottom: 28,
                 }}
@@ -180,7 +180,7 @@ export default async function GiocatorePage({
                       style={{
                         fontFamily: "'Bebas Neue', Impact, sans-serif",
                         fontSize: 36,
-                        color: gold ? '#9C7C3E' : '#1C1A17',
+                        color: gold ? 'var(--gold)' : 'var(--ink)',
                         lineHeight: 1,
                         fontVariantNumeric: 'tabular-nums',
                       }}
@@ -189,11 +189,11 @@ export default async function GiocatorePage({
                     </p>
                     <p
                       style={{
-                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontFamily: "var(--font-sans)",
                         fontSize: 9,
                         letterSpacing: '0.12em',
                         textTransform: 'uppercase',
-                        color: '#7C7568',
+                        color: 'var(--muted)',
                         marginTop: 4,
                       }}
                     >
@@ -213,7 +213,7 @@ export default async function GiocatorePage({
                   position: 'relative',
                   overflow: 'hidden',
                   flexShrink: 0,
-                  borderBottom: '3px solid #9C7C3E',
+                  borderBottom: '3px solid var(--gold)',
                 }}
               >
                 <Image
@@ -236,22 +236,22 @@ export default async function GiocatorePage({
               <div style={{ marginBottom: 40 }}>
                 <p
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     fontSize: 10,
                     fontWeight: 500,
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
-                    color: '#7C7568',
+                    color: 'var(--muted)',
                     marginBottom: 12,
                     display: 'flex',
                     alignItems: 'center',
                     gap: 8,
                   }}
                 >
-                  <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
+                  <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--muted)', opacity: 0.4 }} />
                   Profilo
                   {isEnglish && (
-                    <span style={{ fontSize: 9, color: '#9C7C3E', fontWeight: 500, letterSpacing: '0.08em', marginLeft: 4 }}>
+                    <span style={{ fontSize: 9, color: 'var(--gold)', fontWeight: 500, letterSpacing: '0.08em', marginLeft: 4 }}>
                       IN ENGLISH
                     </span>
                   )}
@@ -260,10 +260,10 @@ export default async function GiocatorePage({
                   <p
                     key={i}
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily: "var(--font-sans)",
                       fontSize: 14,
                       lineHeight: 1.75,
-                      color: '#1C1A17',
+                      color: 'var(--ink)',
                       marginBottom: 12,
                     }}
                   >
@@ -273,9 +273,9 @@ export default async function GiocatorePage({
                 {player.bio_source && (
                   <p
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily: "var(--font-sans)",
                       fontSize: 11,
-                      color: 'rgba(28,26,23,0.4)',
+                      color: 'rgba(var(--ink-rgb),0.4)',
                       marginTop: 6,
                     }}
                   >
@@ -284,7 +284,7 @@ export default async function GiocatorePage({
                       href={`https://${player.bio_source}/wiki/${encodeURIComponent(`${player.first_name}_${player.last_name}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: '#B54A2C', textDecoration: 'none' }}
+                      style={{ color: 'var(--accent)', textDecoration: 'none' }}
                     >
                       Wikipedia
                     </a>
@@ -300,20 +300,20 @@ export default async function GiocatorePage({
             <div
               style={{
                 padding: '14px 18px',
-                background: 'rgba(181,74,44,0.05)',
-                border: '1px solid rgba(181,74,44,0.15)',
-                borderLeft: '3px solid #B54A2C',
+                background: 'rgba(var(--accent-rgb),0.05)',
+                border: '1px solid rgba(var(--accent-rgb),0.15)',
+                borderLeft: '3px solid var(--accent)',
                 marginBottom: 40,
               }}
             >
-              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, color: '#1C1A17', marginBottom: 6 }}>
+              <p style={{ fontFamily: "var(--font-sans)", fontSize: 13, color: 'var(--ink)', marginBottom: 6 }}>
                 Gianni Clerici ha scritto di {playerFullName(player)} per oltre trent&#39;anni.
               </p>
               <a
                 href={player.clerici_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, fontWeight: 500, color: '#B54A2C', textDecoration: 'none' }}
+                style={{ fontFamily: "var(--font-sans)", fontSize: 12, fontWeight: 500, color: 'var(--accent)', textDecoration: 'none' }}
               >
                 Articoli di Clerici su La Repubblica →
               </a>
@@ -329,9 +329,9 @@ export default async function GiocatorePage({
           <div>
             <h2
               style={{
-                fontFamily: "'Source Serif 4', serif",
+                fontFamily: "var(--font-serif)",
                 fontSize: 24,
-                color: '#1C1A17',
+                color: 'var(--ink)',
                 marginBottom: 24,
               }}
             >
@@ -341,12 +341,12 @@ export default async function GiocatorePage({
               <div style={{ marginBottom: 24 }}>
                 <p
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     fontSize: 10,
                     fontWeight: 500,
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
-                    color: '#9C7C3E',
+                    color: 'var(--gold)',
                     marginBottom: 12,
                   }}
                 >
@@ -372,20 +372,20 @@ export default async function GiocatorePage({
           <div
             style={{
               background: '#FFFFFF',
-              border: '1px solid rgba(28,26,23,0.08)',
+              border: '1px solid rgba(var(--ink-rgb),0.08)',
               borderRadius: 2,
               overflow: 'hidden',
             }}
           >
-            <div style={{ padding: '12px 16px', borderBottom: '2px solid #1C1A17' }}>
+            <div style={{ padding: '12px 16px', borderBottom: '2px solid var(--ink)' }}>
               <p
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: 9,
                   fontWeight: 500,
                   letterSpacing: '0.18em',
                   textTransform: 'uppercase',
-                  color: '#7C7568',
+                  color: 'var(--muted)',
                 }}
               >
                 Scheda Giocatore
@@ -410,14 +410,14 @@ export default async function GiocatorePage({
                     display: 'flex',
                     justifyContent: 'space-between',
                     padding: '10px 16px',
-                    borderBottom: '1px solid rgba(28,26,23,0.05)',
+                    borderBottom: '1px solid rgba(var(--ink-rgb),0.05)',
                     gap: 8,
                   }}
                 >
-                  <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#7C7568', flexShrink: 0 }}>
+                  <span style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: 'var(--muted)', flexShrink: 0 }}>
                     {label}
                   </span>
-                  <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, fontWeight: 500, color: '#1C1A17', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
+                  <span style={{ fontFamily: "var(--font-sans)", fontSize: 12, fontWeight: 500, color: 'var(--ink)', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
                     {value}
                   </span>
                 </div>
@@ -426,7 +426,7 @@ export default async function GiocatorePage({
           </div>
 
           {player.photo_credit && (
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, color: 'rgba(28,26,23,0.3)', lineHeight: 1.5 }}>
+            <p style={{ fontFamily: "var(--font-sans)", fontSize: 10, color: 'rgba(var(--ink-rgb),0.3)', lineHeight: 1.5 }}>
               Foto: {player.photo_credit}
             </p>
           )}

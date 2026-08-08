@@ -22,9 +22,9 @@ function getSourceStatus(m: AdminClericiRow): 'excerpt' | 'free' | 'repubblica' 
 const STATUS_CONFIG = {
   excerpt:    { label: 'Estratto',   color: '#16A34A', bg: 'rgba(34,197,94,0.1)',   border: 'rgba(34,197,94,0.25)',  leftBar: '#22C55E' },
   free:       { label: 'Libero',     color: '#0369A1', bg: 'rgba(14,165,233,0.1)',  border: 'rgba(14,165,233,0.25)', leftBar: '#0EA5E9' },
-  repubblica: { label: 'Repubblica', color: '#92400E', bg: 'rgba(156,124,62,0.12)', border: 'rgba(156,124,62,0.3)',  leftBar: '#9C7C3E' },
-  search:     { label: 'Ricerca',    color: '#6B7280', bg: 'rgba(28,26,23,0.05)',   border: 'rgba(28,26,23,0.1)',   leftBar: '#D1D5DB' },
-  none:       { label: 'Assente',    color: '#9CA3AF', bg: 'rgba(28,26,23,0.03)',   border: 'rgba(28,26,23,0.07)',  leftBar: '#E5E7EB' },
+  repubblica: { label: 'Repubblica', color: '#92400E', bg: 'rgba(var(--gold-rgb),0.12)', border: 'rgba(var(--gold-rgb),0.3)',  leftBar: 'var(--gold)' },
+  search:     { label: 'Ricerca',    color: '#6B7280', bg: 'rgba(var(--ink-rgb),0.05)',   border: 'rgba(var(--ink-rgb),0.1)',   leftBar: '#D1D5DB' },
+  none:       { label: 'Assente',    color: '#9CA3AF', bg: 'rgba(var(--ink-rgb),0.03)',   border: 'rgba(var(--ink-rgb),0.07)',  leftBar: '#E5E7EB' },
 }
 
 export default async function AdminClericiPage() {
@@ -52,12 +52,12 @@ export default async function AdminClericiPage() {
   })
 
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '40px 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div style={{ maxWidth: 960, margin: '0 auto', padding: '40px 24px', fontFamily: "var(--font-sans)" }}>
       <div style={{ marginBottom: 32 }}>
-        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 6 }}>
+        <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 6 }}>
           Admin
         </p>
-        <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 32, color: '#1C1A17', marginBottom: 16 }}>
+        <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 32, color: 'var(--ink)', marginBottom: 16 }}>
           Estratti Clerici
         </h1>
 
@@ -134,13 +134,13 @@ function MatchRow({ match: m }: { match: AdminClericiRow }) {
         }}
       >
         <div style={{ display: 'flex', gap: 10, alignItems: 'center', flex: 1, minWidth: 0 }}>
-          <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 13, letterSpacing: '0.08em', color: '#7C7568', flexShrink: 0 }}>
+          <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 13, letterSpacing: '0.08em', color: 'var(--muted)', flexShrink: 0 }}>
             {m.year}
           </span>
-          <span style={{ fontSize: 14, fontWeight: 500, color: '#1C1A17', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span style={{ fontSize: 14, fontWeight: 500, color: 'var(--ink)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             {m.winner_name} vs {m.loser_name}
           </span>
-          <span style={{ fontSize: 11, color: '#7C7568', flexShrink: 0 }}>
+          <span style={{ fontSize: 11, color: 'var(--muted)', flexShrink: 0 }}>
             {m.tournament_name} · {ROUND_LABELS[m.round] ?? m.round}
           </span>
         </div>
@@ -167,7 +167,7 @@ function MatchRow({ match: m }: { match: AdminClericiRow }) {
         </div>
       </summary>
 
-      <div style={{ padding: '0 18px 18px', borderTop: '1px solid rgba(28,26,23,0.05)' }}>
+      <div style={{ padding: '0 18px 18px', borderTop: '1px solid rgba(var(--ink-rgb),0.05)' }}>
         {/* Link rapidi */}
         {(status === 'repubblica' || status === 'free') && m.clerici_article_url && (
           <div style={{ paddingTop: 12, marginBottom: 12 }}>
@@ -194,7 +194,7 @@ function MatchRow({ match: m }: { match: AdminClericiRow }) {
           <Field label="Fonte" name="clerici_source" defaultValue={m.clerici_source ?? ''} placeholder={`La Repubblica, ${m.match_date ?? m.year}`} />
 
           <div>
-            <label style={{ display: 'block', fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 6 }}>
+            <label style={{ display: 'block', fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 6 }}>
               Estratto Clerici (italiano)
             </label>
             <textarea
@@ -202,10 +202,10 @@ function MatchRow({ match: m }: { match: AdminClericiRow }) {
               defaultValue={m.clerici_excerpt_it ?? ''}
               rows={5}
               style={{
-                width: '100%', fontSize: 13, fontFamily: "'Plus Jakarta Sans', sans-serif",
+                width: '100%', fontSize: 13, fontFamily: "var(--font-sans)",
                 lineHeight: 1.6, padding: '10px 12px',
-                border: '1px solid rgba(28,26,23,0.15)', borderRadius: 2,
-                resize: 'vertical', boxSizing: 'border-box', color: '#1C1A17',
+                border: '1px solid rgba(var(--ink-rgb),0.15)', borderRadius: 2,
+                resize: 'vertical', boxSizing: 'border-box', color: 'var(--ink)',
               }}
               placeholder="Incolla qui l'estratto dall'articolo di Gianni Clerici…"
             />
@@ -215,9 +215,9 @@ function MatchRow({ match: m }: { match: AdminClericiRow }) {
             type="submit"
             style={{
               alignSelf: 'flex-start',
-              fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, fontWeight: 600,
+              fontFamily: "var(--font-sans)", fontSize: 12, fontWeight: 600,
               letterSpacing: '0.06em', textTransform: 'uppercase',
-              padding: '8px 20px', background: '#B54A2C', color: '#FFFFFF',
+              padding: '8px 20px', background: 'var(--accent)', color: '#FFFFFF',
               border: 'none', borderRadius: 2, cursor: 'pointer',
             }}
           >
@@ -234,15 +234,15 @@ function Field({ label, name, defaultValue, placeholder, type = 'text' }: {
 }) {
   return (
     <div>
-      <label style={{ display: 'block', fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 6 }}>
+      <label style={{ display: 'block', fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 6 }}>
         {label}
       </label>
       <input
         type={type} name={name} defaultValue={defaultValue} placeholder={placeholder}
         style={{
-          width: '100%', fontSize: 13, fontFamily: "'Plus Jakarta Sans', sans-serif",
-          padding: '8px 12px', border: '1px solid rgba(28,26,23,0.15)',
-          borderRadius: 2, boxSizing: 'border-box', color: '#1C1A17',
+          width: '100%', fontSize: 13, fontFamily: "var(--font-sans)",
+          padding: '8px 12px', border: '1px solid rgba(var(--ink-rgb),0.15)',
+          borderRadius: 2, boxSizing: 'border-box', color: 'var(--ink)',
         }}
       />
     </div>

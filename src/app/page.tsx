@@ -64,7 +64,7 @@ export default async function HomePage() {
       {/* ── HERO ──────────────────────────────────────────────── */}
       <section
         style={{
-          background: '#1C1A17',
+          background: 'var(--ink)',
           position: 'relative',
           overflow: 'hidden',
           padding: '72px 0 64px',
@@ -91,20 +91,20 @@ export default async function HomePage() {
             <p
               className="fade-in-up fade-in-up-1"
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "var(--font-sans)",
                 fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase',
-                color: '#9C7C3E', marginBottom: 24,
+                color: 'var(--gold)', marginBottom: 24,
                 display: 'flex', alignItems: 'center', gap: 10,
               }}
             >
-              <span style={{ display: 'inline-block', width: 24, height: 1, background: '#9C7C3E' }} />
+              <span style={{ display: 'inline-block', width: 24, height: 1, background: 'var(--gold)' }} />
               Archivio editoriale · 1980-2002
             </p>
 
             <h1
               className="fade-in-up fade-in-up-2"
               style={{
-                fontFamily: "'Source Serif 4', serif",
+                fontFamily: "var(--font-serif)",
                 fontSize: 'clamp(32px, 5vw, 52px)',
                 lineHeight: 1.1, color: '#FFFFFF',
                 marginBottom: 24, maxWidth: 720,
@@ -116,7 +116,7 @@ export default async function HomePage() {
             <p
               className="fade-in-up fade-in-up-3"
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "var(--font-sans)",
                 fontSize: 16, lineHeight: 1.7,
                 color: 'rgba(255,255,255,0.6)',
                 maxWidth: 600, marginBottom: 36,
@@ -133,9 +133,9 @@ export default async function HomePage() {
                 href="/partite"
                 className="transition-transform active:translate-y-px hover:brightness-110"
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
-                  background: '#B54A2C', color: '#ffffff', textDecoration: 'none',
+                  background: 'var(--accent)', color: '#ffffff', textDecoration: 'none',
                   padding: '12px 24px', borderRadius: 2,
                 }}
               >
@@ -145,7 +145,7 @@ export default async function HomePage() {
                 href="/giocatori"
                 className="transition-colors active:translate-y-px hover:border-white/40 hover:text-white"
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
                   background: 'transparent', color: 'rgba(255,255,255,0.65)',
                   textDecoration: 'none', padding: '12px 24px',
@@ -167,7 +167,7 @@ export default async function HomePage() {
                   <p
                     style={{
                       fontFamily: "'Bebas Neue', Impact, sans-serif",
-                      fontSize: 32, color: '#9C7C3E',
+                      fontSize: 32, color: 'var(--gold)',
                       lineHeight: 1, letterSpacing: '0.02em',
                       fontVariantNumeric: 'tabular-nums',
                     }}
@@ -176,7 +176,7 @@ export default async function HomePage() {
                   </p>
                   <p
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily: "var(--font-sans)",
                       fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase',
                       color: 'rgba(255,255,255,0.4)', marginTop: 5,
                     }}
@@ -199,26 +199,26 @@ export default async function HomePage() {
           <div>
             <p
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "var(--font-sans)",
                 fontSize: 10,
                 fontWeight: 500,
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                color: '#7C7568',
+                color: 'var(--muted)',
                 marginBottom: 8,
                 display: 'flex',
                 alignItems: 'center',
                 gap: 8,
               }}
             >
-              <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
+              <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--muted)', opacity: 0.4 }} />
               Partite in evidenza
             </p>
             <h2
               style={{
-                fontFamily: "'Source Serif 4', serif",
+                fontFamily: "var(--font-serif)",
                 fontSize: 28,
-                color: '#1C1A17',
+                color: 'var(--ink)',
                 lineHeight: 1.2,
               }}
             >
@@ -228,12 +228,12 @@ export default async function HomePage() {
           <Link
             href="/partite"
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 11,
               fontWeight: 500,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              color: '#B54A2C',
+              color: 'var(--accent)',
               textDecoration: 'none',
             }}
           >
@@ -266,11 +266,11 @@ export default async function HomePage() {
       >
         <blockquote
           style={{
-            fontFamily: "'Source Serif 4', serif",
+            fontFamily: "var(--font-serif)",
             fontStyle: 'italic',
             fontSize: 'clamp(18px, 2.5vw, 24px)',
             lineHeight: 1.65,
-            color: '#1C1A17',
+            color: 'var(--ink)',
           }}
         >
           Ogni partita di quegli anni ha una storia che i numeri non raccontano da soli
@@ -284,26 +284,26 @@ export default async function HomePage() {
       <section className="max-w-7xl mx-auto px-6">
         <p
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            color: '#7C7568',
+            color: 'var(--muted)',
             marginBottom: 8,
             display: 'flex',
             alignItems: 'center',
             gap: 8,
           }}
         >
-          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
+          <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--muted)', opacity: 0.4 }} />
           I Grandi Slam
         </p>
         <h2
           style={{
-            fontFamily: "'Source Serif 4', serif",
+            fontFamily: "var(--font-serif)",
             fontSize: 28,
-            color: '#1C1A17',
+            color: 'var(--ink)',
             lineHeight: 1.2,
             marginBottom: 32,
           }}
@@ -333,7 +333,7 @@ export default async function HomePage() {
                 className="lift-on-hover"
                 style={{
                   background: '#FFFFFF',
-                  border: '1px solid rgba(28,26,23,0.08)',
+                  border: '1px solid rgba(var(--ink-rgb),0.08)',
                   borderRadius: 2,
                   padding: '24px 20px',
                   borderTop: `3px solid ${color}`,
@@ -341,9 +341,9 @@ export default async function HomePage() {
               >
                 <p
                   style={{
-                    fontFamily: "'Source Serif 4', serif",
+                    fontFamily: "var(--font-serif)",
                     fontSize: 20,
-                    color: '#1C1A17',
+                    color: 'var(--ink)',
                     letterSpacing: '0.05em',
                     marginBottom: 4,
                   }}
@@ -352,9 +352,9 @@ export default async function HomePage() {
                 </p>
                 <p
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     fontSize: 11,
-                    color: '#7C7568',
+                    color: 'var(--muted)',
                     letterSpacing: '0.06em',
                   }}
                 >
@@ -372,7 +372,7 @@ export default async function HomePage() {
       <section
         className="hero-loc-texture"
         style={{
-          background: '#1C1A17',
+          background: 'var(--ink)',
           padding: '64px 0',
           position: 'relative',
           overflow: 'hidden',
@@ -389,12 +389,12 @@ export default async function HomePage() {
         >
           <p
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 10,
               fontWeight: 500,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: '#9C7C3E',
+              color: 'var(--gold)',
               marginBottom: 16,
             }}
           >
@@ -402,7 +402,7 @@ export default async function HomePage() {
           </p>
           <h2
             style={{
-              fontFamily: "'Source Serif 4', serif",
+              fontFamily: "var(--font-serif)",
               fontSize: 28,
               color: '#FFFFFF',
               lineHeight: 1.3,
@@ -413,7 +413,7 @@ export default async function HomePage() {
           </h2>
           <p
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 14,
               lineHeight: 1.7,
               color: 'rgba(255,255,255,0.5)',

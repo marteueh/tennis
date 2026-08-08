@@ -26,9 +26,9 @@ export function ClericiVoice({
       <div
         style={{
           padding: '16px 20px',
-          background: 'rgba(181,74,44,0.04)',
-          border: '1px solid rgba(181,74,44,0.12)',
-          borderLeft: '3px solid rgba(181,74,44,0.3)',
+          background: 'rgba(var(--accent-rgb),0.04)',
+          border: '1px solid rgba(var(--accent-rgb),0.12)',
+          borderLeft: '3px solid rgba(var(--accent-rgb),0.3)',
           borderRadius: '0 2px 2px 0',
           display: 'flex',
           alignItems: 'center',
@@ -38,13 +38,13 @@ export function ClericiVoice({
         }}
       >
         <div>
-          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, color: '#7C7568', margin: 0 }}>
-            Cronaca di <strong style={{ color: '#1C1A17', fontWeight: 600 }}>Gianni Clerici</strong> su La Repubblica
+          <p style={{ fontFamily: "var(--font-sans)", fontSize: 13, color: 'var(--muted)', margin: 0 }}>
+            Cronaca di <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>Gianni Clerici</strong> su La Repubblica
           </p>
           {articleTitle && (
             <p style={{
-              fontFamily: "'Source Serif 4', serif", fontStyle: 'italic',
-              fontSize: 13, color: '#1C1A17', marginTop: 4, lineHeight: 1.4,
+              fontFamily: "var(--font-serif)", fontStyle: 'italic',
+              fontSize: 13, color: 'var(--ink)', marginTop: 4, lineHeight: 1.4,
             }}>
               «{articleTitle}»
             </p>
@@ -56,12 +56,12 @@ export function ClericiVoice({
           rel="noopener noreferrer"
           onClick={() => trackClericiClick(matchSlug, matchTitle)}
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 11,
             fontWeight: 600,
             letterSpacing: '0.06em',
             textTransform: 'uppercase',
-            color: '#B54A2C',
+            color: 'var(--accent)',
             textDecoration: 'none',
             whiteSpace: 'nowrap',
           }}
@@ -75,9 +75,9 @@ export function ClericiVoice({
   return (
     <div
       style={{
-        background: 'rgba(181,74,44,0.05)',
-        border: '1px solid rgba(181,74,44,0.15)',
-        borderLeft: '3px solid #B54A2C',
+        background: 'rgba(var(--accent-rgb),0.05)',
+        border: '1px solid rgba(var(--accent-rgb),0.15)',
+        borderLeft: '3px solid var(--accent)',
         padding: '24px 24px 20px',
         borderRadius: '0 2px 2px 0',
       }}
@@ -88,15 +88,15 @@ export function ClericiVoice({
           style={{
             width: 36,
             height: 36,
-            background: '#1C1A17',
+            background: 'var(--ink)',
             borderRadius: 2,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontFamily: "'Source Serif 4', serif",
+            fontFamily: "var(--font-serif)",
             fontStyle: 'italic',
             fontSize: 14,
-            color: '#B54A2C',
+            color: 'var(--accent)',
             letterSpacing: '0.02em',
             flexShrink: 0,
           }}
@@ -106,10 +106,10 @@ export function ClericiVoice({
         <div>
           <p
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 13,
               fontWeight: 600,
-              color: '#1C1A17',
+              color: 'var(--ink)',
               marginBottom: 2,
             }}
           >
@@ -117,9 +117,9 @@ export function ClericiVoice({
           </p>
           <p
             style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-sans)",
               fontSize: 11,
-              color: '#7C7568',
+              color: 'var(--muted)',
               letterSpacing: '0.03em',
             }}
           >
@@ -131,11 +131,11 @@ export function ClericiVoice({
       {/* Estratto — massimo una frase */}
       <blockquote
         style={{
-          fontFamily: "'Source Serif 4', serif",
+          fontFamily: "var(--font-serif)",
           fontStyle: 'italic',
           fontSize: 14,
           lineHeight: 1.75,
-          color: '#1C1A17',
+          color: 'var(--ink)',
           margin: '0 0 16px',
           paddingLeft: 0,
           border: 0,
@@ -151,10 +151,10 @@ export function ClericiVoice({
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 12,
             fontWeight: 500,
-            color: '#B54A2C',
+            color: 'var(--accent)',
             textDecoration: 'none',
             display: 'inline-flex',
             alignItems: 'center',
@@ -170,10 +170,10 @@ export function ClericiVoice({
       <p
         style={{
           marginTop: 12,
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "var(--font-sans)",
           fontSize: 10,
           letterSpacing: '0.06em',
-          color: 'rgba(28,26,23,0.35)',
+          color: 'rgba(var(--ink-rgb),0.35)',
           lineHeight: 1.6,
         }}
       >

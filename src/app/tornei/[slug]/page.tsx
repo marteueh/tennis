@@ -133,26 +133,26 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <nav style={{ marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center' }}>
-        <Link href="/tornei" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#7C7568', textDecoration: 'none' }}>Tornei</Link>
-        <span style={{ color: 'rgba(28,26,23,0.2)', fontSize: 12 }}>›</span>
-        <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#1C1A17' }}>{name}</span>
+        <Link href="/tornei" style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: 'var(--muted)', textDecoration: 'none' }}>Tornei</Link>
+        <span style={{ color: 'rgba(var(--ink-rgb),0.2)', fontSize: 12 }}>›</span>
+        <span style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: 'var(--ink)' }}>{name}</span>
       </nav>
 
       {/* Hero torneo */}
       <div
         style={{
-          borderBottom: '2px solid #1C1A17',
+          borderBottom: '2px solid var(--ink)',
           paddingBottom: 32,
           marginBottom: 48,
         }}
       >
-        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#9C7C3E', marginBottom: 10 }}>
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 10 }}>
           {tournament.category} · {tournament.city} · {tournament.country_code}
         </p>
-        <h1 style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: 'clamp(36px, 5vw, 64px)', fontWeight: 700, letterSpacing: '-0.01em', color: '#1C1A17', lineHeight: 1.05, marginBottom: 14 }}>
+        <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 'clamp(36px, 5vw, 64px)', fontWeight: 700, letterSpacing: '-0.01em', color: 'var(--ink)', lineHeight: 1.05, marginBottom: 14 }}>
           {name}
         </h1>
-        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, color: '#7C7568' }}>
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: 13, color: 'var(--muted)' }}>
           {tournament.surface ? (SURFACE_LABELS[tournament.surface] ?? tournament.surface) : ''} · Storico 1980–2002 · {years.length} edizioni nell&#39;archivio
         </p>
       </div>
@@ -161,17 +161,17 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
       {TOURNAMENT_LORE[slug] && (
         <section style={{ marginBottom: 48 }}>
           <p style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 10, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: '#7C7568', marginBottom: 12,
+            color: 'var(--muted)', marginBottom: 12,
             display: 'flex', alignItems: 'center', gap: 8,
           }}>
-            <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
+            <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--muted)', opacity: 0.4 }} />
             Storia del torneo
           </p>
           <h2 style={{
-            fontFamily: "'Source Serif 4', serif",
-            fontSize: 24, color: '#1C1A17', lineHeight: 1.3,
+            fontFamily: "var(--font-serif)",
+            fontSize: 24, color: 'var(--ink)', lineHeight: 1.3,
             marginBottom: 20, maxWidth: 720,
           }}>
             {TOURNAMENT_LORE[slug].subtitle}
@@ -185,8 +185,8 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
             <div>
               {TOURNAMENT_LORE[slug].paragraphs.map((p, i) => (
                 <p key={i} style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontSize: 14, lineHeight: 1.75, color: '#1C1A17',
+                  fontFamily: "var(--font-sans)",
+                  fontSize: 14, lineHeight: 1.75, color: 'var(--ink)',
                   marginBottom: 14,
                 }}>
                   {p}
@@ -198,35 +198,35 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
             <aside
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(28,26,23,0.08)',
-                borderLeft: '3px solid #9C7C3E',
+                border: '1px solid rgba(var(--ink-rgb),0.08)',
+                borderLeft: '3px solid var(--gold)',
                 padding: '16px 18px',
                 borderRadius: '0 2px 2px 0',
               }}
             >
               <p style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "var(--font-sans)",
                 fontSize: 9, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: '#7C7568', marginBottom: 12,
+                color: 'var(--muted)', marginBottom: 12,
               }}>
                 Scheda tecnica
               </p>
               {TOURNAMENT_LORE[slug].facts.map((f, i) => (
                 <div key={i} style={{
                   paddingBottom: 10, marginBottom: 10,
-                  borderBottom: i < TOURNAMENT_LORE[slug].facts.length - 1 ? '1px solid rgba(28,26,23,0.06)' : 'none',
+                  borderBottom: i < TOURNAMENT_LORE[slug].facts.length - 1 ? '1px solid rgba(var(--ink-rgb),0.06)' : 'none',
                 }}>
                   <p style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
-                    fontSize: 10, color: '#7C7568',
+                    fontFamily: "var(--font-sans)",
+                    fontSize: 10, color: 'var(--muted)',
                     letterSpacing: '0.08em', textTransform: 'uppercase',
                     marginBottom: 2,
                   }}>
                     {f.label}
                   </p>
                   <p style={{
-                    fontFamily: "'Source Serif 4', serif",
-                    fontSize: 13, color: '#1C1A17', lineHeight: 1.4,
+                    fontFamily: "var(--font-serif)",
+                    fontSize: 13, color: 'var(--ink)', lineHeight: 1.4,
                   }}>
                     {f.value}
                   </p>
@@ -242,7 +242,7 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
 
       {/* Selezione anno */}
       <div style={{ marginBottom: 40 }}>
-        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 16 }}>
+        <p style={{ fontFamily: "var(--font-sans)", fontSize: 10, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16 }}>
           Edizioni disponibili
         </p>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
@@ -251,16 +251,16 @@ export default async function TorneoPage({ params }: { params: Promise<{ slug: s
               key={year}
               href={`/tornei/${slug}/${year}`}
               style={{
-                fontFamily: "'Source Serif 4', Georgia, serif",
+                fontFamily: "var(--font-serif)",
                 fontSize: 18,
                 fontWeight: 600,
                 letterSpacing: '0.02em',
-                color: '#B54A2C',
+                color: 'var(--accent)',
                 textDecoration: 'none',
                 padding: '8px 16px',
-                border: '1px solid rgba(181,74,44,0.2)',
+                border: '1px solid rgba(var(--accent-rgb),0.2)',
                 borderRadius: 2,
-                background: 'rgba(181,74,44,0.04)',
+                background: 'rgba(var(--accent-rgb),0.04)',
                 transition: 'background 0.15s',
                 fontVariantNumeric: 'tabular-nums',
               }}

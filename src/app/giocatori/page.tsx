@@ -51,34 +51,34 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
       <div style={{ marginBottom: 40 }}>
         <p
           style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: 10,
             fontWeight: 500,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            color: '#7C7568',
+            color: 'var(--muted)',
             marginBottom: 8,
             display: 'flex',
             alignItems: 'center',
             gap: 8,
           }}
         >
-          <span style={{ display: 'inline-block', width: 20, height: 1, background: '#7C7568', opacity: 0.4 }} />
+          <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--muted)', opacity: 0.4 }} />
           Archivio
         </p>
         <h1
           style={{
-            fontFamily: "'Source Serif 4', serif",
+            fontFamily: "var(--font-serif)",
             fontSize: 38,
             lineHeight: 1.1,
-            color: '#1C1A17',
+            color: 'var(--ink)',
           }}
         >
           Giocatori
         </h1>
-        <p style={{ marginTop: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: '#7C7568' }}>
+        <p style={{ marginTop: 8, fontFamily: "var(--font-sans)", fontSize: 14, color: 'var(--muted)' }}>
           {q
-            ? <>{total} risultat{total === 1 ? 'o' : 'i'} per <em style={{ color: '#1C1A17' }}>&ldquo;{q}&rdquo;</em></>
+            ? <>{total} risultat{total === 1 ? 'o' : 'i'} per <em style={{ color: 'var(--ink)' }}>&ldquo;{q}&rdquo;</em></>
             : <>I protagonisti del tennis 1980–2002 · {total.toLocaleString('it-IT')} giocatori in archivio</>
           }
         </p>
@@ -92,8 +92,8 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
             placeholder="Cerca per nome o cognome…"
             style={{
               width: '100%', maxWidth: 360, fontSize: 13, padding: '9px 12px',
-              border: '1px solid rgba(28,26,23,0.18)', borderRadius: 2,
-              color: '#1C1A17', fontFamily: "'Plus Jakarta Sans', sans-serif",
+              border: '1px solid rgba(var(--ink-rgb),0.18)', borderRadius: 2,
+              color: 'var(--ink)', fontFamily: "var(--font-sans)",
             }}
           />
         </form>
@@ -115,7 +115,7 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
             <div
               style={{
                 background: '#FFFFFF',
-                border: '1px solid rgba(28,26,23,0.08)',
+                border: '1px solid rgba(var(--ink-rgb),0.08)',
                 borderRadius: 2,
                 overflow: 'hidden',
               }}
@@ -129,8 +129,8 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                     width: 72,
                     flexShrink: 0,
                     position: 'relative',
-                    background: player.photo_url ? 'transparent' : 'rgba(28,26,23,0.04)',
-                    borderRight: '1px solid rgba(28,26,23,0.06)',
+                    background: player.photo_url ? 'transparent' : 'rgba(var(--ink-rgb),0.04)',
+                    borderRight: '1px solid rgba(var(--ink-rgb),0.06)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -149,10 +149,10 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                   ) : (
                     <span
                       style={{
-                        fontFamily: "'Source Serif 4', Georgia, serif",
+                        fontFamily: "var(--font-serif)",
                         fontSize: 20,
                         fontWeight: 600,
-                        color: 'rgba(28,26,23,0.18)',
+                        color: 'rgba(var(--ink-rgb),0.18)',
                         letterSpacing: '0.04em',
                         userSelect: 'none',
                       }}
@@ -168,10 +168,10 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                     <div>
                       <p
                         style={{
-                          fontFamily: "'Source Serif 4', Georgia, serif",
+                          fontFamily: "var(--font-serif)",
                           fontSize: 17,
                           fontWeight: 600,
-                          color: '#1C1A17',
+                          color: 'var(--ink)',
                           lineHeight: 1.1,
                           marginBottom: 3,
                         }}
@@ -180,9 +180,9 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                       </p>
                       <p
                         style={{
-                          fontFamily: "'Plus Jakarta Sans', sans-serif",
+                          fontFamily: "var(--font-sans)",
                           fontSize: 11,
-                          color: '#7C7568',
+                          color: 'var(--muted)',
                           letterSpacing: '0.04em',
                         }}
                       >
@@ -195,8 +195,8 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                           fontFamily: "'Bebas Neue', Impact, sans-serif",
                           fontSize: 13,
                           letterSpacing: '0.1em',
-                          color: '#9C7C3E',
-                          background: 'rgba(156,124,62,0.1)',
+                          color: 'var(--gold)',
+                          background: 'rgba(var(--gold-rgb),0.1)',
                           padding: '2px 7px',
                           borderRadius: 2,
                           flexShrink: 0,
@@ -212,23 +212,23 @@ export default async function GiocatoriPage({ searchParams }: { searchParams: Pr
                       gap: 14,
                       marginTop: 10,
                       paddingTop: 10,
-                      borderTop: '1px solid rgba(28,26,23,0.06)',
+                      borderTop: '1px solid rgba(var(--ink-rgb),0.06)',
                     }}
                   >
                     {player.grand_slams > 0 && (
                       <div>
-                        <p style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 22, color: '#9C7C3E', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
+                        <p style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 22, color: 'var(--gold)', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
                           {player.grand_slams}
                         </p>
-                        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 9, color: '#7C7568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Slam</p>
+                        <p style={{ fontFamily: "var(--font-sans)", fontSize: 9, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Slam</p>
                       </div>
                     )}
                     {player.atp_peak_rank && (
                       <div>
-                        <p style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 22, color: '#B54A2C', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
+                        <p style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 22, color: 'var(--accent)', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
                           #{player.atp_peak_rank}
                         </p>
-                        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 9, color: '#7C7568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Best rank</p>
+                        <p style={{ fontFamily: "var(--font-sans)", fontSize: 9, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Best rank</p>
                       </div>
                     )}
                   </div>
@@ -276,7 +276,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
         alignItems: 'center',
         gap: 4,
         marginTop: 40,
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontFamily: "var(--font-sans)",
       }}
     >
       {currentPage > 1 && (
@@ -284,7 +284,7 @@ function Pagination({ currentPage, totalPages, search }: { currentPage: number; 
       )}
       {pages.map((p, i) =>
         p === '…' ? (
-          <span key={`e${i}`} style={{ padding: '6px 4px', color: 'rgba(28,26,23,0.3)', fontSize: 13 }}>…</span>
+          <span key={`e${i}`} style={{ padding: '6px 4px', color: 'rgba(var(--ink-rgb),0.3)', fontSize: 13 }}>…</span>
         ) : (
           <Link
             key={p}
@@ -310,9 +310,9 @@ function pageBtnStyle(active = false): React.CSSProperties {
     letterSpacing: '0.04em',
     padding: '6px 11px',
     border: '1px solid',
-    borderColor: active ? '#B54A2C' : 'rgba(28,26,23,0.12)',
-    background: active ? '#B54A2C' : 'transparent',
-    color: active ? '#FFFFFF' : '#1C1A17',
+    borderColor: active ? 'var(--accent)' : 'rgba(var(--ink-rgb),0.12)',
+    background: active ? 'var(--accent)' : 'transparent',
+    color: active ? '#FFFFFF' : 'var(--ink)',
     textDecoration: 'none',
     borderRadius: 2,
     fontVariantNumeric: 'tabular-nums',

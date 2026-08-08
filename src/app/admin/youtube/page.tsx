@@ -40,22 +40,22 @@ export default async function AdminYoutubePage({ searchParams }: Props) {
   const activeTourn = tourn || ''
 
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '40px 24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div style={{ maxWidth: 960, margin: '0 auto', padding: '40px 24px', fontFamily: "var(--font-sans)" }}>
 
       {/* Header */}
       <div style={{ marginBottom: 32 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 6 }}>
-          <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7C7568' }}>
+          <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)' }}>
             Admin
           </p>
-          <Link href="/admin/clerici" style={{ fontSize: 10, color: '#B54A2C', textDecoration: 'none', letterSpacing: '0.08em' }}>
+          <Link href="/admin/clerici" style={{ fontSize: 10, color: 'var(--accent)', textDecoration: 'none', letterSpacing: '0.08em' }}>
             → Clerici
           </Link>
         </div>
-        <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 32, color: '#1C1A17', marginBottom: 4 }}>
+        <h1 style={{ fontFamily: "var(--font-serif)", fontSize: 32, color: 'var(--ink)', marginBottom: 4 }}>
           Video YouTube
         </h1>
-        <p style={{ fontSize: 13, color: '#7C7568' }}>
+        <p style={{ fontSize: 13, color: 'var(--muted)' }}>
           Inserimento manuale link YouTube (F · SF · QF)
         </p>
       </div>
@@ -69,10 +69,10 @@ export default async function AdminYoutubePage({ searchParams }: Props) {
             style={{
               fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase',
               padding: '5px 14px', borderRadius: 2, textDecoration: 'none',
-              background: activeTourn === t.slug ? '#1C1A17' : 'transparent',
-              color: activeTourn === t.slug ? '#FFFFFF' : '#7C7568',
+              background: activeTourn === t.slug ? 'var(--ink)' : 'transparent',
+              color: activeTourn === t.slug ? '#FFFFFF' : 'var(--muted)',
               border: '1px solid',
-              borderColor: activeTourn === t.slug ? '#1C1A17' : 'rgba(28,26,23,0.15)',
+              borderColor: activeTourn === t.slug ? 'var(--ink)' : 'rgba(var(--ink-rgb),0.15)',
             }}
           >
             {t.label}
@@ -87,9 +87,9 @@ export default async function AdminYoutubePage({ searchParams }: Props) {
           style={{
             fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase',
             padding: '5px 14px', borderRadius: 2, textDecoration: 'none',
-            background: !withVideo ? '#B54A2C' : 'transparent',
-            color: !withVideo ? '#FFFFFF' : '#7C7568',
-            border: `1px solid ${!withVideo ? '#B54A2C' : 'rgba(28,26,23,0.15)'}`,
+            background: !withVideo ? 'var(--accent)' : 'transparent',
+            color: !withVideo ? '#FFFFFF' : 'var(--muted)',
+            border: `1px solid ${!withVideo ? 'var(--accent)' : 'rgba(var(--ink-rgb),0.15)'}`,
           }}
         >
           Senza video ({!withVideo ? matches.length : '…'})
@@ -100,8 +100,8 @@ export default async function AdminYoutubePage({ searchParams }: Props) {
             fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase',
             padding: '5px 14px', borderRadius: 2, textDecoration: 'none',
             background: withVideo ? '#16A34A' : 'transparent',
-            color: withVideo ? '#FFFFFF' : '#7C7568',
-            border: `1px solid ${withVideo ? '#16A34A' : 'rgba(28,26,23,0.15)'}`,
+            color: withVideo ? '#FFFFFF' : 'var(--muted)',
+            border: `1px solid ${withVideo ? '#16A34A' : 'rgba(var(--ink-rgb),0.15)'}`,
           }}
         >
           Con video ({withVideo ? matches.length : '…'})
@@ -136,8 +136,8 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
     <details
       style={{
         background: '#FFFFFF',
-        border: '1px solid rgba(28,26,23,0.1)',
-        borderLeft: `3px solid ${hasVideo ? '#16A34A' : m.tournament_slug === 'wimbledon' ? '#9C7C3E' : 'rgba(28,26,23,0.15)'}`,
+        border: '1px solid rgba(var(--ink-rgb),0.1)',
+        borderLeft: `3px solid ${hasVideo ? '#16A34A' : m.tournament_slug === 'wimbledon' ? 'var(--gold)' : 'rgba(var(--ink-rgb),0.15)'}`,
         borderRadius: 2,
       }}
     >
@@ -153,16 +153,16 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
         }}
       >
         <div style={{ display: 'flex', gap: 10, alignItems: 'center', flex: 1, minWidth: 0 }}>
-          <span style={{ fontSize: 12, fontWeight: 600, color: '#1C1A17', flexShrink: 0, fontVariantNumeric: 'tabular-nums' }}>
+          <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--ink)', flexShrink: 0, fontVariantNumeric: 'tabular-nums' }}>
             {m.year}
           </span>
-          <span style={{ fontSize: 11, color: '#9C7C3E', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', flexShrink: 0 }}>
+          <span style={{ fontSize: 11, color: 'var(--gold)', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', flexShrink: 0 }}>
             {ROUND_LABELS[m.round] ?? m.round}
           </span>
-          <span style={{ fontSize: 14, fontWeight: 500, color: '#1C1A17', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span style={{ fontSize: 14, fontWeight: 500, color: 'var(--ink)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             {m.winner_name} vs {m.loser_name}
           </span>
-          <span style={{ fontSize: 11, color: '#7C7568', flexShrink: 0, whiteSpace: 'nowrap' }}>
+          <span style={{ fontSize: 11, color: 'var(--muted)', flexShrink: 0, whiteSpace: 'nowrap' }}>
             {m.tournament_name}
           </span>
         </div>
@@ -180,7 +180,7 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
             <span style={{
               fontSize: 10, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase',
               padding: '2px 8px', borderRadius: 2,
-              background: 'rgba(28,26,23,0.04)', color: '#9CA3AF', border: '1px solid rgba(28,26,23,0.08)',
+              background: 'rgba(var(--ink-rgb),0.04)', color: '#9CA3AF', border: '1px solid rgba(var(--ink-rgb),0.08)',
             }}>
               Senza video
             </span>
@@ -188,7 +188,7 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
         </div>
       </summary>
 
-      <div style={{ padding: '12px 16px 16px', borderTop: '1px solid rgba(28,26,23,0.05)' }}>
+      <div style={{ padding: '12px 16px 16px', borderTop: '1px solid rgba(var(--ink-rgb),0.05)' }}>
         {/* Link apertura YouTube se già presente */}
         {hasVideo && (
           <div style={{ marginBottom: 14, display: 'flex', gap: 10, alignItems: 'center' }}>
@@ -206,7 +206,7 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
               ▶ Guarda su YouTube →
             </a>
             {m.youtube_channel && (
-              <span style={{ fontSize: 11, color: '#7C7568' }}>
+              <span style={{ fontSize: 11, color: 'var(--muted)' }}>
                 Canale: {m.youtube_channel}
               </span>
             )}
@@ -219,7 +219,7 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 10 }}>
             <div>
-              <label style={{ display: 'block', fontSize: 9, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 5 }}>
+              <label style={{ display: 'block', fontSize: 9, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 5 }}>
                 URL YouTube o Video ID
               </label>
               <input
@@ -228,14 +228,14 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
                 defaultValue={m.youtube_video_id ? `https://www.youtube.com/watch?v=${m.youtube_video_id}` : ''}
                 placeholder="https://www.youtube.com/watch?v=… oppure ID diretto"
                 style={{
-                  width: '100%', fontSize: 13, fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  padding: '7px 10px', border: '1px solid rgba(28,26,23,0.15)',
-                  borderRadius: 2, boxSizing: 'border-box', color: '#1C1A17',
+                  width: '100%', fontSize: 13, fontFamily: "var(--font-sans)",
+                  padding: '7px 10px', border: '1px solid rgba(var(--ink-rgb),0.15)',
+                  borderRadius: 2, boxSizing: 'border-box', color: 'var(--ink)',
                 }}
               />
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: 9, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#7C7568', marginBottom: 5 }}>
+              <label style={{ display: 'block', fontSize: 9, fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 5 }}>
                 Canale (opzionale)
               </label>
               <input
@@ -244,9 +244,9 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
                 defaultValue={m.youtube_channel ?? ''}
                 placeholder="es. Wimbledon"
                 style={{
-                  width: '100%', fontSize: 13, fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  padding: '7px 10px', border: '1px solid rgba(28,26,23,0.15)',
-                  borderRadius: 2, boxSizing: 'border-box', color: '#1C1A17',
+                  width: '100%', fontSize: 13, fontFamily: "var(--font-sans)",
+                  padding: '7px 10px', border: '1px solid rgba(var(--ink-rgb),0.15)',
+                  borderRadius: 2, boxSizing: 'border-box', color: 'var(--ink)',
                 }}
               />
             </div>
@@ -256,9 +256,9 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
             <button
               type="submit"
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, fontWeight: 600,
+                fontFamily: "var(--font-sans)", fontSize: 11, fontWeight: 600,
                 letterSpacing: '0.06em', textTransform: 'uppercase',
-                padding: '7px 18px', background: '#B54A2C', color: '#FFFFFF',
+                padding: '7px 18px', background: 'var(--accent)', color: '#FFFFFF',
                 border: 'none', borderRadius: 2, cursor: 'pointer',
               }}
             >
@@ -270,10 +270,10 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
                 type="submit"
                 formAction={removeYoutube}
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, fontWeight: 500,
+                  fontFamily: "var(--font-sans)", fontSize: 11, fontWeight: 500,
                   letterSpacing: '0.06em', textTransform: 'uppercase',
                   padding: '7px 14px', background: 'transparent', color: '#9CA3AF',
-                  border: '1px solid rgba(28,26,23,0.12)', borderRadius: 2, cursor: 'pointer',
+                  border: '1px solid rgba(var(--ink-rgb),0.12)', borderRadius: 2, cursor: 'pointer',
                 }}
               >
                 Rimuovi
@@ -285,10 +285,10 @@ function MatchRow({ match: m }: { match: AdminYoutubeRow }) {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, fontWeight: 500,
+                fontFamily: "var(--font-sans)", fontSize: 11, fontWeight: 500,
                 letterSpacing: '0.06em', textTransform: 'uppercase',
-                padding: '7px 14px', background: 'transparent', color: '#7C7568',
-                border: '1px solid rgba(28,26,23,0.12)', borderRadius: 2,
+                padding: '7px 14px', background: 'transparent', color: 'var(--muted)',
+                border: '1px solid rgba(var(--ink-rgb),0.12)', borderRadius: 2,
                 textDecoration: 'none', display: 'inline-flex', alignItems: 'center',
               }}
             >
