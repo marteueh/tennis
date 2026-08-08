@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ScoreCard } from '@/components/ScoreCard'
 import { CulturalImpactSection } from '@/components/CulturalImpactCard'
-import { getTournamentBySlug, getMatchesByTournament, getCulturalImpactsForTournamentYear } from '@/lib/supabase'
+import { getTournamentBySlug, getMatchesByTournament, getCulturalImpactsForTournamentYear, getTournamentYears } from '@/lib/supabase'
 import type { Tournament, Match, CulturalImpact } from '@/lib/types'
 import { ROUND_LABELS } from '@/lib/types'
 
@@ -41,15 +41,22 @@ export default async function TorneoAnnoPage({
   let tournament: Tournament | null = null
   let matches: Match[] = []
   let culturalItems: CulturalImpact[] = []
+  let years: number[] = []
 
   try {
     tournament = await getTournamentBySlug(slug)
     if (tournament) {
       matches = await getMatchesByTournament(slug, year)
+      years = await getTournamentYears(slug)
     }
   } catch {
     // fall through
   }
+
+  const sortedYears = [...years].sort((a, b) => a - b)
+  const yearIdx = sortedYears.indexOf(year)
+  const prevYear = yearIdx > 0 ? sortedYears[yearIdx - 1] : null
+  const nextYear = yearIdx >= 0 && yearIdx < sortedYears.length - 1 ? sortedYears[yearIdx + 1] : null
 
   try {
     if (tournament) {
@@ -81,16 +88,40 @@ export default async function TorneoAnnoPage({
         <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 12, color: '#1C1A17' }}>{anno}</span>
       </nav>
 
-      <div style={{ marginBottom: 40 }}>
-        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#9C7C3E', marginBottom: 8 }}>
-          Tabellone completo
-        </p>
-        <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 38, lineHeight: 1.1, color: '#1C1A17' }}>
-          {name} <span style={{ color: '#B54A2C' }}>{anno}</span>
-        </h1>
-        <p style={{ marginTop: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: '#7C7568' }}>
-          {matches.length} partite in archivio
-        </p>
+      <div style={{ marginBottom: 40, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
+        <div>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 10, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#9C7C3E', marginBottom: 8 }}>
+            Tabellone completo
+          </p>
+          <h1 style={{ fontFamily: "'Source Serif 4', serif", fontSize: 38, lineHeight: 1.1, color: '#1C1A17' }}>
+            {name} <span style={{ color: '#B54A2C' }}>{anno}</span>
+          </h1>
+          <p style={{ marginTop: 8, fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 14, color: '#7C7568' }}>
+            {matches.length} partite in archivio
+          </p>
+        </div>
+
+        {/* Navigazione tra le edizioni */}
+        {sortedYears.length > 1 && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0 }}>
+            <YearNavButton href={prevYear ? `/tornei/${slug}/${prevYear}` : null} direction="prev" label={prevYear ? String(prevYear) : undefined} />
+            <div
+              style={{
+                fontFamily: "'Bebas Neue', Impact, sans-serif",
+                fontSize: 22,
+                letterSpacing: '0.04em',
+                color: '#1C1A17',
+                padding: '0 14px',
+                minWidth: 56,
+                textAlign: 'center',
+                fontVariantNumeric: 'tabular-nums',
+              }}
+            >
+              {anno}
+            </div>
+            <YearNavButton href={nextYear ? `/tornei/${slug}/${nextYear}` : null} direction="next" label={nextYear ? String(nextYear) : undefined} />
+          </div>
+        )}
       </div>
 
       <CulturalImpactSection items={culturalItems} title="Eco culturale" />
@@ -141,5 +172,45 @@ export default async function TorneoAnnoPage({
         ))
       )}
     </div>
+  )
+}
+
+function YearNavButton({ href, direction, label }: { href: string | null; direction: 'prev' | 'next'; label?: string }) {
+  const arrow = (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      {direction === 'prev' ? (
+        <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      ) : (
+        <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      )}
+    </svg>
+  )
+
+  const style: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 36,
+    height: 36,
+    borderRadius: 2,
+    border: '1px solid rgba(28,26,23,0.12)',
+    color: href ? '#1C1A17' : 'rgba(28,26,23,0.2)',
+    background: '#FFFFFF',
+    flexShrink: 0,
+  }
+
+  if (!href) {
+    return <span aria-hidden="true" style={{ ...style, cursor: 'not-allowed' }}>{arrow}</span>
+  }
+
+  return (
+    <Link
+      href={href}
+      aria-label={direction === 'prev' ? `Edizione precedente${label ? ` (${label})` : ''}` : `Edizione successiva${label ? ` (${label})` : ''}`}
+      className="transition-colors hover:border-accent/40 hover:text-accent hover:bg-accent/5 active:scale-95"
+      style={{ ...style, textDecoration: 'none' }}
+    >
+      {arrow}
+    </Link>
   )
 }
