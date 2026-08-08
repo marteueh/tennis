@@ -250,7 +250,7 @@ export default async function HomePage() {
           }}
         >
           {featured.map((match, i) => (
-            <div key={match.id} className={i === 0 ? 'md:col-span-2' : undefined}>
+            <div key={match.id} className={i === 0 ? 'md:col-span-3' : undefined}>
               <ScoreCard match={match} showNumber={i + 1} featured={i === 0} />
             </div>
           ))}

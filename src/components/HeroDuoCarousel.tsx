@@ -61,17 +61,17 @@ export function HeroDuoCarousel() {
         position: 'relative',
         flexDirection: 'column',
         alignItems: 'flex-end',
-        gap: 12,
+        gap: 28,
       }}
     >
       {/* Etichetta epoca */}
       <p
         style={{
           fontFamily: "var(--font-sans)",
-          fontSize: 10, fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase',
-          color: 'rgba(var(--gold-rgb),0.7)',
+          fontSize: 15, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase',
+          color: 'rgba(var(--gold-rgb),0.85)',
           opacity, transition: `opacity ${FADE_DURATION}ms ease`,
-          minHeight: 14,
+          minHeight: 20,
         }}
       >
         {duo.era}
